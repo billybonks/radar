@@ -9,4 +9,5 @@ export default class App extends Application {
   Resolver = Resolver;
 }
 
+window.desktopAPI.doAThing()
 loadInitializers(App, config.modulePrefix);
