@@ -1,3 +1,24 @@
-.tomster {
-  background-color: var(--dropdown-background)
+@import "components/quick-input.css";
+@import "reset.css";
+
+
+body {
+  position: relative;
+  font-size: var(--base-font-size);
+  background-color: var(--base-background-color);
+  line-height: var(--base-line-heigh);
+  color: var(--base-font-color);
+  font-family: var(--base-font-family);
+}
+
+input {
+  flex-grow: 1;
+  background-color: rgb(60, 60, 60);
+  color: rgb(204, 204, 204);
+  border: none;
+}
+
+input:focus {
+  outline: 1px solid var(--base-focus-color);
+  box-shadow: 0 0 10px var(--base-focus-color);
 }

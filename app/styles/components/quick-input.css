@@ -1,0 +1,54 @@
+
+.quick-input-widget {
+    position: absolute;
+    left: 50%;
+    margin-left: -300px;
+    top: 0px;
+    width: 600px;
+    z-index: 2000;
+    padding-bottom: 6px;
+    background-color: var(--base-background-color);
+    color: var(--base-font-color);
+    box-shadow: rgba(0, 0, 0, 0.36) 0px 0px 8px 2px;
+}
+
+
+.quick-input-and-message {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  position: relative;
+  height: 26px;
+  padding: 6px;
+}
+
+.quick-input-filter {
+  flex-grow: 1;
+  background-color: rgb(60, 60, 60);
+  color: rgb(204, 204, 204);
+  border: none;
+}
+
+.quick-input-filter:focus {
+  outline: 1px solid var(--base-focus-color);
+  box-shadow: 0 0 10px var(--base-focus-color);
+
+}
+
+.quick-input-list {
+  line-height: 22px;
+  margin-top: 6px;
+}
+
+.quick-input-list-item {
+  cursor: pointer;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  height: 100%;
+  padding: 0 6px;
+}
+
+.quick-input-list-item:hover {
+  background-color: var(--base-hover-color)
+}
