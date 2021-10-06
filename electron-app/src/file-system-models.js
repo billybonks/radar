@@ -1,34 +1,54 @@
-const { readFile, writeFile, existsSync  } = require('fs');
+const { readFile, writeFile, existsSync } = require('fs');
 const { promisify } = require('util');
-
+const { v4 } = require('uuid');
 const readFilePromise = promisify(readFile);
 const writeFilePromise = promisify(writeFile);
 const path = require('path');
-
-function findModelData(modelName, rootPath){
-
-};
-
+const uuidv4 = v4;
 
 class FileSystemModels {
   constructor(rootPath) {
     this.rootPath = rootPath;
   }
 
-  save(modelName, obj){
+  update(modelName, obj) {
     let modelPath = this.modelPathData(modelName)
     if (existsSync(modelPath)) {
-      readFilePromise(modelPath).then((res) => {
+      return readFilePromise(modelPath).then((res) => {
         let data = JSON.parse(res);
         let filteredModels = data.filter((element) => element.id !== obj.id)
         writeFilePromise(modelPath, JSON.stringify([...filteredModels, obj]))
+      })
+    }
+  }
+
+
+  destroy(modelName, id) {
+    let modelPath = this.modelPathData(modelName)
+    if (existsSync(modelPath)) {
+      return readFilePromise(modelPath).then((res) => {
+        let data = JSON.parse(res);
+        let filteredModels = data.filter((element) => element.id !== id)
+        return writeFilePromise(modelPath, JSON.stringify(filteredModels))
+      })
+    }
+  }
+
+  create(modelName, obj) {
+    let modelPath = this.modelPathData(modelName)
+    if (existsSync(modelPath)) {
+      obj.id = uuidv4();
+      return readFilePromise(modelPath).then((res) => {
+        let data = JSON.parse(res);
+        writeFilePromise(modelPath, JSON.stringify([...data, obj]))
+        return obj;
       })
     } else {
       writeFilePromise(modelPath, JSON.stringify([obj]))
     }
   }
 
-  findRecord(modelName, id){
+  findRecord(modelName, id) {
     let modelPath = this.modelPathData(modelName)
     if (existsSync(modelPath)) {
       return readFilePromise(modelPath).then((res) => {
@@ -40,7 +60,19 @@ class FileSystemModels {
     }
   }
 
-  modelPathData(modelName){
+  findAll(modelName) {
+    let modelPath = this.modelPathData(modelName)
+    if (existsSync(modelPath)) {
+      return readFilePromise(modelPath).then((res) => {
+        let data = JSON.parse(res);
+        return data
+      })
+    } else {
+      return new Promise.resolve();
+    }
+  }
+
+  modelPathData(modelName) {
     return path.join(this.rootPath, `${modelName}.json`);
   }
 }

@@ -1,16 +1,31 @@
 import Adapter from '@ember-data/adapter';
 
-export default Adapter.extend({
-  findRecord(store, typeClass, id){
-    return window.desktopAPI.dataStore.findRecord(typeClass.modelName, id)
+export default class ApplicationAdapter extends Adapter {
+  findRecord(_store, typeClass, id) {
+    return window.desktopAPI.dataStore.findRecord(typeClass.modelName, id);
   }
-  createRecord(){
-    window.desktopAPI.dataStore.save
+  createRecord(_store, typeClass, snapshot) {
+    return window.desktopAPI.dataStore.create(
+      typeClass.modelName,
+      snapshot.serialize()
+    );
   }
-  updateRecord() {
-   window.desktopAPI.dataStore.save
+
+  updateRecord(_store, typeClass, snapshot) {
+    return window.desktopAPI.dataStore.update(typeClass.modelName, {
+      id: snapshot.id,
+      ...snapshot.serialize(),
+    });
   }
-  findAll() {
-    window.desktopAPI.dataStore.findAll
+
+  findAll(_store, typeClass) {
+    return window.desktopAPI.dataStore.findAll(typeClass.modelName);
   }
-});
+
+  deleteRecord(_store, typeClass, snapshot) {
+    return window.desktopAPI.dataStore.destroy(
+      typeClass.modelName,
+      snapshot.id
+    );
+  }
+}
