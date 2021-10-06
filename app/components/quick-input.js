@@ -20,5 +20,4 @@ export default class QuickInputComponent extends Component {
   callCommand(command) {
     command.callback(this.router);
   }
-
 }
