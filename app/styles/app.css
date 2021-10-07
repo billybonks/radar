@@ -29,3 +29,8 @@ h1 {
   font-size: 26px;
   font-weight:600;
 }
+
+
+input {
+  width: 100%;
+}

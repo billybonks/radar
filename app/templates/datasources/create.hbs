@@ -1,14 +1,18 @@
 {{page-title "Create"}}
 <PageHeader @name="Create Datasource" />
 <PageLayout>
-  {{#with model as |datasource|}}
-      <form>
-          <div style="margin-bottom:10px">
-              <label for="nameInput">Name:</label><Input id="nameInput" @value={{datasource.name}} />
-          </div>
-          <div style="margin-bottom:10px">
-              <label for="connectionStringInput">Connection String:</label><Input id="connectionStringInput"  @value={{datasource.connectionString}} />
-          </div>
+  {{#with this.model as |datasource|}}
+      <form style="min-width:50%">
+        <FormRow @id="nameInput" @label="Name">
+          <:input as |inputCompnent|>
+            <inputCompnent @value={{datasource.name}}/>
+          </:input>
+        </FormRow>
+        <FormRow @id="connectionStringInput" @label="Connection String">
+          <:input as |inputCompnent|>
+            <inputCompnent @value={{datasource.connectionString}}/>
+          </:input>
+        </FormRow>
         <br>
         <button onClick={{fn this.save datasource}} type="button">Save</button>
       </form>
