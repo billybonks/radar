@@ -11,5 +11,6 @@ Router.map(function () {
 
   this.route('datasources', function () {
     this.route('create');
+    this.route('list');
   });
 });

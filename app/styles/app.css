@@ -34,3 +34,26 @@ h1 {
 input {
   width: 100%;
 }
+
+
+th, td {
+  padding: 5px 10px;
+}
+
+th {
+  border-color: rgba(255, 255, 255, 0.69);
+  text-align: left;
+  border-bottom: 1px solid;
+  display: table-cell;
+  vertical-align: inherit;
+  font-weight: bold;
+  text-align: -internal-center;
+}
+
+td {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+table > tbody > tr + tr > td {
+  border-top: 1px solid;
+}
