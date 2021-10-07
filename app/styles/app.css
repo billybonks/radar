@@ -1,4 +1,6 @@
 @import "components/quick-input.css";
+@import "components/page-header.css";
+@import "components/page-layout.css";
 @import "reset.css";
 
 
@@ -21,4 +23,9 @@ input {
 input:focus {
   outline: 1px solid var(--base-focus-color);
   box-shadow: 0 0 10px var(--base-focus-color);
+}
+
+h1 {
+  font-size: 26px;
+  font-weight:600;
 }
