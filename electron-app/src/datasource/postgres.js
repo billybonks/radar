@@ -10,12 +10,19 @@ class Postgres {
     const client = new Client({
       connectionString: this.connectionString,
     })
-    console.log(query)
     client.connect()
     let res = await client.query(query)
     let tables = res.rows.map(r => r.table_name)
-    console.log(tables)
     return tables;
+  }
+
+  async query(query) {
+    const client = new Client({
+      connectionString: this.connectionString,
+    })
+    client.connect()
+    let res = await client.query(query)
+    return res.rows;
   }
 }
 

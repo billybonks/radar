@@ -7,8 +7,8 @@ class Datasource {
   constructor(model) {
     this.adapter = new Postgres(model)
   }
-  query() {
-
+  query(query) {
+    return this.adapter.query(query);
   }
 
   scan() {
