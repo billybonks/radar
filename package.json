@@ -68,5 +68,8 @@
   },
   "ember": {
     "edition": "octane"
+  },
+  "dependencies": {
+    "uuid": "^8.3.2"
   }
 }

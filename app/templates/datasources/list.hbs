@@ -1,0 +1,35 @@
+{{page-title "List"}}
+<PageHeader @name="Data Sources" />
+<PageLayout>
+  {{#with this.model as |datasources|}}
+    <table>
+      <thead>
+        <th>
+          Name
+        </th>
+        <th>
+          Tables
+        </th>
+        <th>
+          Last Scan
+        </th>
+      </thead>
+      <tbody>
+        {{#each datasources as |datasource|}}
+          <tr>
+            <td>
+              {{datasource.name}}
+            </td>
+            <td>
+              24
+            </td>
+            <td>
+              8hours ago
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  {{/with}}
+</PageLayout>
+{{outlet}}

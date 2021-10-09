@@ -1,0 +1,7 @@
+.page-header__container {
+  height: 60px;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid white;
+}

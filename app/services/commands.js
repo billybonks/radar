@@ -8,6 +8,13 @@ const COMMANDS = [
       router.transitionTo('datasources.create');
     },
   },
+  {
+    id: 'list:datasource',
+    title: 'List Datasources',
+    callback(router) {
+      router.transitionTo('datasources.list');
+    },
+  },
 ];
 
 export default class CommandsService extends Service {

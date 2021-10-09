@@ -1,4 +1,6 @@
 @import "components/quick-input.css";
+@import "components/page-header.css";
+@import "components/page-layout.css";
 @import "reset.css";
 
 
@@ -21,4 +23,37 @@ input {
 input:focus {
   outline: 1px solid var(--base-focus-color);
   box-shadow: 0 0 10px var(--base-focus-color);
+}
+
+h1 {
+  font-size: 26px;
+  font-weight:600;
+}
+
+
+input {
+  width: 100%;
+}
+
+
+th, td {
+  padding: 5px 10px;
+}
+
+th {
+  border-color: rgba(255, 255, 255, 0.69);
+  text-align: left;
+  border-bottom: 1px solid;
+  display: table-cell;
+  vertical-align: inherit;
+  font-weight: bold;
+  text-align: -internal-center;
+}
+
+td {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+table > tbody > tr + tr > td {
+  border-top: 1px solid;
 }
