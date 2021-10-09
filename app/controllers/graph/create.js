@@ -4,13 +4,23 @@ import { tracked } from '@glimmer/tracking';
 
 export default class GraphreateController extends Controller {
   @tracked datasource;
-  @tracked query = 'select * from pull_requests;';
+  @tracked results;
+  @tracked query = 'select * from pull_requests limit 10;';
   @action
-  run() {
-    this.datasource.run(this.query);
+  async run() {
+    let result = await window.desktopAPI.datasource.query(
+      this.datasource.id,
+      this.query
+    );
+    debugger
+    this.results = result;
   }
   @action
   changeDataSource(datasource) {
     this.datasource = datasource;
+  }
+
+  get columns() {
+    return Object.keys(this.results[0]);
   }
 }

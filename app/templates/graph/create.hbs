@@ -9,3 +9,24 @@
 <Textarea @value={{this.query}} />
 <br />
 <button onClick={{fn this.run}}>Run Query</button>
+
+{{#if (and results results.length)}}
+ <table>
+      <thead>
+        {{#each this.columns as |colum|}}
+          <th>{{colum}}</th>
+        {{/each}}
+      </thead>
+      <tbody>
+        {{#each this.results as |row|}}
+          <tr>
+            {{#each-in row as |key value|}}
+              <td>
+                {{value}}
+              </td>
+            {{/each-in}}
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+{{/if}}
