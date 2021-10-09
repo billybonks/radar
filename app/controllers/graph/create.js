@@ -12,7 +12,6 @@ export default class GraphreateController extends Controller {
       this.datasource.id,
       this.query
     );
-    debugger
     this.results = result;
   }
   @action
@@ -22,5 +21,9 @@ export default class GraphreateController extends Controller {
 
   get columns() {
     return Object.keys(this.results[0]);
+  }
+
+  get datasources() {
+    return this.store.findAll('datasource');
   }
 }
