@@ -56,7 +56,7 @@ class FileSystemModels {
         return data.find((element) => element.id == id)
       })
     } else {
-      return new Promise.resolve();
+      return Promise.resolve();
     }
   }
 
@@ -68,7 +68,7 @@ class FileSystemModels {
         return data
       })
     } else {
-      return new Promise.resolve();
+      return Promise.resolve();
     }
   }
 
