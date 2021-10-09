@@ -20,8 +20,8 @@ export default class QueryEditorComponent extends Component {
     query.save();
   }
   @action
-  changeDataSource(datasource) {
-    this.model.set('datasource', datasource);
+  changeDataSource(query, datasource) {
+    query.set('datasource', datasource);
   }
 
   get columns() {

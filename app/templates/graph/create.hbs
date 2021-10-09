@@ -1,5 +1,2 @@
 {{page-title "Create"}}
-<QueryEditor @model=query />
-{{#with model as |query|}}
- 
-{{/with}}
+<QueryEditor @query={{this.model}} />

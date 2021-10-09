@@ -48,7 +48,6 @@ contextBridge.exposeInMainWorld('desktopAPI', {
     async query(id, query) {
       let model = await fsModels.findRecord('datasource', id);
       let ds = new Datasource(model);
-      debugger
       return await ds.query(query);
     }
   }

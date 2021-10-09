@@ -10,9 +10,9 @@
     {{/each}}
     {{#each this.queries as |query|}}
       {{#unless query.isNew}}
-        {{#with (create-command query 'asdasdzz') as |command|}}
+        {{#with (create-command query) as |command|}}
           <li class="quick-input-list-item" onClick={{fn this.callCommand command}}>
-            {{command.title}}qqq
+            {{command.title}}
           </li>
         {{/with}}
       {{/unless}}
