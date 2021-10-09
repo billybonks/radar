@@ -3,20 +3,22 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 export default class GraphreateController extends Controller {
-  @tracked datasource;
   @tracked results;
-  @tracked query = 'select * from pull_requests limit 10;';
   @action
-  async run() {
+  async run(query) {
     let result = await window.desktopAPI.datasource.query(
-      this.datasource.id,
-      this.query
+      query.datasource.get('id'),
+      query.query
     );
     this.results = result;
   }
   @action
+  async save(query) {
+    query.save();
+  }
+  @action
   changeDataSource(datasource) {
-    this.datasource = datasource;
+    this.model.set('datasource', datasource);
   }
 
   get columns() {
