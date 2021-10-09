@@ -3,7 +3,7 @@
 <br />
 asdasdas
 {{@query.datasource.name}}
-<PowerSelect @selected={{@query.datasource}} @options={{datasources}} @onChange={{fn this.changeDataSource @query}} as |datasource|>
+<PowerSelect @selected={{@query.datasource}} @options={{this.datasources}} @onChange={{fn this.changeDataSource @query}} as |datasource|>
   {{datasource.name}}
 </PowerSelect>
 <br />
@@ -12,7 +12,7 @@ asdasdas
 <button onClick={{fn this.run @query}} type="button">Run Query</button>
 <button onClick={{fn this.save @query}} type="button">Save</button>
 
-{{#if (and results results.length)}}
+{{#if (and this.results this.results.length)}}
   <table>
     <thead>
       {{#each this.columns as |colum|}}
