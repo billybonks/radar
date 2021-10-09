@@ -70,6 +70,7 @@
     "edition": "octane"
   },
   "dependencies": {
+    "pg": "^8.7.1",
     "uuid": "^8.3.2"
   }
 }
