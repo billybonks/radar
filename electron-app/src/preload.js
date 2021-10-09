@@ -40,13 +40,16 @@ contextBridge.exposeInMainWorld('desktopAPI', {
   },
   datasource: {
     async scan(id) {
-      let homeDirectory = getHomeDirectory(process.env.HOME);
-      fsModels = new FileSystemModels(homeDirectory);
-
       let model = await fsModels.findRecord('datasource', id);
       let ds = new Datasource(model);
       let tables = await ds.scan();
       await fsModels.update('datasource', { ...model, tables, lastScan: Date.now() });
+    },
+    async query(id, query) {
+      let model = await fsModels.findRecord('datasource', id);
+      let ds = new Datasource(model);
+      debugger
+      return await ds.query(query);
     }
   }
 });
