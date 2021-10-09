@@ -8,5 +8,14 @@
         {{command.title}}
       </li>
     {{/each}}
+    {{#each this.queries as |query|}}
+      {{#unless query.isNew}}
+        {{#with (create-command query 'asdasdzz') as |command|}}
+          <li class="quick-input-list-item" onClick={{fn this.callCommand command}}>
+            {{command.title}}qqq
+          </li>
+        {{/with}}
+      {{/unless}}
+    {{/each}}
   </ul>
 </div>
