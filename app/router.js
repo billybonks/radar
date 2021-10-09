@@ -16,5 +16,6 @@ Router.map(function () {
 
   this.route('graph', function () {
     this.route('create');
+    this.route('edit', { path: '/edit/:query_id' });
   });
 });

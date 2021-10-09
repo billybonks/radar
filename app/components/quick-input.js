@@ -6,6 +6,7 @@ import { action } from '@ember/object';
 export default class QuickInputComponent extends Component {
   @service commands;
   @service router;
+  @service store;
 
   constructor() {
     super(...arguments);
@@ -19,5 +20,24 @@ export default class QuickInputComponent extends Component {
   @action
   callCommand(command) {
     command.callback(this.router);
+  }
+
+  get queriesq() {
+    return this.store.findAll('query').then((queries) => {
+      return queries
+        .filter((q) => !q.isNew)
+        .map((query) => {
+          return {
+            title: `Query: ${query.name}`,
+            callback(router) {
+              router.transitionTo('query.edit', query);
+            },
+          };
+        });
+    });
+  }
+
+  get queries() {
+    return this.store.findAll('query');
   }
 }
