@@ -13,6 +13,9 @@
         <th>
           Last Scan
         </th>
+        <th>
+          actions
+        </th>
       </thead>
       <tbody>
         {{#each datasources as |datasource|}}
@@ -21,10 +24,13 @@
               {{datasource.name}}
             </td>
             <td>
-              24
+              {{datasource.tables.length}}
             </td>
             <td>
-              8hours ago
+              {{datasource.lastScan}}
+            </td>
+            <td>
+              <button onClick={{fn this.scan datasource}}>scan</button>
             </td>
           </tr>
         {{/each}}
