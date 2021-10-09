@@ -1,9 +1,12 @@
-import Controller from '@ember/controller';
+import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import { inject as service } from '@ember/service';
 
-export default class GraphreateController extends Controller {
+export default class QueryEditorComponent extends Component {
   @tracked results;
+  @service store;
+
   @action
   async run(query) {
     let result = await window.desktopAPI.datasource.query(

@@ -1,37 +1,5 @@
 {{page-title "Create"}}
-<PageHeader @name="Create Graph" />
+<QueryEditor @model=query />
 {{#with model as |query|}}
-  <Input @value={{query.name}} />
-  <br />
-  asdasdas
-  {{query.datasource.name}}
-  <PowerSelect @selected={{query.datasource}} @options={{datasources}} @onChange={{this.changeDataSource}} as |datasource|>
-    {{datasource.name}}
-  </PowerSelect>
-  <br />
-  <Textarea @value={{query.query}} />
-  <br />
-  <button onClick={{fn this.run query}} type="button">Run Query</button>
-  <button onClick={{fn this.save query}} type="button">Save</button>
-
-  {{#if (and results results.length)}}
-    <table>
-      <thead>
-        {{#each this.columns as |colum|}}
-          <th>{{colum}}</th>
-        {{/each}}
-      </thead>
-      <tbody>
-        {{#each this.results as |row|}}
-          <tr>
-            {{#each-in row as |key value|}}
-              <td>
-                {{value}}
-              </td>
-            {{/each-in}}
-          </tr>
-        {{/each}}
-      </tbody>
-    </table>
-  {{/if}}
+ 
 {{/with}}
