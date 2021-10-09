@@ -15,6 +15,13 @@ const COMMANDS = [
       router.transitionTo('datasources.list');
     },
   },
+  {
+    id: 'create:graph',
+    title: 'Create Graph',
+    callback(router) {
+      router.transitionTo('graph.create');
+    },
+  },
 ];
 
 export default class CommandsService extends Service {

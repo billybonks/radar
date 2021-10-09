@@ -1,0 +1,11 @@
+{{page-title "Create"}}
+<PageHeader @name="Create Graph" />
+{{#with model as |datasources|}}
+  <PowerSelect @selected={{this.datasource}} @options={{datasources}} @onChange={{this.changeDataSource}} as |datasource|>
+    {{datasource.name}}
+  </PowerSelect>
+{{/with}}
+<br />
+<Textarea @value={{this.query}} />
+<br />
+<button onClick={{fn this.run}}>Run Query</button>
