@@ -1,6 +1,8 @@
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const { Webpack } = require('@embroider/webpack');
+const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 
 module.exports = function (defaults) {
   let app = new EmberApp(defaults, {
@@ -19,6 +21,53 @@ module.exports = function (defaults) {
   // modules that you would like to import into your application
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
-
-  return app.toTree();
+  app.import('node_modules/monaco-editor/dev/vs/editor/editor.main.css');
+  return require('@embroider/compat').compatBuild(app, Webpack, {
+    packagerOptions: {
+      webpackConfig: {
+        module: {
+          rules: [
+            {
+              test: /\.ttf$/,
+              use: ['file-loader'],
+            },
+          ],
+        },
+        plugins: [new MonacoWebpackPlugin()],
+      },
+    },
+  });
 };
+
+            // {//codicon.css
+            //   test: /\.css$/,
+            //   use: ['style-loader', 'css-loader'],
+            // },
+
+// process.env.BROCCOLI_ENABLED_MEMOIZE = 'true';
+
+// const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+
+// module.exports = function (defaults) {
+// let app = new EmberApp(defaults, {
+//   prember: {
+//     // we're not pre-rendering any URLs yet, but we still need prember because
+//     // our deployment infrastructure already expects `_empty.html` to exist
+//     // for handling unknown URLs.
+//     urls: [],
+//   },
+// });
+
+// return (function () {
+//   const Webpack = require('@embroider/webpack').Webpack;
+//   const { join } = require('path');
+//   const { writeFileSync } = require('fs');
+
+//   return require('@embroider/compat').compatBuild(app, Webpack, {
+//     staticAddonTestSupportTrees: true,
+//     staticAddonTrees: true,
+//     staticHelpers: true,
+//     staticComponents: true,
+//     onOutputPath(outputPath) {
+//       writeFileSync(join(__dirname, '.embroider-app-path'), outputPath, 'utf8');
+//     },

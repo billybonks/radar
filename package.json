@@ -58,6 +58,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.4.1",
     "eslint-plugin-qunit": "^6.2.0",
+    "file-loader": "^6.2.0",
     "loader.js": "^4.7.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.3.2",
@@ -71,7 +72,14 @@
     "edition": "octane"
   },
   "dependencies": {
+    "@cardstack/requirejs-monaco-ember-polyfill": "0.0.1",
+    "@embroider/compat": "^0.45.0",
+    "@embroider/core": "^0.45.0",
+    "@embroider/webpack": "^0.45.0",
+    "monaco-editor": "^0.29.0",
+    "monaco-editor-webpack-plugin": "^5.0.0",
     "pg": "^8.7.1",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "webpack": "^5.58.1"
   }
 }
