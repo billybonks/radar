@@ -12,7 +12,8 @@
     </div>
     <div class="query-editor__center-column">
       <div class="query-editor__editor">
-        <Textarea style="height: 90%;width:100%;resize: none;" @value={{@query.query}} />
+        <Editor @value={{@query.query}} @onValueChange={{fn this.onValueChange}} />
+        {{!-- <Textarea style="height: 90%;width:100%;resize: none;" @value={{@query.query}} /> --}}
         <button onClick={{fn this.run @query}} type="button">Run Query</button>
       </div>
       <div class="query-editor__results">
