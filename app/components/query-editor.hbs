@@ -1,34 +1,47 @@
-<PageHeader @name="Create Graph" />
-<Input @value={{@query.name}} />
-<br />
-asdasdas
-{{@query.datasource.name}}
-<PowerSelect @selected={{@query.datasource}} @options={{this.datasources}} @onChange={{fn this.changeDataSource @query}} as |datasource|>
-  {{datasource.name}}
-</PowerSelect>
-<br />
-<Textarea @value={{@query.query}} />
-<br />
-<button onClick={{fn this.run @query}} type="button">Run Query</button>
-<button onClick={{fn this.save @query}} type="button">Save</button>
+<div class="query-editor__page">
+  <PageHeader>
+    <:name><Input style="height:26px;font-size:26px" @value={{@query.name}} /></:name>
+    <:actions><button onClick={{fn this.save @query}} type="button">Save</button></:actions>
+  </PageHeader>
+  <div class="query-editor__container">
+    <div class="query-editor__data-column">
+      <br />
+      <PowerSelect @selected={{@query.datasource}} @options={{this.datasources}} @onChange={{fn this.changeDataSource @query}} as |datasource|>
+        {{datasource.name}}
+      </PowerSelect>
+    </div>
+    <div class="query-editor__center-column">
+      <div class="query-editor__editor">
+        <Textarea style="height: 90%;width:100%;resize: none;" @value={{@query.query}} />
+        <button onClick={{fn this.run @query}} type="button">Run Query</button>
+      </div>
+      <div class="query-editor__results">
+        {{#if (and this.results this.results.length)}}
+          <table>
+            <thead>
+              {{#each this.columns as |colum|}}
+                <th>{{colum}}</th>
+              {{/each}}
+            </thead>
+            <tbody>
+              {{#each this.results as |row|}}
+                <tr>
+                  {{#each-in row as |key value|}}
+                    <td>
+                      {{value}}
+                    </td>
+                  {{/each-in}}
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        {{/if}}
+      </div>
+    </div>
+    <div class="query-editor__options-column">
+      OPTIONS
+    </div>
+  </div>
 
-{{#if (and this.results this.results.length)}}
-  <table>
-    <thead>
-      {{#each this.columns as |colum|}}
-        <th>{{colum}}</th>
-      {{/each}}
-    </thead>
-    <tbody>
-      {{#each this.results as |row|}}
-        <tr>
-          {{#each-in row as |key value|}}
-            <td>
-              {{value}}
-            </td>
-          {{/each-in}}
-        </tr>
-      {{/each}}
-    </tbody>
-  </table>
-  {{/if}}
+</div>
+

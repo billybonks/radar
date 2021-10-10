@@ -1,6 +1,7 @@
 @import "components/quick-input.css";
 @import "components/page-header.css";
 @import "components/page-layout.css";
+@import "components/query-editor.css";
 @import "reset.css";
 
 
@@ -56,4 +57,9 @@ td {
 
 table > tbody > tr + tr > td {
   border-top: 1px solid;
+}
+
+body {
+  display: flex;
+  height:100vh
 }
