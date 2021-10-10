@@ -24,6 +24,11 @@ export default class QueryEditorComponent extends Component {
     query.set('datasource', datasource);
   }
 
+  @action
+  onValueChange(value) {
+    console.log(value);
+    this.args.query.set('query', value);
+  }
   get columns() {
     return Object.keys(this.results[0]);
   }
