@@ -62,3 +62,21 @@ table > tbody > tr + tr > td {
 body {
   height:100vh
 }
+
+button {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  padding: 4px;
+  text-align: center;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  color: rgb(255, 255, 255);
+  background-color: rgb(14, 99, 156);
+  border: none;
+}
+
+button.secondary {
+  background-color: rgb(58, 61, 65);
+}
