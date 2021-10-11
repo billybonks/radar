@@ -1,9 +1,9 @@
+@import "reset.css";
+@import "ember-power-select-overrides";
 @import "components/quick-input.css";
 @import "components/page-header.css";
 @import "components/page-layout.css";
 @import "components/query-editor.css";
-@import "reset.css";
-
 
 body {
   position: relative;
