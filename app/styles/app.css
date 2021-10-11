@@ -1,5 +1,5 @@
 @import "reset.css";
-@import "ember-power-select-overrides";
+@import "ember-power-select-overrides.css";
 @import "components/quick-input.css";
 @import "components/page-header.css";
 @import "components/page-layout.css";
