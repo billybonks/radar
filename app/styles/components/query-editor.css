@@ -26,11 +26,27 @@
 
 .query-editor__editor {
     flex-grow: 1;
-    padding: 10px;
+    background-color: rgb(60, 60, 60);
+    margin: 10px;
 }
 
 .query-editor__results {
     flex-grow: 1;
     max-height: 500px;
     overflow: scroll
+}
+
+textarea {
+  height: calc(100% - 26px);
+  width: 100%;
+  background-color: rgb(60, 60, 60);
+  color: white;
+  border: none;
+  resize: none;
+  box-sizing: border-box;
+}
+
+.runbox button {
+  width: 100px;
+  float: right;
 }

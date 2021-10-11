@@ -1,0 +1,12 @@
+.ember-power-select-options {
+  background-color: rgb(60, 60, 60);
+}
+
+.ember-basic-dropdown-content {
+  border-radius: 0;
+}
+
+.ember-basic-dropdown-trigger {
+  background-color: rgb(60, 60, 60);
+  border-radius: 0;
+}
