@@ -10,7 +10,6 @@ export default class ApplicationRoute extends Route {
   setupController(controller, model) {
     super.setupController(controller, model);
     this.controller = controller;
-    this.x = 1;
   }
 
   @action
@@ -20,6 +19,6 @@ export default class ApplicationRoute extends Route {
 
   @action
   closeQuickInput() {
-    this.controller.closeModal();
+    this.controller.closeQuickInput();
   }
 }
