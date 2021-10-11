@@ -1,6 +1,6 @@
 <div class="query-editor__page">
   <PageHeader>
-    <:name><Input style="height:26px;font-size:26px" @value={{@query.name}} /></:name>
+    <:name><Input class="page-header__input" @value={{@query.name}} /></:name>
     <:actions><button onClick={{fn this.save @query}} type="button">Save</button></:actions>
   </PageHeader>
   <div class="query-editor__container">

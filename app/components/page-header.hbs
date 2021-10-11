@@ -1,8 +1,12 @@
 <div class="page-header__container">
-  {{#if @name}}
-    <h1>{{@name}}</h1>
-  {{else}}
-      {{yield to="name"}}
-  {{/if}}
-  {{yield to="actions"}}
+  <div class="page-header__left-box">
+    {{#if @name}}
+      <h1>{{@name}}</h1>
+    {{else}}
+        {{yield to="name"}}
+    {{/if}}
+  </div>
+  <div class="page-header__left-box">
+    {{yield to="actions"}}
+  </div>
 </div>
