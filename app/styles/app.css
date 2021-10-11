@@ -21,9 +21,9 @@ input {
   border: none;
 }
 
-input:focus {
-  outline: 1px solid var(--base-focus-color);
-  box-shadow: 0 0 10px var(--base-focus-color);
+*:focus{
+  outline: 1px solid #007fd4;
+  outline-offset: 2px;
 }
 
 h1 {
