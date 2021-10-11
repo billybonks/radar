@@ -20,6 +20,7 @@ export default class QuickInputComponent extends Component {
   @action
   callCommand(command) {
     command.callback(this.router);
+    this.args.onSelected();
   }
 
   get queriesq() {

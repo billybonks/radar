@@ -1,7 +1,7 @@
 {{page-title "MyApp"}}
 
 {{#if this.displayQuickInput}}
-  <QuickInput />
+  <QuickInput @onSelected={{fn closeQuickInput}} />
 {{/if}}
 
 {{!-- <h1>press ctrl+shift+p to see something</h1> --}}

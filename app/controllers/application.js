@@ -10,7 +10,7 @@ export default class ApplicationController extends Route {
   keyboardShortcuts = {
     // trigger 'cancel' action when esc is pressed
     esc: {
-      action: 'closeModal', // action to trigger
+      action: 'closeQuickInput', // action to trigger
       global: true, // whether to trigger inside input (default: true)
       preventDefault: true, // (default: true)rue
     },
@@ -32,7 +32,7 @@ export default class ApplicationController extends Route {
   }
 
   @action
-  closeModal() {
+  closeQuickInput() {
     this.displayQuickInput = false;
   }
 }
