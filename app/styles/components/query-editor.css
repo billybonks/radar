@@ -26,7 +26,7 @@
 
 .query-editor__editor {
     flex-grow: 1;
-    background-color: rgb(60, 60, 60);
+    background-color: var(--input-background);
     margin: 10px;
 }
 
@@ -37,10 +37,10 @@
 }
 
 textarea {
-  height: calc(100% - 26px);
+  height: calc(100% - var(--font-h1-size));
   width: 100%;
-  background-color: rgb(60, 60, 60);
-  color: white;
+  background-color: var(--input-background);
+  color:  var(--input-foreground);;
   border: none;
   resize: none;
   box-sizing: border-box;

@@ -17,6 +17,6 @@
 
 .page-header__input {
   width: 300px;
-  font-size: 26px;
-  height: 26px;
+  font-size: var(--font-h1-size);
+  height: var(--font-h1-size);
 }

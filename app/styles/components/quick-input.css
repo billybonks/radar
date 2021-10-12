@@ -7,9 +7,9 @@
     width: 600px;
     z-index: 2000;
     padding-bottom: 6px;
-    background-color: var(--base-background-color);
-    color: var(--base-font-color);
-    box-shadow: rgba(0, 0, 0, 0.36) 0px 0px 8px 2px;
+    background-color: var(--background);
+    color: var(--foreground);
+    box-shadow: var(--widget-shadow)
 }
 
 
@@ -18,21 +18,15 @@
   flex-direction: column;
   flex-grow: 1;
   position: relative;
-  height: 26px;
+  height: var(--font-h1-size);
   padding: 6px;
 }
 
 .quick-input-filter {
   flex-grow: 1;
-  background-color: rgb(60, 60, 60);
-  color: rgb(204, 204, 204);
+  background-color: var(--input-background);
+  color: var(--input-foreground);
   border: none;
-}
-
-.quick-input-filter:focus {
-  outline: 1px solid var(--base-focus-color);
-  box-shadow: 0 0 10px var(--base-focus-color);
-
 }
 
 .quick-input-list {
@@ -50,5 +44,5 @@
 }
 
 .quick-input-list-item:hover {
-  background-color: var(--base-hover-color)
+  background-color: var(--hoverBackground)
 }
