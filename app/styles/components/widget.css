@@ -1,0 +1,19 @@
+.widget {
+  position:absolute;
+  width:200px;
+  height:200px;
+  resize: both;
+  overflow: hidden;
+  border: var(--widget-border)
+}
+
+.widget__header {
+  padding: 10px;
+  border-bottom: var(--widget-border)
+}
+
+.widget__content {
+  overflow: auto;
+  max-height: -webkit-fill-available;
+}
+

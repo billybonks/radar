@@ -18,26 +18,30 @@
         </div>
       </div>
       <div class="query-editor__results">
-        {{#if (and this.results this.results.length)}}
-          <table>
-            <thead>
-              {{#each this.columns as |colum|}}
-                <th>{{colum}}</th>
-              {{/each}}
-            </thead>
-            <tbody>
-              {{#each this.results as |row|}}
-                <tr>
-                  {{#each-in row as |key value|}}
-                    <td>
-                      {{value}}
-                    </td>
-                  {{/each-in}}
-                </tr>
-              {{/each}}
-            </tbody>
-          </table>
-        {{/if}}
+        <Dashboard>
+          <Widget>
+            {{#if (and this.results this.results.length)}}
+              <table>
+                <thead>
+                  {{#each this.columns as |colum|}}
+                    <th>{{colum}}</th>
+                  {{/each}}
+                </thead>
+                <tbody>
+                  {{#each this.results as |row|}}
+                    <tr>
+                      {{#each-in row as |key value|}}
+                        <td>
+                          {{value}}
+                        </td>
+                      {{/each-in}}
+                    </tr>
+                  {{/each}}
+                </tbody>
+              </table>
+            {{/if}}
+          </Widget>
+        </Dashboard>
       </div>
     </div>
     <div class="query-editor__options-column">

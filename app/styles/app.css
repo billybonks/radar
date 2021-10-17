@@ -4,6 +4,8 @@
 @import "components/page-header.css";
 @import "components/page-layout.css";
 @import "components/query-editor.css";
+@import "components/widget.css";
+@import "components/dashboard.css";
 
 body {
   position: relative;
@@ -26,6 +28,11 @@ input {
 }
 
 h1 {
+  font-size: var(--font-h1-size);
+  font-weight: var(--font-h1-weight);
+}
+
+h2 {
   font-size: var(--font-h1-size);
   font-weight: var(--font-h1-weight);
 }
