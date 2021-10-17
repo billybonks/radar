@@ -1,4 +1,3 @@
-
 .quick-input-widget {
     position: absolute;
     left: 50%;
@@ -11,7 +10,6 @@
     color: var(--foreground);
     box-shadow: var(--widget-shadow)
 }
-
 
 .quick-input-and-message {
   display: flex;
