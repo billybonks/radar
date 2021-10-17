@@ -25,7 +25,10 @@ export default class QueryEditorComponent extends Component {
   }
 
   get columns() {
-    return Object.keys(this.results[0]);
+    return Object.keys(this.results[0]).map((key) => ({
+      name: key,
+      valuePath: key,
+    }));
   }
 
   get datasources() {
