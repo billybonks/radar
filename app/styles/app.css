@@ -69,6 +69,7 @@ th {
   vertical-align: inherit;
   font-weight: bold;
   text-align: -internal-center;
+  overflow: scroll;
 }
 
 td {
