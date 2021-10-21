@@ -21,24 +21,11 @@
         <Dashboard>
           <Widget>
             {{#if (and this.results this.results.length)}}
-              <table>
-                <thead>
-                  {{#each this.columns as |colum|}}
-                    <th>{{colum}}</th>
-                  {{/each}}
-                </thead>
-                <tbody>
-                  {{#each this.results as |row|}}
-                    <tr>
-                      {{#each-in row as |key value|}}
-                        <td>
-                          {{value}}
-                        </td>
-                      {{/each-in}}
-                    </tr>
-                  {{/each}}
-                </tbody>
-              </table>
+              <EmberTable as |t|>
+                <t.head @columns={{this.columns}} />
+
+                <t.body @rows={{this.results}} />
+              </EmberTable>
             {{/if}}
           </Widget>
         </Dashboard>
