@@ -11,6 +11,7 @@ export default class QueryEditorComponent extends Component {
   async run(query) {
     query.run();
   }
+
   @action
   async save(query) {
     query.save();
@@ -21,7 +22,38 @@ export default class QueryEditorComponent extends Component {
     query.set('datasource', datasource);
   }
 
+  updateRow({ rowValue }, key, event) {
+    rowValue[key] = event.target.checked;
+  }
+
   get datasources() {
     return this.store.findAll('datasource');
+  }
+
+  get optionsColumns() {
+    let cols = ['field', ...Object.keys(this.visualisationConfig.options)];
+    return cols.map((col) => ({ name: col, valuePath: col }));
+  }
+
+  get optionsRows() {
+    let options = Object.fromEntries(
+      Object.keys(this.visualisationConfig.options).map((key) => [key, false])
+    );
+    return this.args.query.rawColumns.map((col) => {
+      return {
+        field: col,
+        ...options,
+      };
+    });
+  }
+
+  get visualisationConfig() {
+    return {
+      options: {
+        selected: {
+          type: 'multiple',
+        },
+      },
+    };
   }
 }
