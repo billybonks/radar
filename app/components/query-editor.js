@@ -9,26 +9,16 @@ export default class QueryEditorComponent extends Component {
 
   @action
   async run(query) {
-    let result = await window.desktopAPI.datasource.query(
-      query.datasource.get('id'),
-      query.query
-    );
-    this.results = result;
+    query.run();
   }
   @action
   async save(query) {
     query.save();
   }
+
   @action
   changeDataSource(query, datasource) {
     query.set('datasource', datasource);
-  }
-
-  get columns() {
-    return Object.keys(this.results[0]).map((key) => ({
-      name: key,
-      valuePath: key,
-    }));
   }
 
   get datasources() {

@@ -19,12 +19,12 @@
       </div>
       <div class="query-editor__results">
         <Dashboard>
-          <Widget>
-            {{#if (and this.results this.results.length)}}
+          <Widget @name={{@query.name}}>
+            {{#if (and @query.results @query.results.length)}}
               <EmberTable as |t|>
-                <t.head @columns={{this.columns}} />
+                <t.head @columns={{@query.columns}} />
 
-                <t.body @rows={{this.results}} />
+                <t.body @rows={{@query.results}} />
               </EmberTable>
             {{/if}}
           </Widget>
