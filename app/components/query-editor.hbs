@@ -21,9 +21,8 @@
         <Dashboard>
           <Widget @name={{@query.name}}>
             {{#if (and @query.results @query.results.length)}}
-              {{log @query.columns}}
               <EmberTable as |t|>
-                <t.head @columns={{@query.columns}} />
+                <t.head @columns={{this.columns}} />
 
                 <t.body @rows={{@query.results}} />
               </EmberTable>

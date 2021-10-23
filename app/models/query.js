@@ -15,9 +15,5 @@ export default class QueryModel extends Model {
     );
     this.results = results;
     this.rawColumns = Object.keys(this.results[0]);
-    this.columns = this.rawColumns.map((key) => ({
-      name: key,
-      valuePath: key,
-    }));
   }
 }
