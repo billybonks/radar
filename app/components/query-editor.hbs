@@ -21,21 +21,15 @@
         <Dashboard>
           <Widget @name={{@query.name}}>
             {{#if (and @query.results @query.results.length)}}
-              <EmberTable as |t|>
-                <t.head @columns={{this.columns}} />
-
-                <t.body @rows={{@query.results}} />
-              </EmberTable>
+              {{component @query.viz.component options=this.optionsRows  results=@query.results}}
             {{/if}}
           </Widget>
         </Dashboard>
       </div>
     </div>
+     {{!--  --}}
     <div class="query-editor__options-column">
       {{#if (and @query.results @query.results.length)}}
-        {{#each optionsRows as |row|}}
-          {{row.selected}}
-        {{/each}}
         <EmberTable as |t|>
           <t.head @columns={{this.optionsColumns}} />
             <t.body @rows={{this.optionsRows}} as |b|>
@@ -44,7 +38,7 @@
                 {{#if (eq columnMeta.name 'field')}}
                   {{value}}
                 {{else}}
-                  {{#with (get this.visualisationConfig.options columnMeta.name) as |option|}}
+                  {{#with (get @query.viz.options columnMeta.name) as |option|}}
                     {{#if (eq option.type 'multiple')}}
                       <Input @type="checkbox" @checked={{value}} {{on "input" (fn this.updateRow r columnMeta.name)}}/> 
                     {{/if}}

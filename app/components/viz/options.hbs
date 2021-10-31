@@ -1,0 +1,18 @@
+<EmberTable as |t|>
+  <t.head @columns={{this.optionsColumns}} />
+    <t.body @rows={{this.optionsRows}} as |b|>
+    <b.row as |r|>
+      <r.cell as |value columnMeta|>
+        {{#if (eq columnMeta.name 'field')}}
+          {{value}}
+        {{else}}
+          {{#with (get @vizOptions columnMeta.name) as |option|}}
+            {{#if (eq option.type 'multiple')}}
+              <Input @type="checkbox" @checked={{value}} {{on "input" (fn this.updateRow r columnMeta.name)}}/> 
+            {{/if}}
+          {{/with}}
+        {{/if}}
+      </r.cell>
+    </b.row>
+  </t.body>
+</EmberTable>
