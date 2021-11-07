@@ -3,6 +3,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { set, computed } from '@ember/object';
 import { A } from '@ember/array';
+import { next } from '@ember/runloop';
 
 export default class VizOptionsComponent extends Component {
   @action
@@ -14,7 +15,7 @@ export default class VizOptionsComponent extends Component {
     this.args.optionsUpdated(this.optionsRows);
   }
 
-  @computed('args.columns', 'args.vizOptions')
+  @computed('args.{columns,vizOptions}')
   get optionsRows() {
     if (!this.args.columns) {
       return [];
@@ -29,7 +30,7 @@ export default class VizOptionsComponent extends Component {
       };
     });
     let opts = A(optionsRows);
-    this.args.optionsUpdated(opts);
+    next(() => this.args.optionsUpdated(opts));
     return opts;
   }
 
