@@ -30,8 +30,12 @@
       </div>
     </div>
     <div class="query-editor__options-column">
+      <PowerSelect @selected={{@query.visulisation}} @options={{this.visulisations}} @onChange={{fn this.changeVisulisation @query}} as |visulisation|>
+        {{visulisation.name}}
+      </PowerSelect>
+
       {{#if (and @query.results @query.results.length)}}
-        <Viz::Options @columns={{@query.rawColumns}} @vizOptions={{@query.viz.options}} @optionsUpdated={{fn optionsUpdated}} />
+        <Viz::Options @columns={{@query.rawColumns}} @vizOptions={{@query.visulisation.options}} @optionsUpdated={{fn optionsUpdated}} />
       {{/if}}
     </div>
   </div>
