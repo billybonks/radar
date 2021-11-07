@@ -8,6 +8,7 @@ export default class QueryModel extends Model {
   @attr('string') query;
   @attr('string') name;
   @belongsTo('datasource') datasource;
+  @belongsTo('visualisation') visualisation;
 
   async run() {
     let results = await window.desktopAPI.datasource.query(
@@ -16,16 +17,5 @@ export default class QueryModel extends Model {
     );
     this.results = results;
     this.rawColumns = Object.keys(this.results[0]);
-  }
-
-  get viz() {
-    return {
-      component: 'viz/table',
-      options: {
-        selected: {
-          type: 'multiple',
-        },
-      },
-    };
   }
 }
