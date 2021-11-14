@@ -1,6 +1,6 @@
 <EmberTable as |t|>
   <t.head @columns={{this.optionsColumns}} />
-    <t.body @rows={{this.optionsRows}} as |b|>
+    <t.body @rows={{@optionsRows}} as |b|>
     <b.row as |r|>
       <r.cell as |value columnMeta|>
         {{#if (eq columnMeta.name 'field')}}

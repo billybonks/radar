@@ -21,9 +21,7 @@
         <Dashboard>
           <Widget @name={{@query.name}}>
             {{#if (and @query.results @query.results.length)}}
-              {{#if this.optionsRows}}
-                {{component @query.visualisation.component options=this.optionsRows  results=@query.results}}
-              {{/if}}
+                {{component @query.visualisation.component options=@query.options  results=@query.results}}
             {{/if}}
           </Widget>
         </Dashboard>
@@ -33,9 +31,8 @@
       <PowerSelect @selected={{@query.visualisation}} @options={{this.visualisation}} @onChange={{fn this.changeVisualisation @query}} as |visualisation|>
         {{visualisation.name}}
       </PowerSelect>
-
       {{#if (and @query.results @query.results.length)}}
-        <Viz::Options @columns={{@query.rawColumns}} @vizOptions={{@query.visualisation.options}} @optionsUpdated={{optionsUpdated}} />
+        <Viz::Options @columns={{@query.rawColumns}} @optionsRows={{@query.options}} @optionsUpdated={{optionsUpdated}} @vizOptions={{@query.visualisation.options}} />
       {{/if}}
     </div>
   </div>

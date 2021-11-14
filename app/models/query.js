@@ -7,6 +7,7 @@ export default class QueryModel extends Model {
   @tracked rawColumns;
   @attr('string') query;
   @attr('string') name;
+  @attr() options;
   @belongsTo('datasource') datasource;
   @belongsTo('visualisation') visualisation;
 
@@ -15,7 +16,8 @@ export default class QueryModel extends Model {
       this.datasource.get('id'),
       this.query
     );
+    this.rawColumns = Object.keys(results[0]);
+    this.options = this.visualisation.get('optionsGenerator')(this.rawColumns);
     this.results = results;
-    this.rawColumns = Object.keys(this.results[0]);
   }
 }
