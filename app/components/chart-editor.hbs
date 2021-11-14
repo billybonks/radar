@@ -1,0 +1,41 @@
+<div class="query-editor__page">
+  <PageHeader>
+    <:name><Input class="page-header__input" @value={{@chart.name}} /></:name>
+    <:actions><button onClick={{fn this.save @chart}} type="button">Save</button></:actions>
+  </PageHeader>
+  <div class="query-editor__container">
+    <div class="query-editor__data-column">
+      <br />
+      <PowerSelect @selected={{@chart.datasource}} @options={{this.datasources}} @onChange={{fn this.changeDataSource @chart}} as |datasource|>
+        {{datasource.name}}
+      </PowerSelect>
+    </div>
+    <div class="query-editor__center-column">
+      <div class="query-editor__editor">
+        <Textarea style="" @value={{@chart.query}} />
+        <div class="runbox">
+          <button onClick={{fn this.run @chart}} type="button">Run Query</button>
+        </div>
+      </div>
+      <div class="query-editor__results">
+        <Dashboard>
+          <Widget @name={{@chart.name}}>
+            {{#if (and @chart.results @chart.results.length)}}
+                {{component @chart.visualisation.component options=@chart.options  results=@chart.results}}
+            {{/if}}
+          </Widget>
+        </Dashboard>
+      </div>
+    </div>
+    <div class="query-editor__options-column">
+      <PowerSelect @selected={{@chart.visualisation}} @options={{this.visualisation}} @onChange={{fn this.changeVisualisation @chart}} as |visualisation|>
+        {{visualisation.name}}
+      </PowerSelect>
+      {{#if (and @chart.results @chart.results.length)}}
+        <Viz::Options @columns={{@chart.rawColumns}} @optionsRows={{@chart.options}} @optionsUpdated={{optionsUpdated}} @vizOptions={{@chart.visualisation.options}} />
+      {{/if}}
+    </div>
+  </div>
+
+</div>
+

@@ -10,15 +10,15 @@ module('Integration | Component | query-editor', function (hooks) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`<QueryEditor />`);
+    await render(hbs`<ChartEditor />`);
 
     assert.dom(this.element).hasText('');
 
     // Template block usage:
     await render(hbs`
-      <QueryEditor>
+      <ChartEditor>
         template block text
-      </QueryEditor>
+      </ChartEditor>
     `);
 
     assert.dom(this.element).hasText('template block text');

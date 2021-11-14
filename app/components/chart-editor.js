@@ -4,8 +4,7 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 
-
-export default class QueryEditorComponent extends Component {
+export default class ChartEditorComponent extends Component {
   @tracked results;
   @tracked columns;
   @tracked optionsRows;
