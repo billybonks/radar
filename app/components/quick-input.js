@@ -24,12 +24,12 @@ export default class QuickInputComponent extends Component {
   }
 
   get queriesq() {
-    return this.store.findAll('query').then((queries) => {
+    return this.store.findAll('chart').then((queries) => {
       return queries
         .filter((q) => !q.isNew)
         .map((query) => {
           return {
-            title: `Query: ${query.name}`,
+            title: `Chart: ${query.name}`,
             callback(router) {
               router.transitionTo('query.edit', query);
             },
@@ -39,6 +39,6 @@ export default class QuickInputComponent extends Component {
   }
 
   get queries() {
-    return this.store.findAll('query');
+    return this.store.findAll('chart');
   }
 }
