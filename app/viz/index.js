@@ -1,3 +1,3 @@
 import table from './table';
-
-export default [table];
+import bar from './bar';
+export default [table, bar];

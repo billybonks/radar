@@ -19,23 +19,20 @@
       </div>
       <div class="query-editor__results">
         <Dashboard>
-          <Widget @name={{@chart.name}}>
+          <Widget @name={{@chart.name}} as |size| >
             {{#if (and @chart.results @chart.results.length)}}
-                {{component @chart.visualisation.component options=@chart.options  results=@chart.results}}
+                {{component @chart.visualisation.component options=@chart.options  results=@chart.results width=size.width height=size.height}}
             {{/if}}
           </Widget>
         </Dashboard>
       </div>
     </div>
     <div class="query-editor__options-column">
+      <label>mark</label>
       <PowerSelect @selected={{@chart.visualisation}} @options={{this.visualisation}} @onChange={{fn this.changeVisualisation @chart}} as |visualisation|>
         {{visualisation.name}}
       </PowerSelect>
-      {{#if (and @chart.results @chart.results.length)}}
-        <Viz::Options @columns={{@chart.rawColumns}} @optionsRows={{@chart.options}} @optionsUpdated={{optionsUpdated}} @vizOptions={{@chart.visualisation.options}} />
-      {{/if}}
+      {{component @chart.visualisation.options.component options=@chart.options columns=@chart.rawColumns optionsUpdated=optionsUpdated}}
     </div>
   </div>
-
 </div>
-
