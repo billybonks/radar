@@ -24,7 +24,7 @@ export default class ChartEditorComponent extends Component {
 
   @action
   async optionsUpdated(optionsRows) {
-    this.optionsRows = optionsRows;
+    this.args.chart.options = optionsRows;
   }
 
   @action

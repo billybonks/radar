@@ -29,7 +29,7 @@
     "@glimmer/tracking": "^1.0.4",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
-    "ember-auto-import": "^1.11.3",
+    "ember-auto-import": "^2.2.4",
     "ember-cli": "~3.28.0",
     "ember-cli-app-version": "^5.0.0",
     "ember-cli-babel": "^7.26.6",
@@ -51,6 +51,7 @@
     "ember-qunit": "^5.1.4",
     "ember-resolver": "^8.0.2",
     "ember-source": "~3.28.0",
+    "ember-table": "github:concordnow/ember-table#remove_scss",
     "ember-template-lint": "^3.6.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
@@ -63,7 +64,7 @@
     "prettier": "^2.3.2",
     "qunit": "^2.16.0",
     "qunit-dom": "^1.6.0",
-    "ember-table": "github:concordnow/ember-table#remove_scss"
+    "webpack": "^5.64.0"
   },
   "engines": {
     "node": "10.* || >= 12"
@@ -73,6 +74,8 @@
   },
   "dependencies": {
     "pg": "^8.7.1",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "vega": "^5.21.0",
+    "vega-lite": "^5.1.1"
   }
 }
