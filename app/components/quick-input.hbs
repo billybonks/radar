@@ -3,19 +3,14 @@
       <input class="quick-input-filter" onInput={{this.valueChanged}} {{autofocus}} />
   </div>
   <ul class="quick-input-list">
-    {{#each this.commands.pallete as |command|}}
-      <li class="quick-input-list-item" onClick={{fn this.callCommand command}}>
-        {{command.title}}
-      </li>
-    {{/each}}
-    {{#each this.queries as |query|}}
-      {{#unless query.isNew}}
-        {{#with (create-command query) as |command|}}
-          <li class="quick-input-list-item" onClick={{fn this.callCommand command}}>
-            {{command.title}}
-          </li>
-        {{/with}}
-      {{/unless}}
-    {{/each}}
+    {{#if filterCommands.isLoading}}
+      loading...
+    {{else}}
+      {{#each this.filteredCommands as |command|}}
+        <li class="quick-input-list-item" onClick={{fn this.onSelected command}}>
+          {{yield command}}
+        </li>
+      {{/each}}
+    {{/if}}
   </ul>
 </div>
