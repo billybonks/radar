@@ -1,0 +1,21 @@
+{{page-title "Dashboard"}}
+{{#with model as |dashboard|}}
+  {{#if displayWidgetPicker}}
+  <QuickInput @onSelected={{fn this.selectWidget dashboard}} @filterCommands={{this.filterCommands}} as |command|>
+      {{command.name}}
+    </QuickInput>
+  {{/if}}
+  <PageHeader>
+    <:name><Input class="page-header__input" @value={{dashboard.name}} /></:name>
+    <:actions><button onClick={{fn this.addWidget dashboard}} type="button">Add Widget</button></:actions>
+  </PageHeader>
+  <Dashboard>
+    {{#each dashboard.widgets as |widget|}}
+      <Widget @name={{widget.chart.name}} as |size| >
+        {{#if (and widget.chart.dataset.cache.results widget.chart.dataset.cache.results.length)}}
+            {{component widget.chart.visualisation.component options=widget.chart.options  results=widget.chart.dataset.cache.results width=size.width height=size.height}}
+        {{/if}}
+      </Widget>
+     {{/each}}
+  </Dashboard>
+{{/with}}
