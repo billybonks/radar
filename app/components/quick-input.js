@@ -2,15 +2,33 @@
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
+import { task } from 'ember-concurrency';
+import { tracked } from '@glimmer/tracking';
 
 export default class QuickInputComponent extends Component {
+  @tracked filteredCommands;
   @service commands;
   @service router;
   @service store;
 
   constructor() {
     super(...arguments);
-    this.filteredCommands = this.commands.commands;
+    this.filterCommands.perform();
+  }
+
+  @task *filterCommands() {
+    let charts = yield this.store.findAll('chart');
+    let chartCommands = charts
+      .filter((q) => !q.isNew)
+      .map((query) => {
+        return {
+          title: `Chart: ${query.name}`,
+          callback(router) {
+            router.transitionTo('query.edit', query);
+          },
+        };
+      });
+    this.filteredCommands = [...this.commands.pallete, ...chartCommands];
   }
 
   valueChanged(event) {
@@ -21,24 +39,5 @@ export default class QuickInputComponent extends Component {
   callCommand(command) {
     command.callback(this.router);
     this.args.onSelected();
-  }
-
-  get queriesq() {
-    return this.store.findAll('chart').then((queries) => {
-      return queries
-        .filter((q) => !q.isNew)
-        .map((query) => {
-          return {
-            title: `Chart: ${query.name}`,
-            callback(router) {
-              router.transitionTo('query.edit', query);
-            },
-          };
-        });
-    });
-  }
-
-  get queries() {
-    return this.store.findAll('chart');
   }
 }
