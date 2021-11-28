@@ -8,6 +8,8 @@ export default class ChartModel extends Model {
 
   async run() {
     await this.dataset.content.refresh();
-    this.options = this.visualisation.get('optionsGenerator')(this.get('dataset.columns'));
+    this.options = this.visualisation.get('optionsGenerator')(
+      this.get('dataset.cache.columns')
+    );
   }
 }
