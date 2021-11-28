@@ -20,8 +20,8 @@
       <div class="query-editor__results">
         <Dashboard>
           <Widget @name={{@chart.name}} as |size| >
-            {{#if (and @chart.dataset.results @chart.dataset.results.length)}}
-                {{component @chart.visualisation.component options=@chart.options  results=@chart.dataset.results width=size.width height=size.height}}
+            {{#if (and @chart.dataset.cache.results @chart.dataset.cache.results.length)}}
+                {{component @chart.visualisation.component options=@chart.options  results=@chart.dataset.cache.results width=size.width height=size.height}}
             {{/if}}
           </Widget>
         </Dashboard>
@@ -32,7 +32,7 @@
       <PowerSelect @selected={{@chart.visualisation}} @options={{this.visualisation}} @onChange={{fn this.changeVisualisation @chart}} as |visualisation|>
         {{visualisation.name}}
       </PowerSelect>
-      {{component @chart.visualisation.options.component options=@chart.options columns=@chart.dataset.columns optionsUpdated=optionsUpdated}}
+      {{component @chart.visualisation.options.component options=@chart.options columns=@chart.dataset.cache.columns optionsUpdated=optionsUpdated}}
     </div>
   </div>
 </div>
