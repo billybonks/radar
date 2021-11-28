@@ -23,21 +23,6 @@ export default class QuickInputComponent extends Component {
     this.args.onSelected();
   }
 
-  get queriesq() {
-    return this.store.findAll('chart').then((queries) => {
-      return queries
-        .filter((q) => !q.isNew)
-        .map((query) => {
-          return {
-            title: `Chart: ${query.name}`,
-            callback(router) {
-              router.transitionTo('query.edit', query);
-            },
-          };
-        });
-    });
-  }
-
   get queries() {
     return this.store.findAll('chart');
   }
