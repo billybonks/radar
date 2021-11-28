@@ -7,9 +7,8 @@
       loading...
     {{else}}
       {{#each this.filteredCommands as |command|}}
-        {{log command}}
-        <li class="quick-input-list-item" onClick={{fn this.callCommand command}}>
-          {{command.title}}
+        <li class="quick-input-list-item" onClick={{fn this.onSelected command}}>
+          {{yield command}}
         </li>
       {{/each}}
     {{/if}}
