@@ -15,7 +15,6 @@ export default class ChartEditorComponent extends Component {
   onChartResized(chart, width, height) {
     chart.set('width', width);
     chart.set('height', height);
-    chart.save();
   }
 
   @action
