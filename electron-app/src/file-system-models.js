@@ -35,7 +35,6 @@ class FileSystemModels {
   }
 
   create(modelName, obj) {
-    debugger
     let modelPath = this.modelPathData(modelName)
     if (existsSync(modelPath)) {
       obj.id = uuidv4();

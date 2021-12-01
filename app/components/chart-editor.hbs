@@ -6,7 +6,7 @@
   <div class="query-editor__container">
     <div class="query-editor__data-column">
       <br />
-      <PowerSelect @selected={{@chart.dataset.datasource}} @options={{this.datasources}} @onChange={{fn this.changeDataSource @chart}} as |datasource|>
+      <PowerSelect @selected={{@chart.dataset.datasource}} @options={{this.datasources}} @onChange={{fn this.changeDataSource @chart.dataset}} as |datasource|>
         {{datasource.name}}
       </PowerSelect>
     </div>

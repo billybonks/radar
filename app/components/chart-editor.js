@@ -15,7 +15,6 @@ export default class ChartEditorComponent extends Component {
   onChartResized(chart, width, height) {
     chart.set('width', width);
     chart.set('height', height);
-    chart.save();
   }
 
   @action
@@ -31,8 +30,9 @@ export default class ChartEditorComponent extends Component {
   }
 
   @action
-  async save(query) {
-    query.save();
+  async save(chart) {
+    chart.save();
+    chart.get('dataset.save')();
   }
 
   @action
@@ -41,13 +41,13 @@ export default class ChartEditorComponent extends Component {
   }
 
   @action
-  changeDataSource(query, datasource) {
-    query.set('datasource', datasource);
+  changeDataSource(dataset, datasource) {
+    dataset.set('datasource', datasource);
   }
 
   @action
-  changeVisualisation(query, visualisation) {
-    query.set('visualisation', visualisation);
+  changeVisualisation(dataset, visualisation) {
+    dataset.set('visualisation', visualisation);
   }
 
   get datasources() {
