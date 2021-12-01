@@ -2,6 +2,9 @@ import Route from '@ember/routing/route';
 
 export default class GraphCreateRoute extends Route {
   model() {
-    return this.store.createRecord('chart');
+    let chart = this.store.createRecord('chart');
+    let dataset = this.store.createRecord('dataset');
+    chart.set('dataset', dataset);
+    return chart;
   }
 }
