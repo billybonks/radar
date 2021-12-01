@@ -32,7 +32,7 @@ export default class ChartEditorComponent extends Component {
   @action
   async save(chart) {
     chart.save();
-    chart.dataset.save();
+    chart.get('dataset.save')();
   }
 
   @action
