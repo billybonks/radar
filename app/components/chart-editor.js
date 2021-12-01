@@ -31,8 +31,9 @@ export default class ChartEditorComponent extends Component {
   }
 
   @action
-  async save(query) {
-    query.save();
+  async save(chart) {
+    chart.save();
+    chart.dataset.save();
   }
 
   @action
