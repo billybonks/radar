@@ -11,7 +11,17 @@
   </PageHeader>
   <Dashboard>
     {{#each dashboard.widgets as |widget|}}
-      <Widget @name={{widget.chart.name}} as |size| >
+      <Widget
+        @name={{widget.chart.name}}
+        @onResize={{fn onWidgetResize widget}}
+        @onResized={{fn onWidgetResized widget}}
+        @onMove={{fn onWidgetMove widget}}
+        @onMoved={{fn onWidgetMoved widget}}
+        @height={{widget.height}}
+        @width={{widget.width}}
+        @x={{widget.x}}
+        @y={{widget.y}}
+      as |size| >
         {{#if (and widget.chart.dataset.cache.results widget.chart.dataset.cache.results.length)}}
             {{component widget.chart.visualisation.component options=widget.chart.options  results=widget.chart.dataset.cache.results width=size.width height=size.height}}
         {{/if}}

@@ -22,4 +22,28 @@ export default class DashboardController extends Controller {
     dashboard.widgets.pushObject(widget);
     await dashboard.save();
   }
+
+  @action
+  onWidgetMove(widget, x, y) {
+    widget.set('x', x);
+    widget.set('y', y);
+    console.log(widget);
+  }
+  @action
+  onWidgetResize(widget, width, height) {
+    widget.set('width', width);
+    widget.set('height', height);
+  }
+
+  @action
+  onWidgetResized(widget, width, height) {
+    widget.set('width', width);
+    widget.set('height', height);
+    widget.save();
+  }
+
+  @action
+  onWidgetMoved(widget) {
+    widget.save();
+  }
 }
