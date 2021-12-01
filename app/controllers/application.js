@@ -31,30 +31,35 @@ export default class ApplicationController extends Route {
     super(...arguments);
     bindKeyboardShortcuts(this);
   }
-
+  recordCollectionToCommand(records, type, cb) {
+    return records
+      .filter((record) => !record.isNew)
+      .map((record) => {
+        return {
+          title: `${type}: ${record.name}`,
+          callback(router) {
+            cb(record, router);
+          },
+        };
+      });
+  }
   @task *filterCommands() {
-    let charts = yield this.store.findAll('chart');
-    let chartCommands = charts
-      .filter((q) => !q.isNew)
-      .map((query) => {
-        return {
-          title: `Chart: ${query.name}`,
-          callback(router) {
-            router.transitionTo('graph.edit', query);
-          },
-        };
-      });
-    let dashboards = yield this.store.findAll('dashboard');
-    let dashboardCommands = dashboards
-      .filter((dashboard) => !dashboard.isNew)
-      .map((dashboard) => {
-        return {
-          title: `Dashboard: ${dashboard.name}`,
-          callback(router) {
-            router.transitionTo('dashboard', dashboard);
-          },
-        };
-      });
+    let chartCommands = this.recordCollectionToCommand(
+      yield this.store.findAll('chart'),
+      'Chart',
+      function callback(record, router) {
+        router.transitionTo('graph.edit', record);
+      }
+    );
+
+    let dashboardCommands = this.recordCollectionToCommand(
+      yield this.store.findAll('dashboard'),
+      'Dashboard',
+      function callback(record, router) {
+        router.transitionTo('dashboard', record);
+      }
+    );
+
     return [...this.commands.pallete, ...chartCommands, ...dashboardCommands];
   }
 
