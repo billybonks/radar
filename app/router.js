@@ -18,4 +18,5 @@ Router.map(function () {
     this.route('create');
     this.route('edit', { path: '/edit/:chart_id' });
   });
+  this.route('dashboard', { path: '/:dashboard_id' });
 });

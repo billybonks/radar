@@ -4,6 +4,7 @@ import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { bindKeyboardShortcuts } from 'ember-keyboard-shortcuts';
 import { task } from 'ember-concurrency';
+
 export default class ApplicationController extends Route {
   @tracked displayQuickInput = false;
   @service router;
@@ -43,7 +44,18 @@ export default class ApplicationController extends Route {
           },
         };
       });
-    return [...this.commands.pallete, ...chartCommands];
+    let dashboards = yield this.store.findAll('dashboard');
+    let dashboardCommands = dashboards
+      .filter((dashboard) => !dashboard.isNew)
+      .map((dashboard) => {
+        return {
+          title: `Dashboard: ${dashboard.name}`,
+          callback(router) {
+            router.transitionTo('dashboard', dashboard);
+          },
+        };
+      });
+    return [...this.commands.pallete, ...chartCommands, ...dashboardCommands];
   }
 
   openQuickInput() {
@@ -52,7 +64,7 @@ export default class ApplicationController extends Route {
 
   @action
   quickInputSelection(command) {
-    command.callback(this.router);
+    command.callback(this.router, this.store);
     this.closeQuickInput();
   }
 

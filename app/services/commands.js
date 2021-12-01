@@ -22,6 +22,17 @@ const COMMANDS = [
       router.transitionTo('graph.create');
     },
   },
+  {
+    id: 'create:dashboard',
+    title: 'Create Dashboard',
+    async callback(router, store) {
+      let dashboard = store.createRecord('dashboard', {
+        name: 'Untitled Dashboard',
+      });
+      await dashboard.save();
+      router.transitionTo('dashboard', dashboard);
+    },
+  },
 ];
 
 export default class CommandsService extends Service {
