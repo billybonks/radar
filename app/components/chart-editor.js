@@ -12,6 +12,19 @@ export default class ChartEditorComponent extends Component {
   @service store;
 
   @action
+  onChartResized(chart, width, height) {
+    chart.set('width', width);
+    chart.set('height', height);
+    chart.save();
+  }
+
+  @action
+  onChartResize(chart, width, height) {
+    chart.set('width', width);
+    chart.set('height', height);
+  }
+
+  @action
   async run(query) {
     this.__optionsRowsCache = null;
     await query.run();

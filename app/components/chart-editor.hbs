@@ -19,7 +19,13 @@
       </div>
       <div class="query-editor__results">
         <Dashboard>
-          <Widget @name={{@chart.name}} as |size| >
+          <Widget
+            @name={{@chart.name}}
+            @onResize={{fn onChartResize @chart}}
+            @onResized={{fn onChartResized @chart}}
+            @height={{@chart.height}}
+            @width={{@chart.width}}
+          as |size| >
             {{#if (and @chart.dataset.cache.results @chart.dataset.cache.results.length)}}
                 {{component @chart.visualisation.component options=@chart.options  results=@chart.dataset.cache.results width=size.width height=size.height}}
             {{/if}}
