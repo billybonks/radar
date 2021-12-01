@@ -44,7 +44,18 @@ export default class ApplicationController extends Route {
           },
         };
       });
-    return [...this.commands.pallete, ...chartCommands];
+    let dashboards = yield this.store.findAll('dashboard');
+    let dashboardCommands = dashboards
+      .filter((dashboard) => !dashboard.isNew)
+      .map((dashboard) => {
+        return {
+          title: `Dashboard: ${dashboard.name}`,
+          callback(router) {
+            router.transitionTo('dashboard', dashboard);
+          },
+        };
+      });
+    return [...this.commands.pallete, ...chartCommands, ...dashboardCommands];
   }
 
   openQuickInput() {
