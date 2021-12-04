@@ -32,8 +32,11 @@ export default class ChartEditorComponent extends Component {
   @action
   async save(chart) {
     let dataset = chart.get('dataset.content');
-    chart.get('dataset.save').call(dataset);
-    chart.save();
+    await chart.get('dataset.save').call(dataset);
+    await chart.save();
+    if (this.args.onSave) {
+      this.args.onSave();
+    }
   }
 
   @action
