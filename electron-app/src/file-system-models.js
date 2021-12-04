@@ -39,9 +39,9 @@ class FileSystemModels {
     obj.id = uuidv4();
     let promise = null
     if (existsSync(modelPath)) {
-      return readFilePromise(modelPath).then((res) => {
+      promise = readFilePromise(modelPath).then((res) => {
         let data = JSON.parse(res);
-        promise = writeFilePromise(modelPath, JSON.stringify([...data, obj]))
+        writeFilePromise(modelPath, JSON.stringify([...data, obj]))
       })
     } else {
       promise = writeFilePromise(modelPath, JSON.stringify([obj]))
