@@ -68,7 +68,7 @@ class FileSystemModels {
         return data
       })
     } else {
-      return Promise.resolve();
+      return Promise.resolve([]);
     }
   }
 
