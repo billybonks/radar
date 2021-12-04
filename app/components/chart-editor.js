@@ -47,8 +47,8 @@ export default class ChartEditorComponent extends Component {
   }
 
   @action
-  changeVisualisation(dataset, visualisation) {
-    dataset.set('visualisation', visualisation);
+  changeVisualisation(chart, visualisation) {
+    chart.changeVis(visualisation);
   }
 
   get datasources() {
