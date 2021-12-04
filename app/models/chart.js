@@ -10,7 +10,6 @@ export default class ChartModel extends Model {
 
   async run() {
     await this.dataset.content.refresh();
-    this.updateOptions();
   }
 
   updateOptions() {
