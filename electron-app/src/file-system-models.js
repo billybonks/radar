@@ -36,16 +36,17 @@ class FileSystemModels {
 
   create(modelName, obj) {
     let modelPath = this.modelPathData(modelName)
+    obj.id = uuidv4();
+    let promise = null
     if (existsSync(modelPath)) {
-      obj.id = uuidv4();
       return readFilePromise(modelPath).then((res) => {
         let data = JSON.parse(res);
-        writeFilePromise(modelPath, JSON.stringify([...data, obj]))
-        return obj;
+        promise = writeFilePromise(modelPath, JSON.stringify([...data, obj]))
       })
     } else {
-      writeFilePromise(modelPath, JSON.stringify([obj]))
+      promise = writeFilePromise(modelPath, JSON.stringify([obj]))
     }
+    return promise.then(() => obj)
   }
 
   findRecord(modelName, id) {
