@@ -35,9 +35,9 @@ class FileSystemModels {
   }
 
   create(modelName, obj) {
-    let modelPath = this.modelPathData(modelName)
+    let modelPath = this.modelPathData(modelName);
+    obj.id = uuidv4();
     if (existsSync(modelPath)) {
-      obj.id = uuidv4();
       return readFilePromise(modelPath).then((res) => {
         let data = JSON.parse(res);
         writeFilePromise(modelPath, JSON.stringify([...data, obj]))
@@ -63,7 +63,7 @@ class FileSystemModels {
   findAll(modelName) {
     let modelPath = this.modelPathData(modelName)
     if (existsSync(modelPath)) {
-      return readFilePromise(modelPath).then((res) => {
+      return readFilePromise(modelPath).then((regit s) => {
         let data = JSON.parse(res);
         return data
       })
