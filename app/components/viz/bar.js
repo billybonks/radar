@@ -23,13 +23,41 @@ let defaultSchema = {
 
 export default class VizBarComponent extends Component {
   get schema() {
+    console.log(JSON.stringify({
+      ...defaultSchema,
+      ...this.data,
+      ...this.signals,
+      ...this.scales,
+      ...this.size,
+      ...this.marks,
+    }))
     return {
       ...defaultSchema,
       ...this.data,
+      ...this.signals,
       ...this.scales,
       ...this.size,
-      marks: [this.bars, this.tooltips],
+      ...this.marks,
     };
+  }
+
+  get signals() {
+    return {
+      signals: [
+        {
+          name: 'tooltip',
+          value: {},
+          on: [
+            { events: 'rect:mouseover', update: 'datum' },
+            { events: 'rect:mouseout', update: '{}' },
+          ],
+        },
+      ],
+    };
+  }
+
+  get marks() {
+    return { marks: [this.bars, this.tooltips] }
   }
 
   get size() {
