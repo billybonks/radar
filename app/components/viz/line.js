@@ -51,14 +51,13 @@ export default class VizBarComponent extends BarChartComponent {
     return {
       marks: [
         {
-          type: 'area',
+          type: 'line',
           from: { data: 'table' },
           encode: {
             enter: {
               x: { scale: 'xscale', field: this.args.options.xscale },
               y: { scale: 'yscale', field: this.args.options.yscale },
               strokeWidth: { value: 2 },
-              fill: { value: 'steelblue' }
             },
             update: {
               interpolate: { signal: 'interpolate' },
