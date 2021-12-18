@@ -1,6 +1,7 @@
 import Model, { attr, belongsTo } from '@ember-data/model';
 import { tracked } from '@glimmer/tracking';
 import { set } from '@ember/object';
+
 export default class DatasetModel extends Model {
   @tracked results;
   @tracked columns;

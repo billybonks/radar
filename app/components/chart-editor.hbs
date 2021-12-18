@@ -21,8 +21,8 @@
         <Dashboard>
           <Widget
             @name={{@chart.name}}
-            @onResize={{fn onChartResize @chart}}
-            @onResized={{fn onChartResized @chart}}
+            @onResize={{fn this.onChartResize @chart}}
+            @onResized={{fn this.onChartResized @chart}}
             @height={{@chart.height}}
             @width={{@chart.width}}
           as |size| >
@@ -38,7 +38,7 @@
       <PowerSelect @selected={{@chart.visualisation}} @options={{this.visualisation}} @onChange={{fn this.changeVisualisation @chart}} as |visualisation|>
         {{visualisation.name}}
       </PowerSelect>
-      {{component @chart.visualisation.options.component options=@chart.options columns=@chart.dataset.cache.columns optionsUpdated=optionsUpdated}}
+      {{component @chart.visualisation.options.component options=@chart.options columns=@chart.dataset.cache.columns optionsUpdated=this.optionsUpdated}}
     </div>
   </div>
 </div>
