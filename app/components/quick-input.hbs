@@ -1,16 +1,15 @@
 <div class="quick-input-widget">
   <div class="quick-input-and-message">
-      <input class="quick-input-filter" onInput={{this.valueChanged}} {{autofocus}} />
+    <PowerSelectTypeahead
+      @searchEnabled={{true}}
+      @initiallyOpened={{true}}
+      {{autofocus}}
+      @options={{this.filteredCommands}}
+      @searchField="title"
+      @onChange={{this.onSelected}}
+      @loadingMessage="Loading..."
+    as |command|>
+      {{yield command}}
+    </PowerSelectTypeahead>
   </div>
-  <ul class="quick-input-list">
-    {{#if filterCommands.isLoading}}
-      loading...
-    {{else}}
-      {{#each this.filteredCommands as |command|}}
-        <li class="quick-input-list-item" onClick={{fn this.onSelected command}}>
-          {{yield command}}
-        </li>
-      {{/each}}
-    {{/if}}
-  </ul>
 </div>

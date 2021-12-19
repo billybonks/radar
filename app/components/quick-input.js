@@ -13,10 +13,6 @@ export default class QuickInputComponent extends Component {
     });
   }
 
-  valueChanged(event) {
-    const value = event.srcElement.value;
-  }
-
   @action
   onSelected(command) {
     this.args.onSelected(command);
