@@ -3,8 +3,8 @@
       <label for={{@id}}>{{@label}}: </label>
     </div>
     <div style="flex-grow: 1">
-      {{#with (component 'input' id=@id) as |inputCompnent|}}
+      {{#let (component 'input' id=@id) as |inputCompnent|}}
         {{yield inputCompnent to="input"}}
-      {{/with}}
+      {{/let}}
     </div>
 </div>

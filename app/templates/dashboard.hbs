@@ -1,6 +1,6 @@
 {{page-title "Dashboard"}}
-{{#with model as |dashboard|}}
-  {{#if displayWidgetPicker}}
+{{#let this.model as |dashboard|}}
+  {{#if this.displayWidgetPicker}}
   <QuickInput @onSelected={{fn this.selectWidget dashboard}} @filterCommands={{this.filterCommands}} as |command|>
       {{command.name}}
     </QuickInput>
@@ -13,10 +13,10 @@
     {{#each dashboard.widgets as |widget|}}
       <Widget
         @name={{widget.chart.name}}
-        @onResize={{fn onWidgetResize widget}}
-        @onResized={{fn onWidgetResized widget}}
-        @onMove={{fn onWidgetMove widget}}
-        @onMoved={{fn onWidgetMoved widget}}
+        @onResize={{fn this.onWidgetResize widget}}
+        @onResized={{fn this.onWidgetResized widget}}
+        @onMove={{fn this.onWidgetMove widget}}
+        @onMoved={{fn this.onWidgetMoved widget}}
         @height={{widget.height}}
         @width={{widget.width}}
         @x={{widget.x}}
@@ -28,4 +28,4 @@
       </Widget>
      {{/each}}
   </Dashboard>
-{{/with}}
+{{/let}}

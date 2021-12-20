@@ -12,4 +12,18 @@
       {{yield command}}
     </PowerSelectTypeahead>
   </div>
+<<<<<<< HEAD
+=======
+  <ul class="quick-input-list">
+    {{#if @filterCommands.isLoading}}
+      loading...
+    {{else}}
+      {{#each this.filteredCommands as |command|}}
+        <li class="quick-input-list-item" onClick={{fn this.onSelected command}}>
+          {{yield command}}
+        </li>
+      {{/each}}
+    {{/if}}
+  </ul>
+>>>>>>> clean up more deprecations
 </div>
