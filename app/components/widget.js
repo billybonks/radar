@@ -45,6 +45,9 @@ export default class WidgetComponent extends Component {
       let contentRect = entries[0].contentRect;
       let width = contentRect.width;
       let height = contentRect.height;
+      if (width === 0 && height === 0) {
+        return;
+      }
       this.args.onResize(width, height);
       clearTimeout(this.resizeEvent);
       this.resizeEvent = setTimeout(() => {
