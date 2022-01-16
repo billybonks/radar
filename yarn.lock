@@ -2137,7 +2137,20 @@
     mkdirp "^1.0.4"
     silent-error "^1.1.1"
 
+<<<<<<< HEAD
 "@ember/render-modifiers@^2.0.0", "@ember/render-modifiers@^2.0.2":
+=======
+"@ember/render-modifiers@^2.0.0":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@ember/render-modifiers/-/render-modifiers-2.0.3.tgz#bdbc93c02f854e86902fa9a5aca538356d151d1f"
+  integrity sha512-E5R3RN6XapSQid93UNKLj774Xg6e2tpdJAz1T1NWLIWajEpWR/hVPBd6c8eRAUBnTliEewc4L3pq7mwUUdsWHA==
+  dependencies:
+    "@embroider/macros" ">= 0.48.1 < 2.0.0-alpha.1"
+    ember-cli-babel "^7.26.6"
+    ember-modifier-manager-polyfill "^1.2.0"
+
+"@ember/render-modifiers@^2.0.2":
+>>>>>>> install typeahead for rebase
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/@ember/render-modifiers/-/render-modifiers-2.0.2.tgz#a5a84c7d1481ac4936ba03695ba98776f1274afd"
   integrity sha512-TURKkO+ihsgVAw1gql/76DILs2VbJZGWeB4pUsGFxFEeC8SFRD9N58Wlh+uJS3Q8vg6oZZa16dw1rFiTv0q43Q==
@@ -6236,6 +6249,24 @@ ember-auto-import@^2.3.0:
     typescript-memoize "^1.0.0-alpha.3"
     walk-sync "^3.0.0"
 >>>>>>> update more packages
+
+ember-basic-dropdown@^3.0.21:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/ember-basic-dropdown/-/ember-basic-dropdown-3.1.0.tgz#47c292de890d1958057736c00b8eb2b8017d530b"
+  integrity sha512-UISvgJHfiJ8FeXqH8ZN+NmoImN8p6Sb+85qlEv853hLuEfEYnFUqLNhea8nNl9CpFqcD3yU4dKbhYtc6nB39aQ==
+  dependencies:
+    "@ember/render-modifiers" "^2.0.0"
+    "@embroider/macros" "^0.47.2"
+    "@embroider/util" "^0.47.2"
+    "@glimmer/component" "^1.0.4"
+    "@glimmer/tracking" "^1.0.4"
+    ember-cli-babel "^7.26.6"
+    ember-cli-htmlbars "^6.0.0"
+    ember-cli-typescript "^4.2.1"
+    ember-element-helper "^0.5.5"
+    ember-maybe-in-element "^2.0.3"
+    ember-style-modifier "^0.7.0"
+    ember-truth-helpers "^2.1.0 || ^3.0.0"
 
 "ember-basic-dropdown@^3.1.0 || ^4.0.2":
   version "4.0.2"
