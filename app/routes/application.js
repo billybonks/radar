@@ -1,5 +1,6 @@
 import Route from '@ember/routing/route';
 import { action } from '@ember/object';
+import { inject as service } from '@ember/service';
 import {
   changeset,
   parse,
@@ -12,9 +13,10 @@ import {
 } from 'vega';
 
 export default class ApplicationRoute extends Route {
+  @service router;
   beforeModel(transition) {
     if (transition.to.name === 'index') {
-      this.transitionTo('graph.create');
+      this.router.transitionTo('graph.create');
     }
   }
   setupController(controller, model) {

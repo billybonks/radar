@@ -1,7 +1,7 @@
 {{page-title "Create"}}
 <PageHeader @name="Create Datasource" />
 <PageLayout>
-  {{#with this.model as |datasource|}}
+  {{#let this.model as |datasource|}}
       <form style="min-width:50%">
         <FormRow @id="nameInput" @label="Name">
           <:input as |inputCompnent|>
@@ -16,6 +16,6 @@
         <br>
         <button onClick={{fn this.save datasource}} type="button">Save</button>
       </form>
-  {{/with}}
+  {{/let}}
 </PageLayout>
 {{outlet}}
