@@ -69,7 +69,9 @@ export default class ApplicationController extends Route {
 
   @action
   quickInputSelection(command) {
-    command.callback(this.router, this.store);
+    if (command) {
+      command.callback(this.router, this.store);
+    }
     this.closeQuickInput();
   }
 
