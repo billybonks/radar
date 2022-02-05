@@ -87,3 +87,7 @@ table > tbody > tr + tr > td {
 button.secondary {
   background-color: var(--button-secondary);
 }
+
+.ember-power-select-trigger {
+  padding: 0;
+}
