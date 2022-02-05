@@ -2,10 +2,18 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { task } from 'ember-concurrency';
 import { tracked } from '@glimmer/tracking';
+import { inject as service } from '@ember/service';
+
 export default class DashboardController extends Controller {
   @tracked displayWidgetPicker;
+  @service store;
+
+  closeWidgetPicker() {
+    this.displayWidgetPicker = false;
+  }
+
   // eslint-disable-next-line require-yield
-  @task *filterCommands() {
+  @task * filterCommands() {
     return this.store.findAll('chart');
   }
 
@@ -16,11 +24,15 @@ export default class DashboardController extends Controller {
 
   @action
   async selectWidget(dashboard, chart) {
-    let widget = this.store.createRecord('widget');
-    widget.chart = chart;
-    await widget.save();
-    dashboard.widgets.pushObject(widget);
-    await dashboard.save();
+    debugger
+    if (chart) {
+      let widget = this.store.createRecord('widget');
+      widget.chart = chart;
+      await widget.save();
+      dashboard.widgets.pushObject(widget);
+      await dashboard.save();
+    }
+    this.closeWidgetPicker()
   }
 
   @action

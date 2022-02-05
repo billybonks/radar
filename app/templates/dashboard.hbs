@@ -1,8 +1,8 @@
 {{page-title "Dashboard"}}
 {{#let this.model as |dashboard|}}
   {{#if this.displayWidgetPicker}}
-  <QuickInput @onSelected={{fn this.selectWidget dashboard}} @filterCommands={{this.filterCommands}} as |command|>
-      {{command.name}}
+    <QuickInput @onSelected={{fn this.selectWidget dashboard}} @filterCommands={{this.filterCommands}} as |command|>
+        {{command.name}}
     </QuickInput>
   {{/if}}
   <PageHeader>
