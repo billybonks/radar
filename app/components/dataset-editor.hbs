@@ -1,0 +1,27 @@
+<EntityPage @entityName={{@dataset.name}} @save={{fn this.save @dataset}} >
+  <div class="query-editor__data-column">
+    <PowerSelect @selected={{@dataset.datasource}} @options={{this.datasources}} @onChange={{fn this.changeDataSource @dataset}} as |datasource|>
+      {{datasource.name}}
+    </PowerSelect>
+    {{this.datasets.length}}
+    <PowerSelect @selected={{@dataset.input}} @options={{this.datasets}} @onChange={{fn this.changeDataSet @dataset}} as |dataset|>
+      {{dataset.name}}
+    </PowerSelect>
+    <PowerSelect @selected={{@dataset.type}} @options={{this.types}} @onChange={{fn this.changeType @dataset}} as |type|>
+      {{type}}
+    </PowerSelect>
+  </div>
+  <div class="query-editor__center-column">
+    <div class="query-editor__editor">
+      <Editor @query={{@dataset.query}} @run={{fn this.run @dataset}} />
+    </div>
+    <div class="query-editor__results">
+      {{#if (and @dataset.cache.results @dataset.cache.results.length)}}
+        <Viz::Table  @results={{@dataset.cache.results}} />
+      {{/if}}
+    </div>
+  </div>
+</EntityPage>
+
+
+

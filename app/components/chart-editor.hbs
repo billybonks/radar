@@ -1,44 +1,34 @@
-<div class="query-editor__page">
-  <PageHeader>
-    <:name><Input class="page-header__input" @value={{@chart.name}} /></:name>
-    <:actions><button onClick={{fn this.save @chart}} type="button">Save</button></:actions>
-  </PageHeader>
-  <div class="query-editor__container">
-    <div class="query-editor__data-column">
-      <br />
-      <PowerSelect @selected={{@chart.dataset.datasource}} @options={{this.datasources}} @onChange={{fn this.changeDataSource @chart.dataset}} as |datasource|>
-        {{datasource.name}}
-      </PowerSelect>
+<EntityPage @entityName={{@chart.name}} @save={{fn this.save @chart}} >
+  <div class="query-editor__data-column">
+    <PowerSelect @selected={{@chart.dataset.datasource}} @options={{this.datasources}} @onChange={{fn this.changeDataSource @chart.dataset}} as |datasource|>
+      {{datasource.name}}
+    </PowerSelect>
+  </div>
+  <div class="query-editor__center-column">
+    <div class="query-editor__editor">
+      <Editor @query={{@chart.dataset.query}} @run={{fn this.run @chart}} />
     </div>
-    <div class="query-editor__center-column">
-      <div class="query-editor__editor">
-        <Textarea style="" @value={{@chart.dataset.query}} />
-        <div class="runbox">
-          <button onClick={{fn this.run @chart}} type="button">Run Query</button>
-        </div>
-      </div>
-      <div class="query-editor__results">
-        <Dashboard>
-          <Widget
-            @name={{@chart.name}}
-            @onResize={{fn this.onChartResize @chart}}
-            @onResized={{fn this.onChartResized @chart}}
-            @height={{@chart.height}}
-            @width={{@chart.width}}
-          as |size| >
-            {{#if (and @chart.dataset.cache.results @chart.dataset.cache.results.length)}}
-                {{component @chart.visualisation.component options=@chart.options  results=@chart.dataset.cache.results width=size.width height=size.height}}
-            {{/if}}
-          </Widget>
-        </Dashboard>
-      </div>
-    </div>
-    <div class="query-editor__options-column">
-      <label>mark</label>
-      <PowerSelect @selected={{@chart.visualisation}} @options={{this.visualisation}} @onChange={{fn this.changeVisualisation @chart}} as |visualisation|>
-        {{visualisation.name}}
-      </PowerSelect>
-      {{component @chart.visualisation.options.component options=@chart.options columns=@chart.dataset.cache.columns optionsUpdated=this.optionsUpdated}}
+    <div class="query-editor__results">
+      <Dashboard>
+        <Widget
+          @name={{@chart.name}}
+          @onResize={{fn this.onChartResize @chart}}
+          @onResized={{fn this.onChartResized @chart}}
+          @height={{@chart.height}}
+          @width={{@chart.width}}
+        as |size| >
+          {{#if (and @chart.dataset.cache.results @chart.dataset.cache.results.length)}}
+              {{component @chart.visualisation.component options=@chart.options  results=@chart.dataset.cache.results width=size.width height=size.height}}
+          {{/if}}
+        </Widget>
+      </Dashboard>
     </div>
   </div>
-</div>
+  <div class="query-editor__options-column">
+    <label>mark</label>
+    <PowerSelect @selected={{@chart.visualisation}} @options={{this.visualisation}} @onChange={{fn this.changeVisualisation @chart}} as |visualisation|>
+      {{visualisation.name}}
+    </PowerSelect>
+    {{component @chart.visualisation.options.component options=@chart.options columns=@chart.dataset.cache.columns optionsUpdated=this.optionsUpdated}}
+  </div>
+</EntityPage>

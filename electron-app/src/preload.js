@@ -38,6 +38,25 @@ contextBridge.exposeInMainWorld('desktopAPI', {
       return fsModels.destroy(modelName, id)
     },
   },
+  renderJinja(value, vars) {
+    return new Promise(function (resolve, reject) {
+      let json = JSON.stringify(vars)
+      var python = require('child_process').spawn('python', ['../py/renderJinja.py', value, json]);
+
+      python.stdout.on('data', function (data) {
+        resolve(data.toString('utf8'));
+      });
+
+      python.stderr.on('data', (data) => {
+        reject(data);
+        console.error(`stderr: ${data}`);
+      });
+
+      python.on('close', (code) => {
+        console.log(`child process exited with code ${code}`);
+      });
+    })
+  },
   datasource: {
     async scan(id) {
       let model = await fsModels.findRecord('datasource', id);
