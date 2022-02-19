@@ -19,4 +19,9 @@ Router.map(function () {
     this.route('edit', { path: '/edit/:chart_id' });
   });
   this.route('dashboard', { path: '/:dashboard_id' });
+
+  this.route('dataset', function () {
+    this.route('create');
+    this.route('edit', { path: '/edit/:dataset_id' });
+  });
 });
