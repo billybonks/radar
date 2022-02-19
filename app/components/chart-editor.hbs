@@ -12,10 +12,7 @@
     </div>
     <div class="query-editor__center-column">
       <div class="query-editor__editor">
-        <Textarea style="" @value={{@chart.dataset.query}} />
-        <div class="runbox">
-          <button onClick={{fn this.run @chart}} type="button">Run Query</button>
-        </div>
+        <Editor @query={{@chart.dataset.query}} @run={{fn this.run @chart}} />
       </div>
       <div class="query-editor__results">
         <Dashboard>
