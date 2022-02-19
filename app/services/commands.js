@@ -2,6 +2,13 @@ import Service from '@ember/service';
 
 const COMMANDS = [
   {
+    id: 'create:dataset',
+    title: 'Create Dataset',
+    callback(router) {
+      router.transitionTo('dataset.create');
+    },
+  },
+  {
     id: 'create:datasource',
     title: 'Create Datasource',
     callback(router) {

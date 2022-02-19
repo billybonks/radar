@@ -60,7 +60,15 @@ export default class ApplicationController extends Route {
       }
     );
 
-    return [...this.commands.pallete, ...chartCommands, ...dashboardCommands];
+    let datasetCommands = this.recordCollectionToCommand(
+      yield this.store.findAll('dataset'),
+      'Dataset',
+      function callback(record, router) {
+        router.transitionTo('dataset.edit', record);
+      }
+    );
+
+    return [...this.commands.pallete, ...chartCommands, ...dashboardCommands, ...datasetCommands];
   }
 
   openQuickInput() {
