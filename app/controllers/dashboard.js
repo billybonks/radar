@@ -58,4 +58,16 @@ export default class DashboardController extends Controller {
   onWidgetMoved(widget) {
     widget.save();
   }
+
+  @action
+  save(dashboard) {
+    dashboard.save();
+  }
+
+
+  @action
+  saveAndBlur(dashboard, _, element) {
+    this.save(dashboard)
+    element.srcElement.blur();
+  }
 }

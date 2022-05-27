@@ -6,7 +6,14 @@
     </QuickInput>
   {{/if}}
   <PageHeader>
-    <:name><Input class="page-header__input" @value={{dashboard.name}} /></:name>
+    <:name>
+      <Input
+        class="page-header__input"
+        @value={{dashboard.name}}
+        @enter={{fn this.saveAndBlur dashboard}}
+        {{on "change" (fn this.save dashboard)}}
+      />
+    </:name>
     <:actions><button onClick={{fn this.addWidget dashboard}} type="button">Add Widget</button></:actions>
   </PageHeader>
   <Dashboard>
