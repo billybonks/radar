@@ -1,17 +1,18 @@
 .widget {
-  position:absolute;
+  position: absolute;
   resize: both;
   overflow: hidden;
-  border: var(--widget-border)
+  border: var(--widget-border);
+  background-color: var(--background);
 }
 
 .widget__header {
   padding: 10px;
-  border-bottom: var(--widget-border)
+  border-bottom: var(--widget-border);
+  cursor: pointer;
 }
 
 .widget__content {
   overflow: auto;
   max-height: -webkit-fill-available;
 }
-
