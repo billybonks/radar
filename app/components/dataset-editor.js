@@ -7,7 +7,7 @@ export default class DatasetEditorComponent extends Component {
   @tracked results;
   @tracked columns;
   @tracked optionsRows;
-  types = ['sql', 'jinja']
+  types = ['sql', 'jinja'];
   @service store;
 
   @action
@@ -24,8 +24,8 @@ export default class DatasetEditorComponent extends Component {
 
   @action
   async run(query) {
-    await this.args.dataset.refresh()
-    debugger
+    await this.args.dataset.refresh();
+    debugger;
   }
 
   @action
@@ -55,7 +55,6 @@ export default class DatasetEditorComponent extends Component {
   changeType(dataset, type) {
     dataset.set('type', type);
   }
-
 
   get datasources() {
     return this.store.findAll('datasource');

@@ -23,14 +23,16 @@ let defaultSchema = {
 
 export default class VizBarComponent extends Component {
   get schema() {
-    console.log(JSON.stringify({
-      ...defaultSchema,
-      ...this.data,
-      ...this.signals,
-      ...this.scales,
-      ...this.size,
-      ...this.marks,
-    }))
+    console.log(
+      JSON.stringify({
+        ...defaultSchema,
+        ...this.data,
+        ...this.signals,
+        ...this.scales,
+        ...this.size,
+        ...this.marks,
+      })
+    );
     return {
       ...defaultSchema,
       ...this.data,
@@ -57,7 +59,7 @@ export default class VizBarComponent extends Component {
   }
 
   get marks() {
-    return { marks: [this.bars, this.tooltips] }
+    return { marks: [this.bars, this.tooltips] };
   }
 
   get size() {

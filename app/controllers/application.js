@@ -68,7 +68,12 @@ export default class ApplicationController extends Route {
       }
     );
 
-    return [...this.commands.pallete, ...chartCommands, ...dashboardCommands, ...datasetCommands];
+    return [
+      ...this.commands.pallete,
+      ...chartCommands,
+      ...dashboardCommands,
+      ...datasetCommands,
+    ];
   }
 
   openQuickInput() {

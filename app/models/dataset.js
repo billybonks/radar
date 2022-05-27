@@ -18,10 +18,10 @@ export default class DatasetModel extends Model {
       let input = this.get('input.content');
       await input.refresh();
       let props = { input: input.results };
-      let query = await window.desktopAPI.renderJinja(this.query, props)
-      await this.executeSql(query)
+      let query = await window.desktopAPI.renderJinja(this.query, props);
+      await this.executeSql(query);
     } else {
-      return await this.executeSql(this.query)
+      return await this.executeSql(this.query);
     }
   }
 
@@ -38,12 +38,9 @@ export default class DatasetModel extends Model {
     let cache = this.store.createRecord('cache', properties);
     await cache.save();
     console.log(cache.id);
-    debugger
+    debugger;
     set(this, 'cache', cache);
     await this.save();
     this.results = results;
   }
 }
-
-
-

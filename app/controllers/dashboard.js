@@ -13,7 +13,7 @@ export default class DashboardController extends Controller {
   }
 
   // eslint-disable-next-line require-yield
-  @task * filterCommands() {
+  @task *filterCommands() {
     return this.store.findAll('chart');
   }
 
@@ -24,7 +24,7 @@ export default class DashboardController extends Controller {
 
   @action
   async selectWidget(dashboard, chart) {
-    debugger
+    debugger;
     if (chart) {
       let widget = this.store.createRecord('widget');
       widget.chart = chart;
@@ -32,7 +32,7 @@ export default class DashboardController extends Controller {
       dashboard.widgets.pushObject(widget);
       await dashboard.save();
     }
-    this.closeWidgetPicker()
+    this.closeWidgetPicker();
   }
 
   @action
@@ -64,10 +64,9 @@ export default class DashboardController extends Controller {
     dashboard.save();
   }
 
-
   @action
   saveAndBlur(dashboard, _, element) {
-    this.save(dashboard)
+    this.save(dashboard);
     element.srcElement.blur();
   }
 }

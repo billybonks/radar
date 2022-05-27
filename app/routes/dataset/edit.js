@@ -5,6 +5,6 @@ export default class DatasetEditRoute extends Route {
   @service store;
 
   model({ dataset_id }) {
-    return this.store.find('dataset', dataset_id)
+    return this.store.find('dataset', dataset_id);
   }
 }

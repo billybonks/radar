@@ -2,7 +2,7 @@
 
 export function initialize(appInstance) {
   let store = appInstance.lookup('service:store');
-  store.findAll('chart')
+  store.findAll('chart');
 }
 
 export default {
