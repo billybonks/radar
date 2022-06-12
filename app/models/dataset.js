@@ -38,7 +38,6 @@ export default class DatasetModel extends Model {
     let cache = this.store.createRecord('cache', properties);
     await cache.save();
     console.log(cache.id);
-    debugger;
     set(this, 'cache', cache);
     await this.save();
     this.results = results;

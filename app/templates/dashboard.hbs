@@ -28,10 +28,21 @@
         @width={{widget.width}}
         @x={{widget.x}}
         @y={{widget.y}}
+        @onRefreshClick={{fn this.refreshWidget widget.chart}}
       as |size| >
-        {{#if (and widget.chart.dataset.cache.results widget.chart.dataset.cache.results.length)}}
-            {{component widget.chart.visualisation.component options=widget.chart.options  results=widget.chart.dataset.cache.results width=size.width height=size.height}}
+        {{#if widget.chart.loading}}
+          <span>Loading...</span>
+        {{else}}
+          {{#if (and widget.chart.dataset.cache.results widget.chart.dataset.cache.results.length)}}
+              {{component 
+                widget.chart.visualisation.component 
+                options=widget.chart.options
+                results=widget.chart.dataset.cache.results  
+                width=size.width 
+                height=size.height}}
+          {{/if}}
         {{/if}}
+
       </Widget>
      {{/each}}
   </Dashboard>

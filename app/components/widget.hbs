@@ -1,6 +1,9 @@
 <div class="widget" {{did-insert this.registerResize}} style={{this.style}}>
   <div class="widget__header" {{did-insert this.registerDrag}}>
-    <h2>{{@name}}</h2>
+    <h2 class="widget__header--title" >{{@name}}</h2>
+    {{#if @onRefreshClick}}
+      <span class="widget__header--refresh" onClick={{@onRefreshClick}}>refresh</span>
+    {{/if}}
   </div>
   <div class="widget__content">
       {{yield this.size}}

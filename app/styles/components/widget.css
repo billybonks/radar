@@ -9,7 +9,16 @@
 .widget__header {
   padding: 10px;
   border-bottom: var(--widget-border);
+  cursor: move;
+  display: flex;
+}
+
+.widget__header--refresh {
   cursor: pointer;
+}
+
+.widget__header--title {
+  flex-grow: 1;
 }
 
 .widget__content {

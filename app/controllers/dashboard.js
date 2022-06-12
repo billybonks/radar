@@ -24,7 +24,6 @@ export default class DashboardController extends Controller {
 
   @action
   async selectWidget(dashboard, chart) {
-    debugger;
     if (chart) {
       let widget = this.store.createRecord('widget');
       widget.chart = chart;
@@ -62,6 +61,11 @@ export default class DashboardController extends Controller {
   @action
   save(dashboard) {
     dashboard.save();
+  }
+
+  @action
+  async refreshWidget(chart) {
+    await chart.content.run();
   }
 
   @action
