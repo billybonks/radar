@@ -17,6 +17,9 @@
   cursor: pointer;
 }
 
+.widget__header a {
+  color: var(--foreground) ;
+}
 .widget__header--title {
   flex-grow: 1;
 }

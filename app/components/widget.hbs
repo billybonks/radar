@@ -4,6 +4,9 @@
     {{#if @onRefreshClick}}
       <span class="widget__header--refresh" onClick={{@onRefreshClick}}>refresh</span>
     {{/if}}
+    {{#if @editModel}}
+      <LinkTo class="widget__header--refresh"  @route='graph.edit' @model={{@editModel}}>edit</LinkTo>
+    {{/if}}
   </div>
   <div class="widget__content">
       {{yield this.size}}
