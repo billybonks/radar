@@ -14,7 +14,10 @@
         {{on "change" (fn this.save dashboard)}}
       />
     </:name>
-    <:actions><button onClick={{fn this.addWidget dashboard}} type="button">Add Widget</button></:actions>
+    <:actions>
+      <button onClick={{fn this.addWidget dashboard}} type="button">Create Widget</button>
+      <button onClick={{fn this.addWidget dashboard}} type="button">Add Widget</button>
+    </:actions>
   </PageHeader>
   <Dashboard>
     {{#each dashboard.widgets as |widget|}}
