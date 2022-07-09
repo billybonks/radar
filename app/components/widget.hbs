@@ -9,6 +9,10 @@
     {{/if}}
   </div>
   <div class="widget__content">
-      {{yield this.size}}
+      {{#if @error}}
+        {{@error}}
+      {{else}}
+        {{yield this.size}}
+      {{/if}}
   </div>
 </div>

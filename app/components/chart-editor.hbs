@@ -16,6 +16,7 @@
           @onResized={{fn this.onChartResized @chart}}
           @height={{@chart.height}}
           @width={{@chart.width}}
+          @error={{@chart.dataset.error}}
         as |size| >
           {{#if (and @chart.dataset.cache.results @chart.dataset.cache.results.length)}}
               {{component @chart.visualisation.component options=@chart.options  results=@chart.dataset.cache.results width=size.width height=size.height}}
