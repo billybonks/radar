@@ -1,0 +1,14 @@
+hello
+<h1> Datasets </h1>
+<ul>
+  {{#each this.model.datasets as |dataset index|}}
+    <li>{{index}}{{dataset.name}}</li>
+  {{/each}}
+</ul>
+
+<h1> Charts </h1>
+<ul>
+  {{#each this.model.charts as |chart|}}
+    <li>{{chart.name}}</li>
+  {{/each}}
+</ul>
