@@ -16,7 +16,9 @@
       <Editor @query={{@dataset.query}} @run={{fn this.run @dataset}} />
     </div>
     <div class="query-editor__results">
-      {{#if (and @dataset.cache.results @dataset.cache.results.length)}}
+      {{#if  @dataset.error}}
+        {{@dataset.error}}
+      {{else if (and @dataset.cache.results @dataset.cache.results.length)}}
         <Viz::Table  @results={{@dataset.cache.results}} />
       {{/if}}
     </div>

@@ -8,21 +8,28 @@ export default class DatasetModel extends Model {
 
   @attr('string') type;
   @attr('string') query;
+  @attr('string') error;
   @attr('string') name;
   @belongsTo('dataset') input;
   @belongsTo('datasource') datasource;
   @belongsTo('cache') cache;
 
   async refresh() {
-    if (this.type === 'jinja') {
-      let input = this.get('input.content');
-      await input.refresh();
-      let props = { input: input.results };
-      let query = await window.desktopAPI.renderJinja(this.query, props);
-      await this.executeSql(query);
-    } else {
-      return await this.executeSql(this.query);
+    try {
+      if (this.type === 'jinja') {
+        let input = this.get('input.content');
+        await input.refresh();
+        let props = { input: input.results };
+        let query = await window.desktopAPI.renderJinja(this.query, props);
+        await this.executeSql(query);
+      } else {
+        return await this.executeSql(this.query);
+      }
+    } catch (e) {
+      set(this, 'cache', null);
+      set(this, 'error', e.toString());
     }
+
   }
 
   async executeSql(query) {
@@ -39,6 +46,7 @@ export default class DatasetModel extends Model {
     await cache.save();
     console.log(cache.id);
     set(this, 'cache', cache);
+    set(this, 'error', null);
     await this.save();
     this.results = results;
   }
