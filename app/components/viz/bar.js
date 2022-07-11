@@ -22,18 +22,15 @@ let defaultSchema = {
 };
 
 export default class VizBarComponent extends Component {
+  get isSeries() {
+    return !!this.args.options.seriesColumn;
+  }
+
+  get seriesColumn() {
+    return this.args.options.seriesColumn;
+  }
   get schema() {
-    console.log(
-      JSON.stringify({
-        ...defaultSchema,
-        ...this.data,
-        ...this.signals,
-        ...this.scales,
-        ...this.size,
-        ...this.marks,
-      })
-    );
-    return {
+    const computedSchema = {
       ...defaultSchema,
       ...this.data,
       ...this.signals,
@@ -41,6 +38,8 @@ export default class VizBarComponent extends Component {
       ...this.size,
       ...this.marks,
     };
+    console.log(JSON.stringify(computedSchema));
+    return computedSchema;
   }
 
   get signals() {
@@ -58,7 +57,30 @@ export default class VizBarComponent extends Component {
     };
   }
 
+  get seriesColours() {
+    return {
+      name: 'color',
+      type: 'ordinal',
+      range: 'category',
+      domain: { data: 'table', field: this.seriesColumn },
+    };
+  }
+
   get marks() {
+    if (this.isSeries) {
+      return {
+        type: 'group',
+        from: {
+          facet: {
+            name: 'series',
+            data: 'table',
+            groupby: this.seriesColumn,
+          },
+        },
+        marks: [this.bars, this.tooltips],
+      };
+    }
+
     return { marks: [this.bars, this.tooltips] };
   }
 
@@ -70,6 +92,7 @@ export default class VizBarComponent extends Component {
       padding,
     };
   }
+
   get data() {
     return {
       data: [
@@ -82,24 +105,32 @@ export default class VizBarComponent extends Component {
   }
 
   get scales() {
-    return {
-      scales: [
-        {
-          name: 'xscale',
-          type: 'band',
-          domain: { data: 'table', field: this.args.options.xscale },
-          range: 'width',
-          padding: 0.05,
-          round: true,
-        },
-        {
-          name: 'yscale',
-          domain: { data: 'table', field: this.args.options.yscale },
-          nice: true,
-          range: 'height',
-        },
-      ],
-    };
+    const defaultScales = [
+      {
+        name: 'xscale',
+        type: 'band',
+        domain: { data: 'table', field: this.args.options.xscale },
+        range: 'width',
+        padding: 0.05,
+        round: true,
+      },
+      {
+        name: 'yscale',
+        domain: { data: 'table', field: this.args.options.yscale },
+        nice: true,
+        range: 'height',
+      },
+    ];
+
+    if (this.isSeries) {
+      return {
+        scales: [...defaultScales, this.seriesColours],
+      };
+    } else {
+      return {
+        scales: defaultScales,
+      };
+    }
   }
 
   get bars() {
@@ -114,7 +145,9 @@ export default class VizBarComponent extends Component {
           y2: { scale: 'yscale', value: 0 },
         },
         update: {
-          fill: { value: 'steelblue' },
+          fill: this.isSeries
+            ? { scale: 'color', field: 'town' }
+            : { value: 'steelblue' },
         },
         hover: {
           fill: { value: 'red' },
@@ -136,14 +169,14 @@ export default class VizBarComponent extends Component {
           x: {
             scale: 'xscale',
             signal: `tooltip.${this.args.options.xscale}`,
-            band: 10,
+            band: 2,
           },
           y: {
             scale: 'yscale',
             signal: `tooltip.${this.args.options.yscale}`,
             offset: -2,
           },
-          text: { signal: 'tooltip.count' },
+          text: [{ signal: "tooltip.count + ' ' + tooltip.town" }],
           fillOpacity: [{ test: 'datum === tooltip', value: 0 }, { value: 1 }],
         },
       },

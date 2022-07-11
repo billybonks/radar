@@ -16,4 +16,12 @@ export default class VizOptionsBarComponent extends Component {
       yscale: column,
     });
   }
+
+  @action
+  updateSeries(options, column) {
+    this.args.optionsUpdated({
+      ...options,
+      seriesColumn: column,
+    });
+  }
 }

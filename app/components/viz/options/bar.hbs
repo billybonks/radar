@@ -6,3 +6,7 @@
 <PowerSelect @selected={{@options.yscale}} @options={{@columns}} @onChange={{fn this.updateY @options}} as |col|>
   {{col}}
 </PowerSelect>
+<label>series</label>
+<PowerSelect @selected={{@options.seriesColumn}} @options={{@columns}} @allowClear={{true}} @onChange={{fn this.updateSeries @options}} as |col|>
+  {{col}}
+</PowerSelect>
