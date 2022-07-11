@@ -9,8 +9,8 @@ export default class ApplicationRoute extends Route {
   async model() {
     return {
       datasets: await this.store.findAll('dataset'),
-      charts: await this.store.findAll('chart')
-    }
+      charts: await this.store.findAll('chart'),
+    };
   }
 
   setupController(controller, model) {
