@@ -1,0 +1,17 @@
+<EntityPage @entityName={{@mark.name}} @save={{fn this.save @mark}} >
+  <div class="query-editor__data-column">
+    dataset:{{this.datasets.length}}
+    <PowerSelect @selected={{@mark.dataset}} @options={{this.datasets}} @onChange={{fn this.changeDataSet @mark}} as |dataset|>
+      {{dataset.name}}
+    </PowerSelect>
+  </div>
+  <div class="query-editor__center-column">
+    <div class="query-editor__editor">
+      <Editor @query={{@mark.definition}}/>
+    </div>
+    <div class="query-editor__results">
+      {{@mark.hydratedSchema}}
+      <Vega @schema={{@mark.hydratedSchema}}/>
+    </div>
+  </div>
+</EntityPage>

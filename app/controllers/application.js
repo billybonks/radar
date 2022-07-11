@@ -52,6 +52,14 @@ export default class ApplicationController extends Route {
       }
     );
 
+    let markCommands = this.recordCollectionToCommand(
+      yield this.store.findAll('mark'),
+      'Mark',
+      function callback(record, router) {
+        router.transitionTo('mark.edit', record);
+      }
+    );
+
     let dashboardCommands = this.recordCollectionToCommand(
       yield this.store.findAll('dashboard'),
       'Dashboard',
@@ -73,6 +81,7 @@ export default class ApplicationController extends Route {
       ...chartCommands,
       ...dashboardCommands,
       ...datasetCommands,
+      ...markCommands,
     ];
   }
 

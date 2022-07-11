@@ -16,6 +16,13 @@ const COMMANDS = [
     },
   },
   {
+    id: 'create:mark',
+    title: 'Create Mark',
+    callback(router) {
+      router.transitionTo('mark.create');
+    },
+  },
+  {
     id: 'list:datasource',
     title: 'List Datasources',
     callback(router) {

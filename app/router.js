@@ -24,4 +24,9 @@ Router.map(function () {
     this.route('create');
     this.route('edit', { path: '/edit/:dataset_id' });
   });
+
+  this.route('mark', function () {
+    this.route('create');
+    this.route('edit', { path: '/edit/:mark_id' });
+  });
 });
