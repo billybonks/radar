@@ -29,7 +29,6 @@ export default class DatasetModel extends Model {
       set(this, 'cache', null);
       set(this, 'error', e.toString());
     }
-
   }
 
   async executeSql(query) {
