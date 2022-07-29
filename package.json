@@ -82,6 +82,7 @@
     "vega-lite": "^5.1.1"
   },
   "resolutions": {
-    "ember-auto-import": "2.2.4"
+    "ember-auto-import": "2.2.4",
+    "broccoli-rollup": "5.0.0"
   }
 }
