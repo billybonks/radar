@@ -9,8 +9,6 @@ export default class DatasetEditorComponent extends Component {
   @tracked optionsRows;
   @service store;
 
-
-
   @action
   async save(dataset) {
     await dataset.save();
