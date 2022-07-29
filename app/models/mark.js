@@ -19,9 +19,8 @@ export default class MarkModel extends Model {
         ],
       };
       return result;
-    } catch(e){
-      return {}
+    } catch (e) {
+      return {};
     }
-
   }
 }
