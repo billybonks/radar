@@ -1,6 +1,6 @@
 import Model, { attr, belongsTo } from '@ember-data/model';
 import { tracked } from '@glimmer/tracking';
-import { set } from '@ember/object';
+import { set, get } from '@ember/object';
 
 export default class DatasetModel extends Model {
   @tracked results;
@@ -17,7 +17,7 @@ export default class DatasetModel extends Model {
   async refresh() {
     try {
       if (this.type === 'jinja') {
-        let input = this.get('input.content');
+        let input = get(this, 'input.content'); // eslint-disable-line ember/no-get
         await input.refresh();
         let props = { input: input.results };
         let query = await window.desktopAPI.renderJinja(this.query, props);

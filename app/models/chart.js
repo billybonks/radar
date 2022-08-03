@@ -1,5 +1,6 @@
 import Model, { attr, belongsTo } from '@ember-data/model';
 import { tracked } from '@glimmer/tracking';
+import { get, set } from '@ember/object';
 
 export default class ChartModel extends Model {
   @attr('string') name;
@@ -17,13 +18,13 @@ export default class ChartModel extends Model {
   }
 
   updateOptions() {
-    this.options = this.visualisation.get('optionsGenerator')(
-      this.get('dataset.cache.columns')
+    this.options = this.visualisation.optionsGenerator(
+      get(this, 'dataset.cache.columns') // eslint-disable-line ember/no-get
     );
   }
 
   changeVis(visualisation) {
-    this.set('visualisation', visualisation);
+    set(this, 'visualisation', visualisation);
     this.updateOptions();
   }
 }

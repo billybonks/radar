@@ -1,5 +1,3 @@
-import { A } from '@ember/array';
-
 export default {
   id: 'bar',
   name: 'Bar',

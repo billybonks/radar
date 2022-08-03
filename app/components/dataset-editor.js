@@ -23,7 +23,7 @@ export default class DatasetEditorComponent extends Component {
   }
 
   @action
-  async run(query) {
+  async run() {
     await this.args.dataset.refresh();
   }
 

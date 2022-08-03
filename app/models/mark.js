@@ -1,5 +1,6 @@
 import Model from '@ember-data/model';
 import { attr, belongsTo } from '@ember-data/model';
+import { get } from '@ember/object';
 
 export default class MarkModel extends Model {
   @belongsTo('dataset') dataset;
@@ -14,7 +15,7 @@ export default class MarkModel extends Model {
         data: [
           {
             name: 'table',
-            values: this.get('dataset.cache').content.results,
+            values: get(this, 'dataset.cache').content.results, // eslint-disable-line ember/no-get
           },
         ],
       };

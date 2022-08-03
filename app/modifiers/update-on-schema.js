@@ -1,14 +1,5 @@
 import { modifier } from 'ember-modifier';
-import {
-  changeset,
-  parse,
-  View,
-  None,
-  Error as VegaLogError,
-  Warn,
-  Info,
-  Debug,
-} from 'vega';
+import { parse, View, Warn } from 'vega';
 export default modifier(function updateOnSchema(element, [schema]) {
   let runtime = parse(schema);
   const vis = new View(runtime);

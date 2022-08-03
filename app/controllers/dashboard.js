@@ -18,7 +18,7 @@ export default class DashboardController extends Controller {
   }
 
   @action
-  addWidget(dashboard) {
+  addWidget() {
     this.displayWidgetPicker = true;
   }
 
