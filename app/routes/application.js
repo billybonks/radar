@@ -15,16 +15,22 @@ export default class ApplicationRoute extends Route {
 
   setupController(controller, model) {
     super.setupController(controller, model);
+    //TODO: fix When we remove the current shitty hotkey thing
+    // eslint-disable-next-line ember/no-controller-access-in-routes
     this.controller = controller;
   }
 
   @action
   openQuickInput() {
+    //TODO: fix When we remove the current shitty hotkey thing
+    // eslint-disable-next-line ember/no-controller-access-in-routes
     this.controller.openQuickInput();
   }
 
   @action
   closeQuickInput() {
+    //TODO: fix When we remove the current shitty hotkey thing
+    // eslint-disable-next-line ember/no-controller-access-in-routes
     this.controller.closeQuickInput();
   }
 }
