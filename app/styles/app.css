@@ -6,6 +6,8 @@
 @import "components/query-editor.css";
 @import "components/widget.css";
 @import "components/dashboard.css";
+@import "base/typography.css";
+@import "base/tables.css";
 
 body {
   position: relative;
@@ -14,6 +16,7 @@ body {
   line-height: var(--base-line-height);
   color: var(--foreground);
   font-family: var(--base-font-family);
+  height: 100vh
 }
 
 input {
@@ -27,24 +30,8 @@ input {
   outline-offset: 2px;
 }
 
-h1 {
-  font-size: var(--font-h1-size);
-  font-weight: var(--font-h1-weight);
-}
-
-h2 {
-  font-size: var(--font-h2-size);
-  font-weight: var(--font-h2-weight);
-}
-
-
 input {
   width: 100%;
-}
-
-
-body {
-  height: 100vh
 }
 
 button {
@@ -61,35 +48,6 @@ button {
   border: none;
 }
 
-th {
-  border-color: rgba(255, 255, 255, 0.69);
-  text-align: left;
-  border: 1px solid;
-  display: table-cell;
-  vertical-align: inherit;
-  font-weight: bold;
-  text-align: -internal-center;
-}
-
-td {
-  border-color: rgba(255, 255, 255, 0.18);
-  border: 1px solid;
-}
-
-th,
-td {
-  padding: 5px 10px;
-}
-
-
-table>tbody>tr+tr>td {
-  border-top: 1px solid;
-}
-
 button.secondary {
   background-color: var(--button-secondary);
-}
-
-.ember-power-select-trigger {
-  padding: 0;
 }

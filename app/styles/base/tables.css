@@ -1,0 +1,23 @@
+th {
+  border-color: rgba(255, 255, 255, 0.69);
+  text-align: left;
+  border: 1px solid;
+  display: table-cell;
+  vertical-align: inherit;
+  font-weight: bold;
+  text-align: -internal-center;
+}
+
+td {
+  border-color: rgba(255, 255, 255, 0.18);
+  border: 1px solid;
+}
+
+th,
+td {
+  padding: 5px 10px;
+}
+
+table>tbody>tr+tr>td {
+  border-top: 1px solid;
+}

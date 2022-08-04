@@ -10,3 +10,8 @@
   background-color: var(--input-background);
   border-radius: 0;
 }
+
+
+.ember-power-select-trigger {
+  padding: 0;
+}
