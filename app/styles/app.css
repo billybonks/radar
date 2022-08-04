@@ -6,6 +6,7 @@
 @import "components/query-editor.css";
 @import "components/widget.css";
 @import "components/dashboard.css";
+@import "components/form-row.css";
 @import "base/typography.css";
 @import "base/tables.css";
 @import "pages/index.css";

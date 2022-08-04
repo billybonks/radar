@@ -1,0 +1,8 @@
+.input-row__container {
+  margin-bottom:10px;
+  display:flex;
+}
+
+.input-row__input {
+  flex-grow: 1;
+}

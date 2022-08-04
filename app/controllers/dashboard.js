@@ -28,6 +28,8 @@ export default class DashboardController extends Controller {
       let widget = this.store.createRecord('widget');
       widget.chart = chart;
       await widget.save();
+      //TODO: Don't know of an alternative for this in ember data
+      // eslint-disable-next-line ember/no-array-prototype-extensions
       dashboard.widgets.pushObject(widget);
       await dashboard.save();
     }

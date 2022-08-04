@@ -13,7 +13,8 @@ export default class GraphCreateRoute extends Route {
     let visualisations = this.store.peekAll('visualisation');
     //this needs to be the last obe used in order to do that we need to save the values
     dataset.set('datasource', datasources.firstObject);
-    chart.changeVis(visualisations.findBy('id', 'table'));
+    let tableVis = visualisations.find((v) => v.id === 'table');
+    chart.changeVis(tableVis);
     return chart;
   }
 }

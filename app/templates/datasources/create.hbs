@@ -2,15 +2,15 @@
 <PageHeader @name="Create Datasource" />
 <PageLayout>
   {{#let this.model as |datasource|}}
-      <form style="min-width:50%">
+      <form>
         <FormRow @id="nameInput" @label="Name">
-          <:input as |inputCompnent|>
-            <inputCompnent @value={{datasource.name}}/>
+          <:input as |InputCompnent|>
+            <InputCompnent @value={{datasource.name}}/>
           </:input>
         </FormRow>
         <FormRow @id="connectionStringInput" @label="Connection String">
-          <:input as |inputCompnent|>
-            <inputCompnent @value={{datasource.connectionString}}/>
+          <:input as |InputCompnent|>
+            <InputCompnent @value={{datasource.connectionString}}/>
           </:input>
         </FormRow>
         <br>

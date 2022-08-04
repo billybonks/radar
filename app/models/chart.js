@@ -18,7 +18,11 @@ export default class ChartModel extends Model {
   }
 
   updateOptions() {
-    this.options = this.visualisation.optionsGenerator(
+    // eslint-disable-next-line ember/no-get
+    this.options = get(
+      this,
+      'visualisation.optionsGenerator'
+    )(
       get(this, 'dataset.cache.columns') // eslint-disable-line ember/no-get
     );
   }
