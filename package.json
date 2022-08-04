@@ -27,6 +27,9 @@
     "@babel/plugin-proposal-decorators": "^7.18.2",
     "@ember/optional-features": "^2.0.0",
     "@ember/test-helpers": "^2.4.2",
+    "@embroider/compat": "^1.8.3",
+    "@embroider/core": "^1.8.3",
+    "@embroider/webpack": "^1.8.3",
     "@glimmer/component": "^1.0.4",
     "@glimmer/tracking": "^1.0.4",
     "babel-eslint": "^10.1.0",
@@ -51,7 +54,7 @@
     "ember-modifier": "^3.0.0",
     "ember-page-title": "^7.0.0",
     "ember-power-select": "^5.0.3",
-    "ember-power-select-typeahead": "^0.9.0",
+    "ember-power-select-typeahead": "https://github.com/billybonks/ember-power-select-typeahead.git#upgrade",
     "ember-qunit": "^5.1.4",
     "ember-resolver": "^8.0.2",
     "ember-source": "~4.6.0",
@@ -67,7 +70,7 @@
     "prettier": "^2.6.2",
     "qunit": "^2.16.0",
     "qunit-dom": "^2.0.0",
-    "webpack": "^5.66.0"
+    "webpack": "^5.74.0"
   },
   "engines": {
     "node": "10.* || >= 12"
