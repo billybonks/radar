@@ -1,14 +1,19 @@
-hello
-<h1> Datasets </h1>
-<ul>
-  {{#each this.model.datasets as |dataset index|}}
-    <li>{{index}}{{dataset.name}}</li>
-  {{/each}}
-</ul>
+<div class="container">
+  <details>
+      <summary><h4>Datasets</h4></summary>
+      <ul>
+    {{#each this.model.datasets as |dataset index|}}
+      <li>{{index}}{{dataset.name}}</li>
+    {{/each}}
+      </ul>
+  </details>
 
-<h1> Charts </h1>
-<ul>
-  {{#each this.model.charts as |chart|}}
-    <li>{{chart.name}}</li>
-  {{/each}}
-</ul>
+  <details>
+      <summary><h4>Charts</h4></summary>
+      <ul>
+        {{#each this.model.charts as |chart|}}
+          <li>{{chart.name}}</li>
+        {{/each}}
+      </ul>
+  </details>
+</div>

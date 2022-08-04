@@ -8,6 +8,7 @@
 @import "components/dashboard.css";
 @import "base/typography.css";
 @import "base/tables.css";
+@import "pages/index.css";
 
 body {
   position: relative;
@@ -50,4 +51,17 @@ button {
 
 button.secondary {
   background-color: var(--button-secondary);
+}
+
+summary > * {
+  display: inline;
+}
+
+summary {
+  padding: 10px 0;
+}
+
+summary:hover {
+  cursor: pointer;
+
 }
