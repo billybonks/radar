@@ -1,0 +1,28 @@
+.card {
+  border: 1px solid rgb(224, 224, 224);
+}
+
+.card:hover {
+  cursor: pointer;
+  box-shadow: #fff 2px 2px 15px 0px;
+  transition: box-shadow 0.3s ease-in-out 0s;
+  transition-property: box-shadow;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0s;
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.card-collection {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-collection > * {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  flex-basis: 250px;
+}

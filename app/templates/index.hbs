@@ -1,19 +1,21 @@
 <div class="container">
   <details>
       <summary><h4>Datasets</h4></summary>
-      <ul>
-    {{#each this.model.datasets as |dataset index|}}
-      <li>{{index}}{{dataset.name}}</li>
-    {{/each}}
-      </ul>
+      <RecordCollection @records={{this.model.datasets}}/>
   </details>
 
   <details>
       <summary><h4>Charts</h4></summary>
-      <ul>
-        {{#each this.model.charts as |chart|}}
-          <li>{{chart.name}}</li>
-        {{/each}}
-      </ul>
+      <RecordCollection @records={{this.model.charts}}/>
   </details>
+
+  <details>
+    <summary><h4>Dashboards</h4></summary>
+   <RecordCollection @records={{this.model.charts}}/>
+</details>
+
+  <details>
+    <summary><h4>Datasources</h4></summary>
+    <RecordCollection @records={{this.model.charts}}/>
+</details>
 </div>

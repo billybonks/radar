@@ -9,6 +9,7 @@
 @import "base/typography.css";
 @import "base/tables.css";
 @import "pages/index.css";
+@import "components/card.css";
 
 body {
   position: relative;
