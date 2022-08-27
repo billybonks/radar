@@ -8,8 +8,15 @@ export default class MarkModel extends Model {
   @attr('string') name;
 
   get hydratedSchema() {
+    if (!this.definition) {
+      return null;
+    }
+    let schema = JSON.parse(this.definition);
+    debugger;
+    if (schema.data) {
+      return schema;
+    }
     try {
-      let schema = JSON.parse(this.definition);
       let result = {
         ...schema,
         data: [
