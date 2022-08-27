@@ -4,7 +4,7 @@ import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { bindKeyboardShortcuts } from 'ember-keyboard-shortcuts';
 import { task } from 'ember-concurrency';
-import Dashboard from 'electron-test/models/dashboard';
+
 export default class ApplicationController extends Controller {
   @tracked displayQuickInput = false;
   @service router;
@@ -43,6 +43,7 @@ export default class ApplicationController extends Controller {
         };
       });
   }
+
   @task *filterCommands() {
     let chartCommands = this.recordCollectionToCommand(
       yield this.store.findAll('chart'),
@@ -85,8 +86,7 @@ export default class ApplicationController extends Controller {
     ];
   }
 
-  onClickCard(record) {}
-
+  @action
   openQuickInput() {
     this.displayQuickInput = true;
   }
