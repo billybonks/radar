@@ -5,12 +5,20 @@
     </PowerSelect>
   </div>
   <div class="query-editor__center-column">
+    <div style="display: flex">
+      <label>Datasource:</label>
+      <div style="width:100px">
+        <PowerSelect @selected={{@chart.dataset.datasource}} @options={{this.datasources}} @onChange={{fn this.changeDataSource @chart.dataset}} as |datasource|>
+          {{datasource.name}}
+        </PowerSelect>
+      </div>
+    </div>
     <div class="query-editor__editor">
       <Editor @query={{@chart.dataset.query}} @run={{fn this.run @chart}} />
     </div>
     <div class="query-editor__results">
       <Dashboard>
-        <Widget
+        <Widget 
           @name={{@chart.name}}
           @onResize={{fn this.onChartResize @chart}}
           @onResized={{fn this.onChartResized @chart}}
