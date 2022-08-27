@@ -16,7 +16,6 @@
 
 .query-editor__center-column {
     flex-grow: 1;
-    display: flex;
     flex-direction: column;
 }
 
@@ -25,13 +24,13 @@
 }
 
 .query-editor__editor {
-    flex-grow: 1;
+    height: 50%;
     background-color: var(--input-background);
     margin: 10px;
 }
 
 .query-editor__results {
-    flex-grow: 1;
+    height: 45%;
 }
 
 textarea {

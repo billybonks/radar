@@ -2,6 +2,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
+import { set } from '@ember/object';
 
 export default class DatasetEditorComponent extends Component {
   @tracked results;
@@ -20,6 +21,11 @@ export default class DatasetEditorComponent extends Component {
   onChartResize(chart, width, height) {
     chart.set('width', width);
     chart.set('height', height);
+  }
+
+  @action
+  updateCode(code) {
+    set(this.args.dataset, 'query', code);
   }
 
   @action

@@ -3,6 +3,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
+import { set } from '@ember/object';
 
 export default class ChartEditorComponent extends Component {
   @tracked results;
@@ -27,6 +28,11 @@ export default class ChartEditorComponent extends Component {
   async run(query) {
     this.__optionsRowsCache = null;
     await query.run();
+  }
+
+  @action
+  updateCode(code) {
+    set(this.args.chart.dataset, 'query', code);
   }
 
   @action

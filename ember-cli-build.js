@@ -2,6 +2,7 @@
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 const { Webpack } = require('@embroider/webpack');
+const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 
 module.exports = function (defaults) {
   let app = new EmberApp(defaults, {
@@ -21,5 +22,22 @@ module.exports = function (defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
-  return require('@embroider/compat').compatBuild(app, Webpack);
+  return require('@embroider/compat').compatBuild(app, Webpack, {
+    packagerOptions: {
+      webpackConfig: {
+        module: {
+          rules: [
+            {
+              test: /\.(png|jpg|gif|svg|woff|woff2|eot|ttf|otf|flac)$/i,
+              loader: 'file-loader',
+              options: {
+                name: '[path][name]-[contenthash].[ext]',
+              },
+            },
+          ],
+        },
+        plugins: [new MonacoWebpackPlugin()],
+      },
+    },
+  });
 };

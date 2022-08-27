@@ -12,7 +12,6 @@ export default class MarkModel extends Model {
       return null;
     }
     let schema = JSON.parse(this.definition);
-    debugger;
     if (schema.data) {
       return schema;
     }
