@@ -1,21 +1,21 @@
 <div class="container">
   <details>
       <summary><h4>Datasets</h4></summary>
-      <RecordCollection @records={{this.model.datasets}}/>
+      <RecordCollection @records={{this.model.datasets}} @onClickCard={{this.onClickCard}} />
   </details>
 
   <details>
       <summary><h4>Charts</h4></summary>
-      <RecordCollection @records={{this.model.charts}}/>
+      <RecordCollection @records={{this.model.charts}} @onClickCard={{this.onClickCard}} />
   </details>
 
   <details>
     <summary><h4>Dashboards</h4></summary>
-   <RecordCollection @records={{this.model.charts}}/>
+   <RecordCollection @records={{this.model.dashboards}} @onClickCard={{this.onClickCard}} />
 </details>
 
   <details>
     <summary><h4>Datasources</h4></summary>
-    <RecordCollection @records={{this.model.charts}}/>
-</details>
+    <RecordCollection @records={{this.model.datasources}} @onClickCard={{this.onClickCard}} />
+  </details>
 </div>

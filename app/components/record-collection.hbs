@@ -1,5 +1,5 @@
 <div class="card-collection">
   {{#each @records as |record|}}
-    <Card @title={{record.name}}/>
+    <Card @title={{record.name}} @onClick={{fn @onClickCard record}} />
   {{/each}}
 </div>

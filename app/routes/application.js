@@ -10,6 +10,8 @@ export default class ApplicationRoute extends Route {
     return {
       datasets: await this.store.findAll('dataset'),
       charts: await this.store.findAll('chart'),
+      dashboards: await this.store.findAll('dashboard'),
+      datasources: await this.store.findAll('datasource'),
     };
   }
 
