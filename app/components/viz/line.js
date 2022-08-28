@@ -1,74 +1,77 @@
-import BarChartComponent from 'electron-test/components/viz/bar';
+import Component from '@glimmer/component';
 
-export default class VizBarComponent extends BarChartComponent {
-  get scales() {
+let defaultSchema = {
+  $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
+  description: 'Stock prices of 5 Tech Companies over Time.',
+  width: 'container',
+  background: '',
+  height: 250,
+  mark: 'line',
+};
+export default class VizBarComponent extends Component {
+  get schema() {
+    const computedSchema = {
+      ...defaultSchema,
+      ...this.data,
+      ...this.signals,
+      ...this.scales,
+      ...this.size,
+      ...this.marks,
+      ...this.config,
+      ...this.encoding,
+    };
+    console.log(JSON.stringify(computedSchema));
+    return computedSchema;
+  }
+
+  get config() {
     return {
-      scales: [
-        {
-          name: 'xscale',
-          type: 'point',
-          range: 'width',
-          domain: { data: 'table', field: this.args.options.xscale },
+      config: {
+        view: {
+          stroke: 'transparent',
         },
-        {
-          name: 'yscale',
-          type: 'linear',
-          range: 'height',
-          nice: true,
-          zero: true,
-          domain: { data: 'table', field: this.args.options.yscale },
+        axis: {
+          domain: true,
+          grid: false,
+          ticks: true,
+          labelColor: 'white',
         },
-      ],
+        legend: {
+          labelColor: 'white',
+        },
+      },
     };
   }
 
   get signals() {
-    return {
-      signals: [
-        {
-          name: 'interpolate',
-          value: 'linear',
-          bind: {
-            input: 'select',
-            options: [
-              'basis',
-              'cardinal',
-              'catmull-rom',
-              'linear',
-              'monotone',
-              'natural',
-              'step',
-              'step-after',
-              'step-before',
-            ],
-          },
-        },
-      ],
-    };
+    return {};
   }
 
   get marks() {
+    return {};
+  }
+  get scales() {
+    return {};
+  }
+  get size() {
+    return {};
+  }
+
+  get encoding() {
     return {
-      marks: [
-        {
-          type: 'line',
-          from: { data: 'table' },
-          encode: {
-            enter: {
-              x: { scale: 'xscale', field: this.args.options.xscale },
-              y: { scale: 'yscale', field: this.args.options.yscale },
-              strokeWidth: { value: 2 },
-            },
-            update: {
-              interpolate: { signal: 'interpolate' },
-              strokeOpacity: { value: 1 },
-            },
-            hover: {
-              strokeOpacity: { value: 0.5 },
-            },
-          },
-        },
-      ],
+      encoding: {
+        x: { field: this.args.options.xscale },
+        y: { field: this.args.options.yscale, sort: '-y' },
+        // color: { field: 'symbol', type: 'nominal' },
+      },
+    };
+  }
+
+  get data() {
+    return {
+      data: {
+        values: this.args.results,
+      },
     };
   }
 }
