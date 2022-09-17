@@ -10,3 +10,7 @@
 <PowerSelect @selected={{@options.seriesColumn}} @options={{@columns}} @allowClear={{true}} @onChange={{fn this.updateSeries @options}} as |col|>
   {{col}}
 </PowerSelect>
+<label>interpolate</label>
+<PowerSelect @selected={{@options.interpolate}} @options={{this.interpolate}} @allowClear={{true}} @onChange={{fn this.updateInterpolate @options}} as |col|>
+  {{col}}
+</PowerSelect>

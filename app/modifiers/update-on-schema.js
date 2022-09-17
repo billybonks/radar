@@ -8,19 +8,21 @@ function getSpec(schema) {
   return isVegaSchema ? schema : compile(schema).spec;
 }
 export default modifier(function updateOnSchema(element, [schema]) {
-  let spec = getSpec(schema);
+  try {
+    let spec = getSpec(schema);
 
-  // delete spec.background;
-  // delete spec.width;
-  // delete spec.height;
+    let runtime = parse(spec);
+    const vis = new View(runtime);
+    vis
+      .logLevel(Warn) // set view logging level
+      .renderer('svg') // set render type (defaults to 'canvas')
+      .initialize(element) // set parent DOM element
+      .hover(); // enable hover event processing, *only call once*!
 
-  let runtime = parse(spec);
-  const vis = new View(runtime);
-  vis
-    .logLevel(Warn) // set view logging level
-    .renderer('svg') // set render type (defaults to 'canvas')
-    .initialize(element) // set parent DOM element
-    .hover(); // enable hover event processing, *only call once*!
-
-  vis.runAsync(); // evaluate and render the view
+    vis.runAsync().catch(() => {
+      element.innerHTML = 'something went wrong';
+    }); // evaluate and render the view
+  } catch {
+    element.innerHTML = 'something went wrong';
+  }
 });

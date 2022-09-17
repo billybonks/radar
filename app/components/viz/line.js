@@ -24,7 +24,12 @@ export default class VizBarComponent extends Component {
       width: 'container',
       background: '',
       height: this.args.height - 40,
-      mark: 'line',
+      mark: {
+        point: true,
+        tooltip: true,
+        type: 'line',
+        interpolate: this.args.options.interpolate || 'monotone',
+      },
     };
   }
 
@@ -72,6 +77,9 @@ export default class VizBarComponent extends Component {
   }
 
   get params() {
+    if (!this.isSeries) {
+      return [];
+    }
     return {
       params: [
         {
@@ -91,15 +99,18 @@ export default class VizBarComponent extends Component {
         sort: '-y',
         type: 'quantitative',
       },
-      opacity: {
-        condition: { param: 'selectedSeries', value: 1 },
-        value: 0.2,
-      },
+      tooltip: [
+        { field: this.args.options.xscale, type: 'nominal' },
+        { field: this.args.options.yscale, type: 'quantitative' },
+      ],
     };
-
     if (this.isSeries) {
       encoding = {
         ...encoding,
+        opacity: {
+          condition: { param: 'selectedSeries', value: 1 },
+          value: 0.2,
+        },
         color: { field: this.args.options.seriesColumn },
       };
     }
