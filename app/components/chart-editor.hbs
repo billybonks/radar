@@ -1,17 +1,19 @@
 <EntityPage @entityName={{@chart.name}} @save={{fn this.save @chart}} >
-  <div class="query-editor__data-column">
+  {{!-- <div class="query-editor__data-column">
+  </div> --}}
+  <div class="query-editor__center-column">
+  <div>
     <PowerSelect @selected={{@chart.dataset.datasource}} @options={{this.datasources}} @onChange={{fn this.changeDataSource @chart.dataset}} as |datasource|>
       {{datasource.name}}
     </PowerSelect>
   </div>
-  <div class="query-editor__center-column">
-    <div class="query-editor__editor">
+    {{!-- template-lint-disable no-inline-styles --}}
+    <div {{did-insert this.addInitialSize}}>
       <Editor @query={{@chart.dataset.query}} @run={{fn this.run @chart}} @updateCode={{this.updateCode}} />
     </div>
-    <div class="query-editor__results">
+    <div >
       <Dashboard>
         <Widget
-          @name={{@chart.name}}
           @onResize={{fn this.onChartResize @chart}}
           @onResized={{fn this.onChartResized @chart}}
           @height={{@chart.height}}
