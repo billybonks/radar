@@ -1,13 +1,15 @@
 <div class="widget" {{did-insert this.registerResize}} style={{this.style}}>
-  <div class="widget__header" {{did-insert this.registerDrag}}>
-    <h2 class="widget__header--title" >{{@name}}</h2>
-    {{#if @onRefreshClick}}
-      <span class="widget__header--refresh" onClick={{@onRefreshClick}}>refresh</span>
-    {{/if}}
-    {{#if @editModel}}
-      <LinkTo class="widget__header--refresh"  @route='graph.edit' @model={{@editModel}}>edit</LinkTo>
-    {{/if}}
-  </div>
+  {{#if @name}}
+    <div class="widget__header" {{did-insert this.registerDrag}}>
+        <h2 class="widget__header--title" >{{@name}}</h2>
+      {{#if @onRefreshClick}}
+        <span class="widget__header--refresh" onClick={{@onRefreshClick}}>refresh</span>
+      {{/if}}
+      {{#if @editModel}}
+        <LinkTo class="widget__header--refresh"  @route='graph.edit' @model={{@editModel}}>edit</LinkTo>
+      {{/if}}
+    </div>
+  {{/if}}
   <div class="widget__content">
       {{#if @error}}
         {{@error}}
