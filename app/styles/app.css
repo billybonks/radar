@@ -11,6 +11,7 @@
 @import "base/tables.css";
 @import "pages/index.css";
 @import "components/card.css";
+@import "components/split-pane.css";
 
 body {
   position: relative;
@@ -65,5 +66,4 @@ summary {
 
 summary:hover {
   cursor: pointer;
-
 }
