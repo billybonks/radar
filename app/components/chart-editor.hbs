@@ -7,25 +7,31 @@
       {{datasource.name}}
     </PowerSelect>
   </div>
+  <SplitPanes as |Pane| >
+    <Pane>
+      <div {{did-insert this.addInitialSize}}>
+        <Editor @query={{@chart.dataset.query}} @run={{fn this.run @chart}} @updateCode={{this.updateCode}} />
+      </div>
+    </Pane>
+    <Pane>
+      <div >
+        <Dashboard>
+          <Widget
+            @onResize={{fn this.onChartResize @chart}}
+            @onResized={{fn this.onChartResized @chart}}
+            @height={{@chart.height}}
+            @width={{@chart.width}}
+            @error={{@chart.dataset.error}}
+          as |size| >
+            {{#if (and @chart.dataset.cache.results @chart.dataset.cache.results.length)}}
+                {{component @chart.visualisation.component options=@chart.options  results=@chart.dataset.cache.results width=size.width height=size.height}}
+            {{/if}}
+          </Widget>
+        </Dashboard>
+      </div>
+    </Pane>
+  </SplitPanes>
     {{!-- template-lint-disable no-inline-styles --}}
-    <div {{did-insert this.addInitialSize}}>
-      <Editor @query={{@chart.dataset.query}} @run={{fn this.run @chart}} @updateCode={{this.updateCode}} />
-    </div>
-    <div >
-      <Dashboard>
-        <Widget
-          @onResize={{fn this.onChartResize @chart}}
-          @onResized={{fn this.onChartResized @chart}}
-          @height={{@chart.height}}
-          @width={{@chart.width}}
-          @error={{@chart.dataset.error}}
-        as |size| >
-          {{#if (and @chart.dataset.cache.results @chart.dataset.cache.results.length)}}
-              {{component @chart.visualisation.component options=@chart.options  results=@chart.dataset.cache.results width=size.width height=size.height}}
-          {{/if}}
-        </Widget>
-      </Dashboard>
-    </div>
   </div>
   <div class="query-editor__options-column">
     <label>mark</label>
