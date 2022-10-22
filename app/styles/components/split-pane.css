@@ -1,0 +1,29 @@
+.pane-splitter {
+  width: 100%;
+  height: 100%;
+}
+
+
+.split-pane {
+  position: relative;
+  overflow: hidden;
+}
+
+.split-pane:last-child .split-pane_handle{
+  display:none;
+}
+
+.split-pane_handle {
+  display: block;
+  position: absolute;
+  height: 0.3rem;
+  width: 100%;
+  bottom: 0;
+  cursor: row-resize;
+  left: 0;
+}
+
+
+.split-pane_handle:hover, .split-pane_handle.active {
+  background-color: var(--sash-hoverBorder);
+}

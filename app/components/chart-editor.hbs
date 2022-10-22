@@ -1,29 +1,37 @@
 <EntityPage @entityName={{@chart.name}} @save={{fn this.save @chart}} >
-  <div class="query-editor__data-column">
+  {{!-- <div class="query-editor__data-column">
+  </div> --}}
+  <div class="query-editor__center-column">
+  <div>
     <PowerSelect @selected={{@chart.dataset.datasource}} @options={{this.datasources}} @onChange={{fn this.changeDataSource @chart.dataset}} as |datasource|>
       {{datasource.name}}
     </PowerSelect>
   </div>
-  <div class="query-editor__center-column">
-    <div class="query-editor__editor">
-      <Editor @query={{@chart.dataset.query}} @run={{fn this.run @chart}} @updateCode={{this.updateCode}} />
-    </div>
-    <div class="query-editor__results">
-      <Dashboard>
-        <Widget
-          @name={{@chart.name}}
-          @onResize={{fn this.onChartResize @chart}}
-          @onResized={{fn this.onChartResized @chart}}
-          @height={{@chart.height}}
-          @width={{@chart.width}}
-          @error={{@chart.dataset.error}}
-        as |size| >
-          {{#if (and @chart.dataset.cache.results @chart.dataset.cache.results.length)}}
-              {{component @chart.visualisation.component options=@chart.options  results=@chart.dataset.cache.results width=size.width height=size.height}}
-          {{/if}}
-        </Widget>
-      </Dashboard>
-    </div>
+  <SplitPanes as |Pane| >
+    <Pane>
+      <div {{did-insert this.addInitialSize}}>
+        <Editor @query={{@chart.dataset.query}} @run={{fn this.run @chart}} @updateCode={{this.updateCode}} />
+      </div>
+    </Pane>
+    <Pane>
+      <div >
+        <Dashboard>
+          <Widget
+            @onResize={{fn this.onChartResize @chart}}
+            @onResized={{fn this.onChartResized @chart}}
+            @height={{@chart.height}}
+            @width={{@chart.width}}
+            @error={{@chart.dataset.error}}
+          as |size| >
+            {{#if (and @chart.dataset.cache.results @chart.dataset.cache.results.length)}}
+                {{component @chart.visualisation.component options=@chart.options  results=@chart.dataset.cache.results width=size.width height=size.height}}
+            {{/if}}
+          </Widget>
+        </Dashboard>
+      </div>
+    </Pane>
+  </SplitPanes>
+    {{!-- template-lint-disable no-inline-styles --}}
   </div>
   <div class="query-editor__options-column">
     <label>mark</label>

@@ -34,6 +34,10 @@ export default class ChartEditorComponent extends Component {
   updateCode(code) {
     set(this.args.chart.dataset, 'query', code);
   }
+  @action
+  addInitialSize(el) {
+    el.style.height = `${el.parentElement.clientHeight / 2}px`;
+  }
 
   @action
   async save(chart) {

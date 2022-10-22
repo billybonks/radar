@@ -23,16 +23,10 @@
     min-width: 150px;
 }
 
-.query-editor__editor {
-    height: 50%;
-    background-color: var(--input-background);
-    margin: 10px;
+.query-editor__page .widget{
+    position: inherit;
 }
-
-.query-editor__results {
-    height: 45%;
-}
-
+query-editor__center-column div
 textarea {
   height: calc(100% - var(--font-h1-size));
   width: 100%;

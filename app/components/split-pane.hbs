@@ -1,0 +1,5 @@
+<div class="split-pane" {{did-insert @registerPane}}>
+  {{yield}}
+  <div class="split-pane_handle" {{on "mousedown" @sashClicked}} role="button">
+  </div>
+</div>
