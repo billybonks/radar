@@ -56,7 +56,7 @@
     "ember-page-title": "^7.0.0",
     "ember-power-select": "^6.0.1",
     "ember-power-select-typeahead": "https://github.com/billybonks/ember-power-select-typeahead.git#upgrade",
-    "ember-qunit": "^5.1.4",
+    "ember-qunit": "^6.0.0",
     "ember-resolver": "^8.0.2",
     "ember-source": "~4.6.0",
     "ember-template-lint": "^4.0.0",
@@ -90,7 +90,6 @@
     "vega-lite": "^5.1.1"
   },
   "resolutions": {
-    "ember-auto-import": "2.4.2",
     "broccoli-rollup": "5.0.0"
   }
 }
