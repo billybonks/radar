@@ -7,6 +7,7 @@ export function initialize(appInstance) {
     type: 'visualisation',
     attributes: {
       ...v,
+      raw: v,
       id: null,
     },
   }));
