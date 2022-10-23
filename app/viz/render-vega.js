@@ -7,7 +7,7 @@ function getSpec(schema) {
   return isVegaSchema ? schema : compile(schema).spec;
 }
 
-export default function (schema, element) {
+export default function (element, schema) {
   let spec = getSpec(schema);
 
   let runtime = parse(spec);

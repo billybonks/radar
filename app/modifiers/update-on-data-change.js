@@ -8,7 +8,8 @@ export default modifier(function updateOnSchema(
     visualisationModel
       .get('raw')
       .render(element, results, { ...options, height });
-  } catch {
+  } catch (e) {
+    console.error(e);
     element.innerHTML = 'something went wrong';
   }
 });

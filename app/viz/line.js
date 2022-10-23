@@ -6,7 +6,8 @@ export default {
   component: 'viz/render-func',
   render(element, results, options) {
     let schemaBuilder = new SchemaBuilder(options, results);
-    renderVegaSchema(element, schemaBuilder.schema);
+    let schema = schemaBuilder.schema;
+    renderVegaSchema(element, schema);
   },
   optionsGenerator() {
     return {
@@ -44,7 +45,7 @@ export class SchemaBuilder {
       $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
       width: 'container',
       background: '',
-      height: this.option.height - 40,
+      height: this.options.height - 40,
       mark: {
         point: true,
         tooltip: true,
