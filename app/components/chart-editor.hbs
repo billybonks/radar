@@ -9,7 +9,7 @@
   </div>
   <SplitPanes as |Pane| >
     <Pane>
-      <div {{did-insert this.addInitialSize}}>
+      <div style="height:95%">
         <Editor @query={{@chart.dataset.query}} @run={{fn this.run @chart}} @updateCode={{this.updateCode}} />
       </div>
     </Pane>

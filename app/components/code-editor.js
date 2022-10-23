@@ -77,7 +77,7 @@ export default class CodeEditor extends Component {
     this.ro = new ResizeObserver(() => {
       let temp2 = el.parentElement.parentElement;
       this.editor.layout({
-        height: temp2.offsetHeight,
+        height: temp2.offsetHeight - 50,
         width: temp2.offsetWidth,
       });
     });
