@@ -12,62 +12,61 @@ class FileSystemModels {
   }
 
   update(modelName, obj) {
-    let modelPath = this.modelPathData(modelName)
+    let modelPath = this.modelPathData(modelName);
     if (existsSync(modelPath)) {
       return readFilePromise(modelPath).then((res) => {
-        let data = JSON.parse(res);
-        let filteredModels = data.filter((element) => element.id !== obj.id)
-        writeFilePromise(modelPath, JSON.stringify([...filteredModels, obj]))
-      })
+        let data = res.length ? JSON.parse(res) : [];
+        let filteredModels = data.filter((element) => element.id !== obj.id);
+        writeFilePromise(modelPath, JSON.stringify([...filteredModels, obj]));
+      });
     }
   }
 
-
   destroy(modelName, id) {
-    let modelPath = this.modelPathData(modelName)
+    let modelPath = this.modelPathData(modelName);
     if (existsSync(modelPath)) {
       return readFilePromise(modelPath).then((res) => {
-        let data = JSON.parse(res);
-        let filteredModels = data.filter((element) => element.id !== id)
-        return writeFilePromise(modelPath, JSON.stringify(filteredModels))
-      })
+        let data = res.length ? JSON.parse(res) : [];
+        let filteredModels = data.filter((element) => element.id !== id);
+        return writeFilePromise(modelPath, JSON.stringify(filteredModels));
+      });
     }
   }
 
   create(modelName, obj) {
-    let modelPath = this.modelPathData(modelName)
+    let modelPath = this.modelPathData(modelName);
     obj.id = uuidv4();
-    let promise = null
+    let promise = null;
     if (existsSync(modelPath)) {
       promise = readFilePromise(modelPath).then((res) => {
-        let data = JSON.parse(res);
-        writeFilePromise(modelPath, JSON.stringify([...data, obj]))
-      })
+        let data = res.length ? JSON.parse(res) : [];
+        writeFilePromise(modelPath, JSON.stringify([...data, obj]));
+      });
     } else {
-      promise = writeFilePromise(modelPath, JSON.stringify([obj]))
+      promise = writeFilePromise(modelPath, JSON.stringify([obj]));
     }
-    return promise.then(() => obj)
+    return promise.then(() => obj);
   }
 
   findRecord(modelName, id) {
-    let modelPath = this.modelPathData(modelName)
+    let modelPath = this.modelPathData(modelName);
     if (existsSync(modelPath)) {
       return readFilePromise(modelPath).then((res) => {
-        let data = JSON.parse(res);
-        return data.find((element) => element.id == id)
-      })
+        let data = res.length ? JSON.parse(res) : [];
+        return data.find((element) => element.id == id);
+      });
     } else {
       return Promise.resolve();
     }
   }
 
   findAll(modelName) {
-    let modelPath = this.modelPathData(modelName)
+    let modelPath = this.modelPathData(modelName);
     if (existsSync(modelPath)) {
       return readFilePromise(modelPath).then((res) => {
-        let data = JSON.parse(res);
-        return data
-      })
+        let data = res.length ? JSON.parse(res) : [];
+        return data;
+      });
     } else {
       return Promise.resolve([]);
     }
