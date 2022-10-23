@@ -4,6 +4,7 @@ import visualisations from 'electron-test/viz/index';
 export default class VisualisationModel extends Model {
   @attr('string') component;
   @attr('string') name;
+  @attr() raw;
   @attr() options;
 
   get optionsGenerator() {

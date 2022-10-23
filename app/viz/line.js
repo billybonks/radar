@@ -1,7 +1,13 @@
+import renderVegaSchema from './render-vega';
+
 export default {
   id: 'line',
   name: 'Line',
-  component: 'viz/line',
+  component: 'viz/render-func',
+  render(element, results, options) {
+    let schemaBuilder = new SchemaBuilder(options, results);
+    renderVegaSchema(element, schemaBuilder.schema);
+  },
   optionsGenerator() {
     return {
       xscale: 'state',
@@ -9,14 +15,13 @@ export default {
     };
   },
   options: {
-    component: 'viz/options/bar',
+    component: 'viz/control-panel',
   },
 };
 
 export class SchemaBuilder {
-  constructor(options, height, data) {
+  constructor(options, data) {
     this.options = options;
-    this.height = height;
     this.values = data;
   }
   get schema() {
@@ -37,10 +42,9 @@ export class SchemaBuilder {
   get defaultSchema() {
     return {
       $schema: 'https://vega.github.io/schema/vega-lite/v5.json',
-      description: 'Stock prices of 5 Tech Companies over Time.',
       width: 'container',
       background: '',
-      height: this.height - 40,
+      height: this.option.height - 40,
       mark: {
         point: true,
         tooltip: true,
