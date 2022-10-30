@@ -9,9 +9,9 @@ export default class DatasetModel extends Model {
 
   @attr('string') query;
   @attr('string') name;
-  @belongsTo('dataset') input;
-  @belongsTo('datasource') datasource;
-  @belongsTo('cache') cache;
+  @belongsTo('dataset', { async: true, inverse: null }) input;
+  @belongsTo('datasource', { async: true, inverse: null }) datasource;
+  @belongsTo('cache', { async: true, inverse: null }) cache;
 
   async refresh() {
     let cache = this.store.createRecord('cache', {});
