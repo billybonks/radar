@@ -71,18 +71,17 @@ export default class CodeEditor extends Component {
       wordWrap: 'on',
       scrollBeyondLastLine: false,
       wrappingIndent: 'same',
-      automaticLayout: true,
     });
 
     this.ro = new ResizeObserver(() => {
-      let temp2 = el.parentElement.parentElement;
+      let splitPane = el.parentElement.parentElement;
       this.editor.layout({
-        height: temp2.offsetHeight - 50,
-        width: temp2.offsetWidth,
+        height: splitPane.offsetHeight - 50,
+        width: splitPane.offsetWidth,
       });
     });
 
-    this.ro.observe(el.parentElement.parentElement);
+    this.ro.observe(document.body);
     // Whenever the code block's text changes, onUpdateCode will be called.
     editor.onDidChangeModelContent(this.onUpdateCode);
     // Save editor instance locally, so we can reference it in other methods
