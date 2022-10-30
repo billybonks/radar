@@ -4,6 +4,6 @@ export default class DashboardRoute extends Route {
   @service store;
 
   model(params) {
-    return this.store.find('dashboard', params.dashboard_id);
+    return this.store.findRecord('dashboard', params.dashboard_id);
   }
 }

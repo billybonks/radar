@@ -8,7 +8,16 @@ export default class DatasetEditorComponent extends Component {
   @tracked results;
   @tracked columns;
   @tracked optionsRows;
+  @tracked datasets;
+
   @service store;
+
+  constructor() {
+    super(...arguments);
+    this.store.findAll('dataset').then((results) => {
+      this.datasets = results;
+    });
+  }
 
   @action
   async save(dataset) {
@@ -31,9 +40,5 @@ export default class DatasetEditorComponent extends Component {
   @action
   changeDataSet(dataset, input) {
     dataset.set('dataset', input);
-  }
-
-  get datasets() {
-    return this.store.findAll('dataset');
   }
 }

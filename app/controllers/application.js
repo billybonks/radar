@@ -44,9 +44,14 @@ export default class ApplicationController extends Controller {
       });
   }
 
-  @task *filterCommands() {
+  async buildModelCommands() {
+    let charts = await this.store.findAll('chart');
+    let mark = await this.store.findAll('mark');
+    let dashboard = await this.store.findAll('dashboard');
+    let dataset = await this.store.findAll('dataset');
+
     let chartCommands = this.recordCollectionToCommand(
-      yield this.store.findAll('chart'),
+      charts,
       'Chart',
       function callback(record, router) {
         router.transitionTo('graph.edit', record);
@@ -54,7 +59,7 @@ export default class ApplicationController extends Controller {
     );
 
     let markCommands = this.recordCollectionToCommand(
-      yield this.store.findAll('mark'),
+      mark,
       'Mark',
       function callback(record, router) {
         router.transitionTo('mark.edit', record);
@@ -62,7 +67,7 @@ export default class ApplicationController extends Controller {
     );
 
     let dashboardCommands = this.recordCollectionToCommand(
-      yield this.store.findAll('dashboard'),
+      dashboard,
       'Dashboard',
       function callback(record, router) {
         router.transitionTo('dashboard', record);
@@ -70,20 +75,24 @@ export default class ApplicationController extends Controller {
     );
 
     let datasetCommands = this.recordCollectionToCommand(
-      yield this.store.findAll('dataset'),
+      dataset,
       'Dataset',
       function callback(record, router) {
         router.transitionTo('dataset.edit', record);
       }
     );
-
     return [
-      ...this.commands.pallete,
       ...chartCommands,
       ...dashboardCommands,
       ...datasetCommands,
       ...markCommands,
     ];
+  }
+
+  @task *filterCommands() {
+    let modelBasedCommands = yield this.buildModelCommands();
+
+    return [...this.commands.pallete, ...modelBasedCommands];
   }
 
   @action

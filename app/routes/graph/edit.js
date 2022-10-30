@@ -5,6 +5,6 @@ export default class GraphEditRoute extends Route {
   @service store;
 
   model({ chart_id }) {
-    return this.store.find('chart', chart_id);
+    return this.store.findRecord('chart', chart_id);
   }
 }

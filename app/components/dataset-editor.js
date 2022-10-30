@@ -9,7 +9,19 @@ export default class DatasetEditorComponent extends Component {
   @tracked columns;
   @tracked optionsRows;
   types = ['sql', 'jinja'];
+  @tracked datasources;
+  @tracked datasets;
   @service store;
+
+  constructor() {
+    super(...arguments);
+    this.store.findAll('datasource').then((results) => {
+      this.datasources = results;
+    });
+    this.store.findAll('dataset').then((results) => {
+      this.datasets = results;
+    });
+  }
 
   @action
   onChartResized(chart, width, height) {
@@ -59,13 +71,5 @@ export default class DatasetEditorComponent extends Component {
   @action
   changeType(dataset, type) {
     dataset.set('type', type);
-  }
-
-  get datasources() {
-    return this.store.findAll('datasource');
-  }
-
-  get datasets() {
-    return this.store.findAll('dataset');
   }
 }

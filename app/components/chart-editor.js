@@ -9,9 +9,16 @@ export default class ChartEditorComponent extends Component {
   @tracked results;
   @tracked columns;
   @tracked optionsRows;
+  @tracked datasources;
 
   @service store;
 
+  constructor() {
+    super(...arguments);
+    this.store.findAll('datasource').then((results) => {
+      this.datasources = results;
+    });
+  }
   @action
   onChartResized(chart, width, height) {
     chart.set('width', width);
@@ -61,7 +68,7 @@ export default class ChartEditorComponent extends Component {
   }
 
   get datasources() {
-    return this.store.findAll('datasource');
+    return;
   }
 
   get visualisation() {
