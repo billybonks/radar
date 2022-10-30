@@ -40,6 +40,7 @@ export default class DatasetModel extends Model {
     this.columns = columns;
     let properties = {
       results,
+      dataSummary,
       columns: this.columns,
     };
     let cache = this.store.createRecord('cache', properties);
