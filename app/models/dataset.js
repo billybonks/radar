@@ -8,7 +8,6 @@ export default class DatasetModel extends Model {
   @tracked columns;
 
   @attr('string') query;
-  @attr('string') error;
   @attr('string') name;
   @belongsTo('dataset') input;
   @belongsTo('datasource') datasource;
@@ -27,8 +26,7 @@ export default class DatasetModel extends Model {
       let cachableResults = await this.executeSql(query);
       setProperties(cache, cachableResults);
     } catch (e) {
-      set(this, 'cache', null);
-      set(this, 'error', e.toString());
+      set(cache, 'error', e.toString());
     } finally {
       await cache.save();
       set(this, 'cache', cache);
@@ -42,7 +40,6 @@ export default class DatasetModel extends Model {
         this.datasource.get('id'),
         query
       );
-    set(this, 'error', null);
     this.results = results;
     this.columns = columns;
     return {
