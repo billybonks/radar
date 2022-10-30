@@ -1,6 +1,7 @@
 import Model, { attr, belongsTo } from '@ember-data/model';
 import { tracked } from '@glimmer/tracking';
 import { set, get } from '@ember/object';
+import { setProperties } from '@ember/object';
 
 export default class DatasetModel extends Model {
   @tracked results;
@@ -14,6 +15,7 @@ export default class DatasetModel extends Model {
   @belongsTo('cache') cache;
 
   async refresh() {
+    let cache = this.store.createRecord('cache', {});
     try {
       let input = get(this, 'input.content'); // eslint-disable-line ember/no-get
       let props = { input: {} };
@@ -22,10 +24,15 @@ export default class DatasetModel extends Model {
         props = { input: input.results };
       }
       let query = await window.desktopAPI.renderJinja(this.query, props);
-      await this.executeSql(query);
+      let cachableResults = await this.executeSql(query);
+      setProperties(cache, cachableResults);
     } catch (e) {
       set(this, 'cache', null);
       set(this, 'error', e.toString());
+    } finally {
+      await cache.save();
+      set(this, 'cache', cache);
+      await this.save();
     }
   }
 
@@ -35,18 +42,13 @@ export default class DatasetModel extends Model {
         this.datasource.get('id'),
         query
       );
+    set(this, 'error', null);
+    this.results = results;
     this.columns = columns;
-    let properties = {
+    return {
       results,
       dataSummary,
       columns: this.columns,
     };
-    let cache = this.store.createRecord('cache', properties);
-    await cache.save();
-    console.log(cache.id);
-    set(this, 'cache', cache);
-    set(this, 'error', null);
-    await this.save();
-    this.results = results;
   }
 }
