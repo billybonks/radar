@@ -6,7 +6,6 @@ export default class DatasetModel extends Model {
   @tracked results;
   @tracked columns;
 
-  @attr('string') type;
   @attr('string') query;
   @attr('string') error;
   @attr('string') name;
@@ -16,15 +15,14 @@ export default class DatasetModel extends Model {
 
   async refresh() {
     try {
-      if (this.type === 'jinja') {
-        let input = get(this, 'input.content'); // eslint-disable-line ember/no-get
+      let input = get(this, 'input.content'); // eslint-disable-line ember/no-get
+      let props = { input: {} };
+      if (input) {
         await input.refresh();
-        let props = { input: input.results };
-        let query = await window.desktopAPI.renderJinja(this.query, props);
-        await this.executeSql(query);
-      } else {
-        return await this.executeSql(this.query);
+        props = { input: input.results };
       }
+      let query = await window.desktopAPI.renderJinja(this.query, props);
+      await this.executeSql(query);
     } catch (e) {
       set(this, 'cache', null);
       set(this, 'error', e.toString());
