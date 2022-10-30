@@ -1,47 +1,49 @@
 // preload with contextIsolation enabled
-const { contextBridge } = require('electron')
+const { contextBridge } = require('electron');
 const { existsSync, mkdirSync } = require('fs');
 const { getHomeDirectory } = require('./paths');
 const FileSystemModels = require('./file-system-models');
 const Datasource = require('./datasource');
-
+const summarise = require('./value-statistics.js');
 let homeDirectory = getHomeDirectory(process.env.HOME);
 
 function ensureHomeExists(dir) {
   if (existsSync(dir)) {
-    return
+    return;
   }
   mkdirSync(dir);
 }
 
-
-ensureHomeExists(homeDirectory)
-
+ensureHomeExists(homeDirectory);
 
 fsModels = new FileSystemModels(homeDirectory);
 
 contextBridge.exposeInMainWorld('desktopAPI', {
   dataStore: {
     update(modelName, obj) {
-      return fsModels.update(modelName, obj)
+      return fsModels.update(modelName, obj);
     },
     create(modelName, obj) {
-      return fsModels.create(modelName, obj)
+      return fsModels.create(modelName, obj);
     },
     findRecord(modelName, id) {
-      return fsModels.findRecord(modelName, id)
+      return fsModels.findRecord(modelName, id);
     },
     findAll(modelName) {
-      return fsModels.findAll(modelName)
+      return fsModels.findAll(modelName);
     },
     destroy(modelName, id) {
-      return fsModels.destroy(modelName, id)
+      return fsModels.destroy(modelName, id);
     },
   },
   renderJinja(value, vars) {
     return new Promise(function (resolve, reject) {
-      let json = JSON.stringify(vars)
-      var python = require('child_process').spawn('python', ['../py/renderJinja.py', value, json]);
+      let json = JSON.stringify(vars);
+      var python = require('child_process').spawn('python', [
+        '../py/renderJinja.py',
+        value,
+        json,
+      ]);
 
       python.stdout.on('data', function (data) {
         resolve(data.toString('utf8'));
@@ -55,20 +57,26 @@ contextBridge.exposeInMainWorld('desktopAPI', {
       python.on('close', (code) => {
         console.log(`child process exited with code ${code}`);
       });
-    })
+    });
   },
   datasource: {
     async scan(id) {
       let model = await fsModels.findRecord('datasource', id);
       let ds = new Datasource(model);
       let tables = await ds.scan();
-      await fsModels.update('datasource', { ...model, tables, lastScan: Date.now() });
+      await fsModels.update('datasource', {
+        ...model,
+        tables,
+        lastScan: Date.now(),
+      });
     },
     async query(id, query) {
       let model = await fsModels.findRecord('datasource', id);
       let ds = new Datasource(model);
-      return await ds.query(query);
-    }
-  }
+      let results = await ds.query(query);
+      let dataSummary = summarise(results);
+      let columns = Object.keys(results[0]);
+      return { results, columns, dataSummary };
+    },
+  },
 });
-
