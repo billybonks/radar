@@ -1,21 +1,8 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import Resizer from '../utils/resizer';
 
-let eventListener = function () {
-  if (!this.activeSash) {
-    return;
-  }
-  this.activeSash.classList.remove('active');
-  this.activePane = null;
-  this.activeSibling = null;
-  this.activeSash = null;
-  document.removeEventListener('mouseup', this.eventListener);
-};
-
-function getPrecentage(element) {
-  return element.style.height.replace('%', '');
-}
 export default class SplitPaneComponent extends Component {
   @tracked filteredCommands;
   @tracked panes;
@@ -23,42 +10,22 @@ export default class SplitPaneComponent extends Component {
 
   constructor() {
     super(...arguments);
-    this.panes = [];
-    this.eventListener = eventListener.bind(this);
-    document.body.addEventListener('mouseup', this.eventListener);
-    document.body.addEventListener('mousemove', (event) => {
-      if (this.activePane) {
-        let activePaneHeight =
-          this.activePane.offsetHeight + this.activePane.offsetTop;
-        let cursorY = event.clientY;
-        let delta = activePaneHeight - cursorY;
-        let percentageChange = delta / activePaneHeight;
-
-        // let percentage = this.activePane.offsetHeight / delta;
-        this.activePane.style.height = `${
-          getPrecentage(this.activePane) - percentageChange
-        }%`;
-        this.activeSibling.style.height = `${
-          parseFloat(this.activeSibling.style.height.replace('%', '')) +
-          percentageChange
-        }%`;
-      }
-    });
+    this.resizer = new Resizer(this.onMouseUp.bind(this));
   }
 
   @action
   registerPane(pane) {
-    this.panes = [...this.panes, pane];
-    let distribution = 100 / (this.panes.length || 1);
-    this.panes.forEach((pane) => {
-      pane.style.height = `${distribution}%`;
-    });
+    this.resizer.registerPane(pane);
+  }
+
+  onMouseUp() {
+    this.activeSash.classList.remove('active');
+    this.activeSash = null;
   }
 
   @action
   sashClicked(event) {
-    this.activePane = event.target.parentElement;
-    this.activeSibling = this.activePane.nextElementSibling;
+    this.resizer.activatePane(event.target.parentElement);
     this.activeSash = event.target;
     this.activeSash.classList.add('active');
   }
