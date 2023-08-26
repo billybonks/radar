@@ -34,8 +34,8 @@ export default class DatasetModel extends Model {
         await input.refresh();
         props = { input: input.results };
       }
-      let query = await window.desktopAPI.renderJinja(this.query, props);
-      let cachableResults = await this.executeSql(query);
+      // let query = await window.desktopAPI.renderJinja(this.query, props);
+      let cachableResults = await this.executeSql(this.query);
       setProperties(cache, cachableResults);
     } catch (e) {
       set(cache, 'error', e.toString());
