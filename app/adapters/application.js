@@ -1,8 +1,13 @@
 import Adapter from '@ember-data/adapter';
-
+import { NotFoundError } from 'ember-data/adapters/errors';
 export default class ApplicationAdapter extends Adapter {
-  findRecord(_store, typeClass, id) {
-    return window.desktopAPI.dataStore.findRecord(typeClass.modelName, id);
+  async findRecord(_store, typeClass, id) {
+    const result = await window.desktopAPI.dataStore.findRecord(
+      typeClass.modelName,
+      id
+    );
+    if (!result) throw new NotFoundError();
+    return result;
   }
   createRecord(_store, typeClass, snapshot) {
     return window.desktopAPI.dataStore.create(
