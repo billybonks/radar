@@ -113,17 +113,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/eslint-parser@npm:^7.18.2":
-  version: 7.19.1
-  resolution: "@babel/eslint-parser@npm:7.19.1"
+"@babel/eslint-parser@npm:^7.22.11":
+  version: 7.22.11
+  resolution: "@babel/eslint-parser@npm:7.22.11"
   dependencies:
     "@nicolo-ribaudo/eslint-scope-5-internals": 5.1.1-v1
     eslint-visitor-keys: ^2.1.0
-    semver: ^6.3.0
+    semver: ^6.3.1
   peerDependencies:
-    "@babel/core": ">=7.11.0"
+    "@babel/core": ^7.11.0
     eslint: ^7.5.0 || ^8.0.0
-  checksum: 6d5360f62f25ed097250657deb1bc4c4f51a5f5f2fe456e98cda13727753fdf7a11a109b4cfa03ef0dd6ced3beaeb703b76193c1141e29434d1f91f1bac0517d
+  checksum: a7d4406ac021a192c8e2d2dd5a9ebe6352dc4c0c842c0971080e5ac1bcb81eb6dceb72899ec611b82ab4356c658649a0a4f85815f6245ab1674cd329dde06369
   languageName: node
   linkType: hard
 
@@ -2754,6 +2754,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@glimmer/reference@npm:^0.84.3":
+  version: 0.84.3
+  resolution: "@glimmer/reference@npm:0.84.3"
+  dependencies:
+    "@glimmer/env": ^0.1.7
+    "@glimmer/global-context": 0.84.3
+    "@glimmer/interfaces": 0.84.3
+    "@glimmer/util": 0.84.3
+    "@glimmer/validator": 0.84.3
+  checksum: 856456c1211cb1c1ddc5c48b8aea924f1b1f19625be1984f2bc7147af49d89c70e3f356bf7d299aa519ee53a21ca4c7371277be14218c37d9206e4cac2f05b9e
+  languageName: node
+  linkType: hard
+
 "@glimmer/runtime@npm:0.84.2":
   version: 0.84.2
   resolution: "@glimmer/runtime@npm:0.84.2"
@@ -2799,7 +2812,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/syntax@npm:^0.84.3":
+"@glimmer/syntax@npm:^0.84.2, @glimmer/syntax@npm:^0.84.3":
   version: 0.84.3
   resolution: "@glimmer/syntax@npm:0.84.3"
   dependencies:
@@ -2878,6 +2891,16 @@ __metadata:
     "@glimmer/env": ^0.1.7
     "@glimmer/global-context": 0.84.2
   checksum: f7f916b39cb0aaab41d610d53faf8097b19418c30bd78198a3d660943e78cd03d50c0f31310be54d5d1c890092c024a6dbb5bf1d96dce1c004b699b8851d5888
+  languageName: node
+  linkType: hard
+
+"@glimmer/validator@npm:0.84.3, @glimmer/validator@npm:^0.84.3":
+  version: 0.84.3
+  resolution: "@glimmer/validator@npm:0.84.3"
+  dependencies:
+    "@glimmer/env": ^0.1.7
+    "@glimmer/global-context": 0.84.3
+  checksum: 58ac3c49a1a601de8271cfcc0f27415fa2388283ae90dd2b4f785f5ab44fa12506c8b32cfc6c74d69bb60ca27745b4f6707fec07a8dff78f2d9da9f9aecc2afa
   languageName: node
   linkType: hard
 
@@ -3025,7 +3048,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jridgewell/sourcemap-codec@npm:^1.4.14":
+"@jridgewell/sourcemap-codec@npm:^1.4.14, @jridgewell/sourcemap-codec@npm:^1.4.15":
   version: 1.4.15
   resolution: "@jridgewell/sourcemap-codec@npm:1.4.15"
   checksum: b881c7e503db3fc7f3c1f35a1dd2655a188cc51a3612d76efc8a6eb74728bef5606e6758ee77423e564092b4a518aba569bbb21c9bac5ab7a35b0c6ae7e344c8
@@ -7740,7 +7763,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "electron-test@workspace:."
   dependencies:
-    "@babel/eslint-parser": ^7.18.2
+    "@babel/eslint-parser": ^7.22.11
     "@babel/helper-get-function-arity": ^7.16.7
     "@babel/plugin-proposal-decorators": ^7.18.2
     "@cardstack/requirejs-monaco-ember-polyfill": ^0.0.1
@@ -7777,20 +7800,20 @@ __metadata:
     ember-qunit: ^6.0.0
     ember-resolver: ^8.0.2
     ember-source: ~5.2.0
-    ember-template-lint: ^4.0.0
+    ember-template-lint: ^4.18.2
     eslint: ^7.32.0
-    eslint-config-prettier: ^8.5.0
-    eslint-plugin-ember: ^11.0.3
+    eslint-config-prettier: ^8.10.0
+    eslint-plugin-ember: ^11.11.1
     eslint-plugin-node: ^11.1.0
-    eslint-plugin-prettier: ^4.0.0
-    eslint-plugin-qunit: ^7.2.0
+    eslint-plugin-prettier: ^4.2.1
+    eslint-plugin-qunit: ^7.3.4
     file-loader: ^6.2.0
     loader.js: ^4.7.0
     monaco-editor: ^0.41.0
     monaco-editor-webpack-plugin: ^7.1.0
     npm-run-all: ^4.1.5
     pg: ^8.7.1
-    prettier: ^2.6.2
+    prettier: ^2.8.8
     qunit: ^2.16.0
     qunit-dom: ^2.0.0
     uuid: ^8.3.2
@@ -8953,9 +8976,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-template-imports@npm:^3.1.1":
-  version: 3.1.2
-  resolution: "ember-template-imports@npm:3.1.2"
+"ember-template-imports@npm:^3.4.0, ember-template-imports@npm:^3.4.2":
+  version: 3.4.2
+  resolution: "ember-template-imports@npm:3.4.2"
   dependencies:
     babel-import-util: ^0.2.0
     broccoli-stew: ^3.0.0
@@ -8966,22 +8989,20 @@ __metadata:
     parse-static-imports: ^1.1.0
     string.prototype.matchall: ^4.0.6
     validate-peer-dependencies: ^1.1.0
-  peerDependencies:
-    ember-cli-htmlbars: ^6.0.0
-  checksum: 3b4701bd45117e57c185ed9f857fc0baaaf2a009006011f357cee35bfbc70f0b7735670920d917d05166fa5d286caf52e4c9f2c39553b5197f4fb37612274018
+  checksum: de7a3d455a3174f681d99d1467c6bbb9f6a00e130932106cfd9be7e04476d2e26c5151fa0ed4ba7084ef2b82863bb5d390a0340b108935e8d5f0c5a6215a9b49
   languageName: node
   linkType: hard
 
-"ember-template-lint@npm:^4.0.0":
-  version: 4.16.1
-  resolution: "ember-template-lint@npm:4.16.1"
+"ember-template-lint@npm:^4.18.2":
+  version: 4.18.2
+  resolution: "ember-template-lint@npm:4.18.2"
   dependencies:
     "@lint-todo/utils": ^13.0.3
     aria-query: ^5.0.2
     chalk: ^4.1.2
     ci-info: ^3.4.0
     date-fns: ^2.29.2
-    ember-template-imports: ^3.1.1
+    ember-template-imports: ^3.4.0
     ember-template-recast: ^6.1.3
     find-up: ^6.3.0
     fuse.js: ^6.5.3
@@ -8995,7 +9016,7 @@ __metadata:
     yargs: ^17.5.1
   bin:
     ember-template-lint: bin/ember-template-lint.js
-  checksum: ae9395a441b28b4a33440ca53ec16d80aa5d71bf4be75c04d2aaffec22f68382d35c90e4aba5afe4a9bfb427f03b6764b651050dea6f3b823c6c301f03e69457
+  checksum: 2bf18d457ff67803d60361dddf0c9bbe25a1beaee1d968edaf4e1d48190c6520cb2ba50026c8ca67dac81a0b5b5cae5c5e45fe128ec50b2ec1372ce913c2a621
   languageName: node
   linkType: hard
 
@@ -9017,6 +9038,27 @@ __metadata:
   bin:
     ember-template-recast: lib/bin.js
   checksum: 8f53c14411abcc084fc38e9ad7ccebf71480ac778b43a6b1d08778425669a4f51ff2108e71c201d50b262b0fd52f3a331e119f0e4be58ae3ba2e8b3cff5e7f31
+  languageName: node
+  linkType: hard
+
+"ember-template-recast@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "ember-template-recast@npm:6.1.4"
+  dependencies:
+    "@glimmer/reference": ^0.84.3
+    "@glimmer/syntax": ^0.84.3
+    "@glimmer/validator": ^0.84.3
+    async-promise-queue: ^1.0.5
+    colors: ^1.4.0
+    commander: ^8.3.0
+    globby: ^11.0.3
+    ora: ^5.4.0
+    slash: ^3.0.0
+    tmp: ^0.2.1
+    workerpool: ^6.4.0
+  bin:
+    ember-template-recast: lib/bin.js
+  checksum: a492e19c99080e0808fb7b4e3e3e9af47906a4a0b628c1c317414725e82b0c984fe327e1b7265718dc06e3f57b759bf432ef5b7a857cd68b571a7ed1d73d0225
   languageName: node
   linkType: hard
 
@@ -9317,32 +9359,37 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:^8.5.0":
-  version: 8.5.0
-  resolution: "eslint-config-prettier@npm:8.5.0"
+"eslint-config-prettier@npm:^8.10.0":
+  version: 8.10.0
+  resolution: "eslint-config-prettier@npm:8.10.0"
   peerDependencies:
     eslint: ">=7.0.0"
   bin:
     eslint-config-prettier: bin/cli.js
-  checksum: 0d0f5c32e7a0ad91249467ce71ca92394ccd343178277d318baf32063b79ea90216f4c81d1065d60f96366fdc60f151d4d68ae7811a58bd37228b84c2083f893
+  checksum: 153266badd477e49b0759816246b2132f1dbdb6c7f313ca60a9af5822fd1071c2bc5684a3720d78b725452bbac04bb130878b2513aea5e72b1b792de5a69fec8
   languageName: node
   linkType: hard
 
-"eslint-plugin-ember@npm:^11.0.3":
-  version: 11.1.0
-  resolution: "eslint-plugin-ember@npm:11.1.0"
+"eslint-plugin-ember@npm:^11.11.1":
+  version: 11.11.1
+  resolution: "eslint-plugin-ember@npm:11.11.1"
   dependencies:
     "@ember-data/rfc395-data": ^0.0.4
+    "@glimmer/syntax": ^0.84.2
     css-tree: ^2.0.4
     ember-rfc176-data: ^0.3.15
+    ember-template-imports: ^3.4.2
+    ember-template-recast: ^6.1.4
     eslint-utils: ^3.0.0
     estraverse: ^5.2.0
+    lodash.camelcase: ^4.1.1
     lodash.kebabcase: ^4.1.1
+    magic-string: ^0.30.0
     requireindex: ^1.2.0
     snake-case: ^3.0.3
   peerDependencies:
     eslint: ">= 7"
-  checksum: b447178ff33969d4ff8c8a0cbcf2c5b3b3efb81aa4314bfb66498989f63604618b532bf0dd9bd7122c217a5da886e3b6346abfc4db2f2a30dafa856e95463a7c
+  checksum: 3a4562f4e562000e60d6f39e574cbf83cd0cf8c688dd2e1da4ce1d708f4074f2aed4d5ae144e0b02ef20f77fbad8471462eddff6467d27b1a3223cbbc696cb4b
   languageName: node
   linkType: hard
 
@@ -9374,7 +9421,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-prettier@npm:^4.0.0":
+"eslint-plugin-prettier@npm:^4.2.1":
   version: 4.2.1
   resolution: "eslint-plugin-prettier@npm:4.2.1"
   dependencies:
@@ -9389,13 +9436,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-qunit@npm:^7.2.0":
-  version: 7.3.1
-  resolution: "eslint-plugin-qunit@npm:7.3.1"
+"eslint-plugin-qunit@npm:^7.3.4":
+  version: 7.3.4
+  resolution: "eslint-plugin-qunit@npm:7.3.4"
   dependencies:
     eslint-utils: ^3.0.0
     requireindex: ^1.2.0
-  checksum: 3c223751b62c365d8a4ceb57986731da2e0e5149b721efe0591a580ba3cd495bc3c42c5951c5b294fdf0cfbbdb03c2f8afd43c42d4c14c3f7e74d30fc280af09
+  checksum: 078dae3d93b7e395c3409cf5855281cca994cbeaacd3e956697cf0ca14c4b45275e20d846173fe76d77655e5e7382b2287a5a324c190a425e4631b745312d5b7
   languageName: node
   linkType: hard
 
@@ -12591,6 +12638,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash.camelcase@npm:^4.1.1":
+  version: 4.3.0
+  resolution: "lodash.camelcase@npm:4.3.0"
+  checksum: cb9227612f71b83e42de93eccf1232feeb25e705bdb19ba26c04f91e885bfd3dd5c517c4a97137658190581d3493ea3973072ca010aab7e301046d90740393d1
+  languageName: node
+  linkType: hard
+
 "lodash.castarray@npm:^4.4.0":
   version: 4.4.0
   resolution: "lodash.castarray@npm:4.4.0"
@@ -12880,6 +12934,15 @@ __metadata:
   dependencies:
     sourcemap-codec: ^1.4.8
   checksum: 89b0d60cbb32bbf3d1e23c46ea93db082d18a8230b972027aecb10a40bba51be519ecce0674f995571e3affe917b76b09f59d8dbc9a1b2c9c4102a2b6e8a2b01
+  languageName: node
+  linkType: hard
+
+"magic-string@npm:^0.30.0":
+  version: 0.30.3
+  resolution: "magic-string@npm:0.30.3"
+  dependencies:
+    "@jridgewell/sourcemap-codec": ^1.4.15
+  checksum: a5a9ddf9bd3bf49a2de1048bf358464f1bda7b3cc1311550f4a0ba8f81a4070e25445d53a5ee28850161336f1bff3cf28aa3320c6b4aeff45ce3e689f300b2f3
   languageName: node
   linkType: hard
 
@@ -14819,12 +14882,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.5.1, prettier@npm:^2.6.2":
+"prettier@npm:^2.5.1":
   version: 2.7.1
   resolution: "prettier@npm:2.7.1"
   bin:
     prettier: bin-prettier.js
   checksum: 55a4409182260866ab31284d929b3cb961e5fdb91fe0d2e099dac92eaecec890f36e524b4c19e6ceae839c99c6d7195817579cdffc8e2c80da0cb794463a748b
+  languageName: node
+  linkType: hard
+
+"prettier@npm:^2.8.8":
+  version: 2.8.8
+  resolution: "prettier@npm:2.8.8"
+  bin:
+    prettier: bin-prettier.js
+  checksum: b49e409431bf129dd89238d64299ba80717b57ff5a6d1c1a8b1a28b590d998a34e083fa13573bc732bb8d2305becb4c9a4407f8486c81fa7d55100eb08263cf8
   languageName: node
   linkType: hard
 
@@ -18412,7 +18484,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"workerpool@npm:^6.2.1":
+"workerpool@npm:^6.2.1, workerpool@npm:^6.4.0":
   version: 6.4.2
   resolution: "workerpool@npm:6.4.2"
   checksum: 7ff589dfcfb81aeb253acc2f07c0622b5b497c3e7c89f330848ec79f0549f2659301197b047fcb78ff653b4e784d98dfb149dec25b77ff86659fb071e509b4da
