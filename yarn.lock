@@ -2346,25 +2346,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ember/test-helpers@npm:^2.4.2":
-  version: 2.8.1
-  resolution: "@ember/test-helpers@npm:2.8.1"
+"@ember/test-helpers@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "@ember/test-helpers@npm:3.2.0"
   dependencies:
-    "@ember/test-waiters": ^3.0.0
-    "@embroider/macros": ^1.6.0
-    "@embroider/util": ^1.6.0
+    "@ember/test-waiters": ^3.0.2
+    "@embroider/macros": ^1.10.0
+    "@simple-dom/interface": ^1.4.0
     broccoli-debug: ^0.6.5
     broccoli-funnel: ^3.0.8
-    ember-cli-babel: ^7.26.6
-    ember-cli-htmlbars: ^5.7.1
-    ember-destroyable-polyfill: ^2.0.3
+    ember-auto-import: ^2.6.0
+    ember-cli-babel: ^7.26.11
+    ember-cli-htmlbars: ^6.2.0
   peerDependencies:
-    ember-source: ">=3.8.0"
-  checksum: 396c20c297f3279fad6693c7c66d9ed16de910a9cb1aff406bb128bba36d4f6a122fad99474e183d9dc2f2e2820aadc44c31431f33d3d8501a50dc58c9150f60
+    ember-source: ^4.0.0 || ^5.0.0
+  checksum: 317a79a70d8679734f72b1765833862858616b40abc2d51cb880720dd9977e2502bcae8d58a7ed7e9e2f646ef0cc8b1a20896aa2d1326d28500de21cabad5c6e
   languageName: node
   linkType: hard
 
-"@ember/test-waiters@npm:^3.0.0, @ember/test-waiters@npm:^3.0.2":
+"@ember/test-waiters@npm:^3.0.2":
   version: 3.0.2
   resolution: "@ember/test-waiters@npm:3.0.2"
   dependencies:
@@ -2483,7 +2483,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@embroider/macros@npm:1.13.1, @embroider/macros@npm:^1.12.0":
+"@embroider/macros@npm:1.13.1, @embroider/macros@npm:^1.10.0, @embroider/macros@npm:^1.12.0":
   version: 1.13.1
   resolution: "@embroider/macros@npm:1.13.1"
   dependencies:
@@ -2504,7 +2504,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@embroider/macros@npm:^0.50.0 || ^1.0.0, @embroider/macros@npm:^1.0.0, @embroider/macros@npm:^1.2.0, @embroider/macros@npm:^1.6.0, @embroider/macros@npm:^1.8.3, @embroider/macros@npm:^1.9.0":
+"@embroider/macros@npm:^0.50.0 || ^1.0.0, @embroider/macros@npm:^1.0.0, @embroider/macros@npm:^1.2.0, @embroider/macros@npm:^1.8.3, @embroider/macros@npm:^1.9.0":
   version: 1.9.0
   resolution: "@embroider/macros@npm:1.9.0"
   dependencies:
@@ -2520,7 +2520,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@embroider/shared-internals@npm:1.8.3, @embroider/shared-internals@npm:^1.0.0":
+"@embroider/shared-internals@npm:1.8.3":
   version: 1.8.3
   resolution: "@embroider/shared-internals@npm:1.8.3"
   dependencies:
@@ -2553,7 +2553,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@embroider/util@npm:^0.39.1 || ^0.40.0 || ^0.41.0 || ^1.0.0, @embroider/util@npm:^1.0.0, @embroider/util@npm:^1.2.0, @embroider/util@npm:^1.6.0":
+"@embroider/util@npm:^0.39.1 || ^0.40.0 || ^0.41.0 || ^1.0.0, @embroider/util@npm:^1.0.0, @embroider/util@npm:^1.2.0":
   version: 1.9.0
   resolution: "@embroider/util@npm:1.9.0"
   dependencies:
@@ -7863,7 +7863,7 @@ __metadata:
     "@cardstack/requirejs-monaco-ember-polyfill": ^0.0.1
     "@ember/optional-features": ^2.0.0
     "@ember/string": ^3.1.1
-    "@ember/test-helpers": ^2.4.2
+    "@ember/test-helpers": ^3.2.0
     "@embroider/compat": ^3.2.1
     "@embroider/core": ^3.2.1
     "@embroider/webpack": ^3.1.5
@@ -7891,7 +7891,7 @@ __metadata:
     ember-page-title: ^7.0.0
     ember-power-select: ^6.0.1
     ember-power-select-typeahead: "https://github.com/billybonks/ember-power-select-typeahead.git#upgrade"
-    ember-qunit: ^6.0.0
+    ember-qunit: ^7.0.0
     ember-resolver: ^8.0.2
     ember-source: ~5.2.0
     ember-template-lint: ^4.18.2
@@ -7908,7 +7908,7 @@ __metadata:
     npm-run-all: ^4.1.5
     pg: ^8.7.1
     prettier: ^2.8.8
-    qunit: ^2.16.0
+    qunit: ^2.19.4
     qunit-dom: ^2.0.0
     uuid: ^8.3.2
     vega: ^5.21.0
@@ -7979,45 +7979,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-auto-import@npm:^2.4.2":
-  version: 2.4.3
-  resolution: "ember-auto-import@npm:2.4.3"
-  dependencies:
-    "@babel/core": ^7.16.7
-    "@babel/plugin-proposal-class-properties": ^7.16.7
-    "@babel/plugin-proposal-decorators": ^7.16.7
-    "@babel/preset-env": ^7.16.7
-    "@embroider/macros": ^1.0.0
-    "@embroider/shared-internals": ^1.0.0
-    babel-loader: ^8.0.6
-    babel-plugin-ember-modules-api-polyfill: ^3.5.0
-    babel-plugin-htmlbars-inline-precompile: ^5.2.1
-    babel-plugin-syntax-dynamic-import: ^6.18.0
-    broccoli-debug: ^0.6.4
-    broccoli-funnel: ^3.0.8
-    broccoli-merge-trees: ^4.2.0
-    broccoli-plugin: ^4.0.0
-    broccoli-source: ^3.0.0
-    css-loader: ^5.2.0
-    debug: ^4.3.1
-    fs-extra: ^10.0.0
-    fs-tree-diff: ^2.0.0
-    handlebars: ^4.3.1
-    js-string-escape: ^1.0.1
-    lodash: ^4.17.19
-    mini-css-extract-plugin: ^2.5.2
-    parse5: ^6.0.1
-    resolve: ^1.20.0
-    resolve-package-path: ^4.0.3
-    semver: ^7.3.4
-    style-loader: ^2.0.0
-    typescript-memoize: ^1.0.0-alpha.3
-    walk-sync: ^3.0.0
-  checksum: 3af287874cc271a3dbcd628253b949b7ff0647ec59630e0684fad4df298d5acec1bf53f71294be8777b21ed6ff82e1076a41d9f68613ed2e21541663f49237f3
-  languageName: node
-  linkType: hard
-
-"ember-auto-import@npm:^2.6.3":
+"ember-auto-import@npm:^2.6.0, ember-auto-import@npm:^2.6.1, ember-auto-import@npm:^2.6.3":
   version: 2.6.3
   resolution: "ember-auto-import@npm:2.6.3"
   dependencies:
@@ -8274,7 +8236,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-htmlbars@npm:^6.3.0":
+"ember-cli-htmlbars@npm:^6.2.0, ember-cli-htmlbars@npm:^6.3.0":
   version: 6.3.0
   resolution: "ember-cli-htmlbars@npm:6.3.0"
   dependencies:
@@ -8712,7 +8674,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-destroyable-polyfill@npm:^2.0.2, ember-destroyable-polyfill@npm:^2.0.3":
+"ember-destroyable-polyfill@npm:^2.0.2":
   version: 2.0.3
   resolution: "ember-destroyable-polyfill@npm:2.0.3"
   dependencies:
@@ -8954,23 +8916,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-qunit@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "ember-qunit@npm:6.0.0"
+"ember-qunit@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "ember-qunit@npm:7.0.0"
   dependencies:
     broccoli-funnel: ^3.0.8
     broccoli-merge-trees: ^3.0.2
     common-tags: ^1.8.0
-    ember-auto-import: ^2.4.2
-    ember-cli-babel: ^7.26.6
+    ember-auto-import: ^2.6.1
+    ember-cli-babel: ^7.26.11
     ember-cli-test-loader: ^3.0.0
     resolve-package-path: ^4.0.3
     silent-error: ^1.1.1
-    validate-peer-dependencies: ^2.1.0
+    validate-peer-dependencies: ^2.2.0
   peerDependencies:
-    "@ember/test-helpers": ^2.4.0
+    "@ember/test-helpers": ">=3.0.3"
+    ember-source: ">=4.0.0"
     qunit: ^2.13.0
-  checksum: 74c4c9316ff509a195e7961bae9aa1da6e6260d1a5e0ce153dff76302d23f974fa652dfc9d484fbe78d64623ba0d837b68d437d56745531118b88b950c6a5608
+  checksum: 7586919493b3317e5ad284d48ede8ada8021fc3e766061a7f0911583a9f10eeea67acb52682e8e5c0bc1658084f2c335f1764177710e5aa7765391f8b9314581
   languageName: node
   linkType: hard
 
@@ -15207,16 +15170,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"qunit@npm:^2.16.0":
-  version: 2.19.2
-  resolution: "qunit@npm:2.19.2"
+"qunit@npm:^2.19.4":
+  version: 2.19.4
+  resolution: "qunit@npm:2.19.4"
   dependencies:
     commander: 7.2.0
     node-watch: 0.7.3
     tiny-glob: 0.2.9
   bin:
     qunit: bin/qunit.js
-  checksum: 1d96c465b450d799da34970ec7063143882b0d432fc8954ba759f75a26f9f450493d20fd0c12f1345e7425acec9ff9f9aa7ab8fd7132e07140f9f4a7c15ed422
+  checksum: 626001f82881e91f3bff2688bc55948a570bd8bf7aea7c9e7836285f1ab0a7a3577296f3b37cce21e182dcd724d14ee439fa39961348a603fbe5a6d5ffc144ef
   languageName: node
   linkType: hard
 
@@ -15618,7 +15581,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve-package-path@npm:^4.0.0, resolve-package-path@npm:^4.0.1, resolve-package-path@npm:^4.0.3":
+"resolve-package-path@npm:^4.0.1, resolve-package-path@npm:^4.0.3":
   version: 4.0.3
   resolution: "resolve-package-path@npm:4.0.3"
   dependencies:
@@ -17834,13 +17797,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"validate-peer-dependencies@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "validate-peer-dependencies@npm:2.1.0"
+"validate-peer-dependencies@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "validate-peer-dependencies@npm:2.2.0"
   dependencies:
-    resolve-package-path: ^4.0.0
-    semver: ^7.3.2
-  checksum: 72b2cde7f0b4b968c71cadb0b2b0fd5fc8bf5936de61bc7fc28949f2563dcc7ff839067be4c6fac5e4dbad707e98d07a685f89937e92df61ae3d74dadbaac1a8
+    resolve-package-path: ^4.0.3
+    semver: ^7.3.8
+  checksum: 0f025e34d9d469c03cf221c34da7e6b53a463ba11bb69294da63a08de67776384e3ef15e3bb479318f304593ae40f502c3e17a9cb671df4d73a9d1005b8b4774
   languageName: node
   linkType: hard
 
