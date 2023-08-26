@@ -5,5 +5,9 @@ export default class WidgetModel extends Model {
   @attr('number') y;
   @attr('number') width;
   @attr('number') height;
-  @belongsTo('chart') chart;
+  @belongsTo('chart', {
+    async: true,
+    inverse: null,
+  })
+  chart;
 }

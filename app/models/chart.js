@@ -7,8 +7,16 @@ export default class ChartModel extends Model {
   @attr('number', { defaultValue: 200 }) width;
   @attr('number', { defaultValue: 200 }) height;
   @attr() options;
-  @belongsTo('visualisation') visualisation;
-  @belongsTo('dataset') dataset;
+  @belongsTo('visualisation', {
+    async: true,
+    inverse: null,
+  })
+  visualisation;
+  @belongsTo('dataset', {
+    async: true,
+    inverse: null,
+  })
+  dataset;
   @tracked loading;
 
   async run() {

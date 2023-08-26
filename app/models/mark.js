@@ -3,7 +3,11 @@ import { attr, belongsTo } from '@ember-data/model';
 import { get } from '@ember/object';
 
 export default class MarkModel extends Model {
-  @belongsTo('dataset') dataset;
+  @belongsTo('dataset', {
+    async: true,
+    inverse: null,
+  })
+  dataset;
   @attr('string') definition;
   @attr('string') name;
 
