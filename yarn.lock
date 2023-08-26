@@ -2294,7 +2294,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@embroider/compat@npm:^3.1.5":
+"@embroider/compat@npm:^3.2.1":
   version: 3.2.1
   resolution: "@embroider/compat@npm:3.2.1"
   dependencies:
@@ -2347,7 +2347,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@embroider/core@npm:^3.1.5":
+"@embroider/core@npm:^3.2.1":
   version: 3.2.1
   resolution: "@embroider/core@npm:3.2.1"
   dependencies:
@@ -4765,7 +4765,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-ember-template-compilation@npm:^2.0.1, babel-plugin-ember-template-compilation@npm:^2.1.1":
+"babel-plugin-ember-template-compilation@npm:^2.0.0, babel-plugin-ember-template-compilation@npm:^2.0.1, babel-plugin-ember-template-compilation@npm:^2.1.1":
   version: 2.2.0
   resolution: "babel-plugin-ember-template-compilation@npm:2.2.0"
   dependencies:
@@ -6459,7 +6459,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chalk@npm:^2.0.0, chalk@npm:^2.0.1, chalk@npm:^2.1.0, chalk@npm:^2.3.0, chalk@npm:^2.4.1, chalk@npm:^2.4.2":
+"chalk@npm:^2.0.0, chalk@npm:^2.0.1, chalk@npm:^2.1.0, chalk@npm:^2.4.1, chalk@npm:^2.4.2":
   version: 2.4.2
   resolution: "chalk@npm:2.4.2"
   dependencies:
@@ -7770,19 +7770,19 @@ __metadata:
     "@ember/optional-features": ^2.0.0
     "@ember/string": ^3.1.1
     "@ember/test-helpers": ^2.4.2
-    "@embroider/compat": ^3.1.5
-    "@embroider/core": ^3.1.5
+    "@embroider/compat": ^3.2.1
+    "@embroider/core": ^3.2.1
     "@embroider/webpack": ^3.1.5
     "@glimmer/component": ^1.0.4
     "@glimmer/tracking": ^1.0.4
     babel-eslint: ^10.1.0
     broccoli-asset-rev: ^3.0.0
-    ember-auto-import: ^2.4.2
-    ember-cli: ~4.8.0
-    ember-cli-app-version: ^6.0.0
+    ember-auto-import: ^2.6.3
+    ember-cli: ~4.8.1
+    ember-cli-app-version: ^6.0.1
     ember-cli-babel: ^7.26.11
-    ember-cli-dependency-checker: ^3.2.0
-    ember-cli-htmlbars: ^6.0.1
+    ember-cli-dependency-checker: ^3.3.2
+    ember-cli-htmlbars: ^6.3.0
     ember-cli-inject-live-reload: ^2.1.0
     ember-cli-sri: ^2.1.1
     ember-cli-terser: ^4.0.2
@@ -8033,7 +8033,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-app-version@npm:^6.0.0":
+"ember-cli-app-version@npm:^6.0.1":
   version: 6.0.1
   resolution: "ember-cli-app-version@npm:6.0.1"
   dependencies:
@@ -8090,18 +8090,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-dependency-checker@npm:^3.2.0":
-  version: 3.3.1
-  resolution: "ember-cli-dependency-checker@npm:3.3.1"
+"ember-cli-dependency-checker@npm:^3.3.2":
+  version: 3.3.2
+  resolution: "ember-cli-dependency-checker@npm:3.3.2"
   dependencies:
-    chalk: ^2.3.0
-    find-yarn-workspace-root: ^1.1.0
+    chalk: ^2.4.2
+    find-yarn-workspace-root: ^1.2.1
     is-git-url: ^1.0.0
-    resolve: ^1.5.0
-    semver: ^5.3.0
+    resolve: ^1.22.0
+    semver: ^5.7.1
   peerDependencies:
-    ember-cli: ^3.2.0 || ^4.0.0
-  checksum: 41d27cb4ccd056b9013ef00fa0f4e9133a5769b82bef8427ceaca3d9b773f901a4fbea6ad87748a6ae456d0051ed12f4e664212ca3c290d14704c3a2d710ad72
+    ember-cli: ^3.2.0 || >=4.0.0
+  checksum: e408f6a1cb6ed4126d966b785e9023799cab5d0d857ff7ec2edc1175a5456f8ac878b5da8b0a197c3db02a38fed643090df8c260018263a993ef50ddb0a48d63
   languageName: node
   linkType: hard
 
@@ -8177,6 +8177,28 @@ __metadata:
     silent-error: ^1.1.1
     walk-sync: ^2.2.0
   checksum: d75fbe973196bdc1df6a04a11310064125108eb105e903a842698f0dd6c133d2e1699860ea1c8237d0c62f92b01da4ebc7b672e862b2e572922f0f86f243a9a1
+  languageName: node
+  linkType: hard
+
+"ember-cli-htmlbars@npm:^6.3.0":
+  version: 6.3.0
+  resolution: "ember-cli-htmlbars@npm:6.3.0"
+  dependencies:
+    "@ember/edition-utils": ^1.2.0
+    babel-plugin-ember-template-compilation: ^2.0.0
+    babel-plugin-htmlbars-inline-precompile: ^5.3.0
+    broccoli-debug: ^0.6.5
+    broccoli-persistent-filter: ^3.1.2
+    broccoli-plugin: ^4.0.3
+    ember-cli-version-checker: ^5.1.2
+    fs-tree-diff: ^2.0.1
+    hash-for-dep: ^1.5.1
+    heimdalljs-logger: ^0.1.10
+    js-string-escape: ^1.0.1
+    semver: ^7.3.4
+    silent-error: ^1.1.1
+    walk-sync: ^2.2.0
+  checksum: 30639ab2afd4cdf4edf677d6dfdef61865ee1be46449b123917c12a3119346f769573f55897ec3bb2a2dd05bd0e3a645ecc0090453d53545902fd21fbce3d057
   languageName: node
   linkType: hard
 
@@ -8424,7 +8446,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli@npm:~4.8.0":
+"ember-cli@npm:~4.8.1":
   version: 4.8.1
   resolution: "ember-cli@npm:4.8.1"
   dependencies:
@@ -10216,7 +10238,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"find-yarn-workspace-root@npm:^1.1.0":
+"find-yarn-workspace-root@npm:^1.2.1":
   version: 1.2.1
   resolution: "find-yarn-workspace-root@npm:1.2.1"
   dependencies:
@@ -15931,6 +15953,15 @@ __metadata:
   bin:
     semver: ./bin/semver
   checksum: 57fd0acfd0bac382ee87cd52cd0aaa5af086a7dc8d60379dfe65fea491fb2489b6016400813930ecd61fd0952dae75c115287a1b16c234b1550887117744dfaf
+  languageName: node
+  linkType: hard
+
+"semver@npm:^5.7.1":
+  version: 5.7.2
+  resolution: "semver@npm:5.7.2"
+  bin:
+    semver: bin/semver
+  checksum: fb4ab5e0dd1c22ce0c937ea390b4a822147a9c53dbd2a9a0132f12fe382902beef4fbf12cf51bb955248d8d15874ce8cd89532569756384f994309825f10b686
   languageName: node
   linkType: hard
 
