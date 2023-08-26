@@ -10,7 +10,14 @@
   <SplitPanes as |Pane| >
     <Pane>
       <div style="height:95%">
-        <Editor @query={{@chart.dataset.query}} @run={{fn this.run @chart}} @updateCode={{this.updateCode}} />
+        <CodeEditor
+          @code={{@chart.dataset.query}}
+          @language={{@language}}
+          @updateCode={{this.updateCode}}
+        />
+        <div class="runbox" style="height:25px">
+          <button onClick={{fn this.run @chart}} type="button">Run Query</button>
+        </div>
       </div>
     </Pane>
     <Pane>

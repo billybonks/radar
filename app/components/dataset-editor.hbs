@@ -11,18 +11,13 @@
       {{type}}
     </PowerSelect>
   </div>
-  <div class="query-editor__center-column">
-    <div>
-      <Editor @query={{@dataset.query}} @run={{fn this.run @dataset}}  @updateCode={{this.updateCode}} />
-    </div>
-    <div>
-      {{#if  @dataset.cache.error}}
-        {{@dataset.error}}
-      {{else if (and @dataset.cache.results @dataset.cache.results.length)}}
-        <Viz::Table  @results={{@dataset.cache.results}} />
-      {{/if}}
-    </div>
-  </div>
+  <Editor @query={{@dataset.query}} @run={{fn this.run @dataset}}  @updateCode={{this.updateCode}}>
+    {{#if  @dataset.cache.error}}
+      {{@dataset.error}}
+    {{else if (and @dataset.cache.results @dataset.cache.results.length)}}
+      <Viz::Table  @results={{@dataset.cache.results}} />
+    {{/if}}
+  </Editor>
 </EntityPage>
 
 

@@ -1,9 +1,15 @@
-
-<CodeEditor
-  @code={{@query}}
-  @language={{@language}}
-  @updateCode={{@updateCode}}
-/>
-<div class="runbox" style="height:25px">
-  <button onClick={{@run}} type="button">Run Query</button>
+<div class="query-editor__center-column" style="overflow-y:hidden">
+  <div style="height:45%;">
+    <CodeEditor
+      @code={{@query}}
+      @language={{@language}}
+      @updateCode={{@updateCode}}
+    />
+  </div>
+  <div class="runbox" style="height:25px">
+    <button onClick={{@run}} type="button">Run Query</button>
+  </div>
+  <div style="overflow-y:scroll">
+    {{yield}}
+  </div>
 </div>

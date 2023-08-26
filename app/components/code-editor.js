@@ -74,20 +74,17 @@ export default class CodeEditor extends Component {
     });
 
     this.ro = new ResizeObserver(() => {
-      let splitPane = el.parentElement.parentElement;
-      this.editor.layout({
-        height: splitPane.offsetHeight - 50,
-        width: splitPane.offsetWidth,
-      });
+      editor.layout();
     });
 
-    this.ro.observe(document.body);
+    this.ro.observe(el.parentElement);
     // Whenever the code block's text changes, onUpdateCode will be called.
     editor.onDidChangeModelContent(this.onUpdateCode);
     // Save editor instance locally, so we can reference it in other methods
     this.editor = editor;
     console.log(editor);
   }
+
   @restartableTask
   *debounceAndUpdate() {
     // This is a rate limiter so that fast typing doesn't wreck things.
