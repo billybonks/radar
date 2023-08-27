@@ -2376,6 +2376,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@embroider/addon-shim@npm:^1.0.0, @embroider/addon-shim@npm:^1.8.4":
+  version: 1.8.6
+  resolution: "@embroider/addon-shim@npm:1.8.6"
+  dependencies:
+    "@embroider/shared-internals": ^2.2.3
+    broccoli-funnel: ^3.0.8
+    semver: ^7.3.8
+  checksum: 63214fbc1b3f333b052791cdfc0c278c348dd6ca4ec2b53c96183150e3d5fe9882cdd3065853e3d6a2c964c962d718b87f2fd8a17414b53fc3a3997d5eedb30e
+  languageName: node
+  linkType: hard
+
 "@embroider/babel-loader-8@npm:3.0.1":
   version: 3.0.1
   resolution: "@embroider/babel-loader-8@npm:3.0.1"
@@ -2536,7 +2547,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@embroider/shared-internals@npm:2.4.0, @embroider/shared-internals@npm:^2.0.0":
+"@embroider/shared-internals@npm:2.4.0, @embroider/shared-internals@npm:^2.0.0, @embroider/shared-internals@npm:^2.2.3":
   version: 2.4.0
   resolution: "@embroider/shared-internals@npm:2.4.0"
   dependencies:
@@ -7880,15 +7891,15 @@ __metadata:
     ember-cli-inject-live-reload: ^2.1.0
     ember-cli-sri: ^2.1.1
     ember-cli-terser: ^4.0.2
-    ember-concurrency: ^2.2.0
+    ember-concurrency: ^3.1.1
     ember-data: ~5.2.0
     ember-electron: ^4.0.0
-    ember-fetch: ^8.1.1
+    ember-fetch: ^8.1.2
     ember-keyboard-shortcuts: ^1.2.0
     ember-load-initializers: ^2.1.2
     ember-maybe-import-regenerator: ^1.0.0
-    ember-modifier: ^3.0.0
-    ember-page-title: ^7.0.0
+    ember-modifier: ^4.1.0
+    ember-page-title: ^8.0.0
     ember-power-select: ^6.0.1
     ember-power-select-typeahead: "https://github.com/billybonks/ember-power-select-typeahead.git#upgrade"
     ember-qunit: ^7.0.0
@@ -8629,7 +8640,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-concurrency@npm:>=1.0.0 <3, ember-concurrency@npm:^2.2.0":
+"ember-concurrency@npm:>=1.0.0 <3":
   version: 2.3.7
   resolution: "ember-concurrency@npm:2.3.7"
   dependencies:
@@ -8642,6 +8653,23 @@ __metadata:
     ember-compatibility-helpers: ^1.2.0
     ember-destroyable-polyfill: ^2.0.2
   checksum: 29fabb073e1f651200f3d6f29266f7316fba41ccae00267e60249ad0e0f7b6abd04e733cc698eb849761bfefd4d43cc42b8dbfaba84cf6ac5f242d9126d90d86
+  languageName: node
+  linkType: hard
+
+"ember-concurrency@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "ember-concurrency@npm:3.1.1"
+  dependencies:
+    "@babel/helper-plugin-utils": ^7.12.13
+    "@babel/types": ^7.12.13
+    "@glimmer/tracking": ^1.1.2
+    ember-cli-babel: ^7.26.11
+    ember-cli-babel-plugin-helpers: ^1.1.1
+    ember-cli-htmlbars: ^6.2.0
+    ember-compatibility-helpers: ^1.2.0
+  peerDependencies:
+    ember-source: ^3.28.0 || ^4.0.0 || >=5.0.0
+  checksum: f9dd7581cb5dcae2cecb9d61f5088aa26e4849e4778e532168fd02b08cbe6ac758f76c668524358087936ecf7d135278df44bc4388b0bbe9a68b7ae0ed21169b
   languageName: node
   linkType: hard
 
@@ -8720,7 +8748,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-fetch@npm:^8.1.1":
+"ember-fetch@npm:^8.1.2":
   version: 8.1.2
   resolution: "ember-fetch@npm:8.1.2"
   dependencies:
@@ -8854,12 +8882,28 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-page-title@npm:^7.0.0":
-  version: 7.0.0
-  resolution: "ember-page-title@npm:7.0.0"
+"ember-modifier@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "ember-modifier@npm:4.1.0"
   dependencies:
-    ember-cli-babel: ^7.26.6
-  checksum: 2533d6fa3aaeb37950f44dc8e50ce2e30008106fbded78136fb4bbfc8bc3240b24ccf0cfadb71154744b0483ae06a9d9b557edfbdbe397c0e8096448c76095ed
+    "@embroider/addon-shim": ^1.8.4
+    ember-cli-normalize-entity-name: ^1.0.0
+    ember-cli-string-utils: ^1.1.0
+  peerDependencies:
+    ember-source: "*"
+  peerDependenciesMeta:
+    ember-source:
+      optional: true
+  checksum: 5e14a864de2184c07e59fb9bc76a09ae25d1bd37722a94751a3cef6165df22027007696c4dda03e1862cb3bbeefb046772810dda3104d05c7fe8476389c34a77
+  languageName: node
+  linkType: hard
+
+"ember-page-title@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "ember-page-title@npm:8.0.0"
+  dependencies:
+    "@embroider/addon-shim": ^1.0.0
+  checksum: c15723679ee1d2dd3428a336a196479cedecee1baeef509f239614b25697523643ef70e395a1243dd03e60f783f1161b2ab99d2f49bc1145aa37d176b8d9a357
   languageName: node
   linkType: hard
 
