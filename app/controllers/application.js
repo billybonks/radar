@@ -50,7 +50,7 @@ export default class ApplicationController extends Controller {
       'Chart',
       function callback(record, router) {
         router.transitionTo('graph.edit', record);
-      }
+      },
     );
 
     let markCommands = this.recordCollectionToCommand(
@@ -58,7 +58,7 @@ export default class ApplicationController extends Controller {
       'Mark',
       function callback(record, router) {
         router.transitionTo('mark.edit', record);
-      }
+      },
     );
 
     let dashboardCommands = this.recordCollectionToCommand(
@@ -66,7 +66,7 @@ export default class ApplicationController extends Controller {
       'Dashboard',
       function callback(record, router) {
         router.transitionTo('dashboard', record);
-      }
+      },
     );
 
     let datasetCommands = this.recordCollectionToCommand(
@@ -74,7 +74,7 @@ export default class ApplicationController extends Controller {
       'Dataset',
       function callback(record, router) {
         router.transitionTo('dataset.edit', record);
-      }
+      },
     );
 
     return [

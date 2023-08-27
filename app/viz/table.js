@@ -9,7 +9,7 @@ export default {
       return [];
     }
     let options = Object.fromEntries(
-      Object.keys(this.options).map((key) => [key, true])
+      Object.keys(this.options).map((key) => [key, true]),
     );
     let optionsRows = columns.map((col) => {
       return {

@@ -59,7 +59,7 @@ export default class CodeEditor extends Component {
     // el is the element that {{did-insert}} was used on.
     let codeModel = monaco.editor.createModel(
       this.args.code,
-      this.args.language || 'sql'
+      this.args.language || 'sql',
     );
     // let height = codeModel.getLineCount() * 20;
     // el.style.height = height.toString() + 'px';

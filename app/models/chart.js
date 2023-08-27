@@ -29,9 +29,9 @@ export default class ChartModel extends Model {
     // eslint-disable-next-line ember/no-get
     this.options = get(
       this,
-      'visualisation.optionsGenerator'
+      'visualisation.optionsGenerator',
     )(
-      get(this, 'dataset.cache.columns') // eslint-disable-line ember/no-get
+      get(this, 'dataset.cache.columns'), // eslint-disable-line ember/no-get
     );
   }
 

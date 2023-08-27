@@ -67,7 +67,7 @@ export default class WidgetComponent extends Component {
 
   get style() {
     return htmlSafe(
-      `width:${this.args.width}px;height:${this.args.height}px;top:${this.args.y}px;left:${this.args.x}px`
+      `width:${this.args.width}px;height:${this.args.height}px;top:${this.args.y}px;left:${this.args.x}px`,
     );
   }
 

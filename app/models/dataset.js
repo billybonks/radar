@@ -50,7 +50,7 @@ export default class DatasetModel extends Model {
     let { results, dataSummary, columns } =
       await window.desktopAPI.datasource.query(
         this.datasource.get('id'),
-        query
+        query,
       );
     this.results = results;
     this.columns = columns;

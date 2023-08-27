@@ -2,7 +2,7 @@ import { modifier } from 'ember-modifier';
 
 export default modifier(function updateOnSchema(
   element,
-  [results, visualisationModel, options, height]
+  [results, visualisationModel, options, height],
 ) {
   try {
     visualisationModel

@@ -4,7 +4,7 @@ export default class ApplicationAdapter extends Adapter {
   async findRecord(_store, typeClass, id) {
     const result = await window.desktopAPI.dataStore.findRecord(
       typeClass.modelName,
-      id
+      id,
     );
     if (!result) throw new NotFoundError();
     return result;
@@ -12,7 +12,7 @@ export default class ApplicationAdapter extends Adapter {
   createRecord(_store, typeClass, snapshot) {
     return window.desktopAPI.dataStore.create(
       typeClass.modelName,
-      snapshot.serialize()
+      snapshot.serialize(),
     );
   }
 
@@ -30,7 +30,7 @@ export default class ApplicationAdapter extends Adapter {
   deleteRecord(_store, typeClass, snapshot) {
     return window.desktopAPI.dataStore.destroy(
       typeClass.modelName,
-      snapshot.id
+      snapshot.id,
     );
   }
 }
