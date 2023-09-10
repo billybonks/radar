@@ -46,7 +46,7 @@
     "ember-cli-terser": "^4.0.2",
     "ember-concurrency": "^3.1.1",
     "ember-data": "~5.2.0",
-    "ember-electron": "^4.0.0",
+    "ember-electron": "^5.0.0",
     "ember-fetch": "^8.1.2",
     "ember-keyboard-shortcuts": "^1.2.0",
     "ember-load-initializers": "^2.1.2",
@@ -84,8 +84,6 @@
     "@babel/helper-get-function-arity": "^7.16.7",
     "@ember/string": "^3.1.1",
     "file-loader": "^6.2.0",
-    "pg": "^8.11.3",
-    "uuid": "^9.0.0",
     "vega": "^5.25.0",
     "vega-lite": "^5.1.1"
   },
