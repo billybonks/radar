@@ -28,21 +28,20 @@ export default class SplitPaneComponent extends Component {
     document.body.addEventListener('mouseup', this.eventListener);
     document.body.addEventListener('mousemove', (event) => {
       if (this.activePane) {
-        this.accumulatedSize = this.accumulatedSize + event.movementY;
-        // let totalDistance = this.mouseStartCoordinates.y - event.clientY;
-        let percentageChange =
-          1 - this.accumulatedSize / this.activePaneIntialSize;
-        console.log(
-          `1 - ${this.accumulatedSize} / ${this.activePaneIntialSize} = ${percentageChange}`
-        );
+        let activePaneHeight =
+          this.activePane.offsetHeight + this.activePane.offsetTop;
+        let cursorY = event.clientY;
+        let delta = activePaneHeight - cursorY;
+        let percentageChange = delta / activePaneHeight;
+
+        // let percentage = this.activePane.offsetHeight / delta;
         this.activePane.style.height = `${
           getPrecentage(this.activePane) - percentageChange
         }%`;
-        console.log(this.activePane.style.height);
-        // this.activeSibling.style.height = `${
-        //   parseFloat(this.activeSibling.style.height.replace('%', '')) +
-        //   percentageChange
-        // }%`;
+        this.activeSibling.style.height = `${
+          parseFloat(this.activeSibling.style.height.replace('%', '')) +
+          percentageChange
+        }%`;
       }
     });
   }
@@ -58,11 +57,7 @@ export default class SplitPaneComponent extends Component {
 
   @action
   sashClicked(event) {
-    this.mouseStartCoordinates = { y: event.clientY, x: event.clientX };
     this.activePane = event.target.parentElement;
-    this.activePaneIntialSize = this.activePane.offsetHeight;
-    this.accumulatedSize = this.activePaneIntialSize;
-    console.log(this.activePaneIntialSize);
     this.activeSibling = this.activePane.nextElementSibling;
     this.activeSash = event.target;
     this.activeSash.classList.add('active');
